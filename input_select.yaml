@@ -1,0 +1,62 @@
+radio_soundbar:
+  name: Radio
+  options:
+    - Maak een keuze
+    - Soundbar uit
+    - NPO Radio 2
+    - NPO 3FM
+    - Radio 538
+    - Skyradio
+    - Radio Veronica
+    - Qmusic
+    - Qmusic - Het Foute Uur
+    - Radio 10
+    - Radio 10 - Disco Classics
+    - Radio 10 - Guilty Pleasures
+  initial: Maak een keuze
+  icon: mdi:radio
+
+
+spotify_playlist:
+  name: Spotify playlist
+  options: 
+    - Maak een keuze
+    - Minimal
+    - House
+    - Techno
+    - Dub Techno
+    - Pop
+    - Guilty pleasures    
+    - Party
+    - Fleetwood Mac
+    - Reggae
+    - Disco
+    - Classics
+    - Discover weekly
+    - IFTTT / Home Assistant
+  initial: Maak een keuze
+  icon: mdi:playlist-music
+
+
+spotify_source:
+  name: Spotify bron
+  options:
+    - Soundbar
+    - iMac
+    - Hass.io
+    - iPhone van Martijn
+    - Google Home
+  initial: Soundbar
+
+youtube_video:
+  name: Youtube video
+  options:
+    - Maak een keuze
+    - MANDAR in The Lab LDN
+    - Mihai Pol - Playedby podcast 29
+    - Archie Hamilton @ Platform 18 (Attic Room Sessions)
+    - Barac at Mioritmic Festival, Cluj Napoca Romania
+    - Raresh & Praslea | Sunwaves (Romania) DJ Set| DanceTrippin
+    - Raresh | Nights.Ro (Romania) DJ Set | DanceTrippin
+    - playedby004] Lizz - Chapter I (4x12"LP)
+  initial: Maak een keuze

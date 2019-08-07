@@ -1,0 +1,14 @@
+
+woonkamer:
+  name: Woonkamer (lampen)
+  icon: mdi:ceiling-light
+  entities:
+    - light.woonkamer
+    - light.boven_de_tafel
+    - light.midden_kamer
+    - light.achter_de_bank
+
+date_card:
+  name: Date
+  entities:
+    - sensor.date_template

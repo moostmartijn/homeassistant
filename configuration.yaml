@@ -1,0 +1,328 @@
+homeassistant:
+  name: Thuis    
+  latitude: !secret latitude    
+  longitude: !secret longitude
+  elevation: 3    
+  unit_system: metric  
+  customize: !include customize.yaml    
+  packages: !include_dir_named packages
+
+map:
+
+mqtt:
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
+  client_id: homeassistant
+  discovery: true
+  discovery_prefix: homeassistant
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+hacs:
+  token: !secret hacs_token 
+
+zone: !include zones.yaml
+
+default_config:
+
+panel_iframe:
+  ide:
+    title: IDE
+    icon: mdi:code-braces
+    url: !secret ide_url 
+
+  grafana:
+    title: Grafana
+    icon: mdi:chart-timeline
+    url: !secret grafana_url 
+
+
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
+
+  - name: hassio-main
+    sidebar_title: AdGuard Home
+    sidebar_icon: mdi:block-helper
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: adguard
+    embed_iframe: true
+    require_admin: false
+    config:
+      ingress: a0d7b954_adguard
+
+system_health:
+
+browser:
+
+lovelace:
+  mode: yaml
+
+frontend:
+  themes: !include themes.yaml
+
+rflink:
+  port: /dev/serial/by-id/usb-Arduino__www.arduino.cc__0042_85734323630351406012-if00
+
+influxdb:
+  host: a0d7b954-influxdb
+  port: !secret influxdb_port
+  database: !secret influxdb_database
+  username: !secret influxdb_username  
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
+
+http:
+  base_url: !secret base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
+  api_password: !secret http_password
+
+api:
+
+binary_sensor:
+  - platform: ping
+    host: !secret host_imac
+    name: iMac (ping)
+    scan_interval: 60
+    count: 2
+  - platform: ping
+    host: !secret host_imac2
+    name: iMac2 (ping)
+    scan_interval: 60
+    count: 2
+  - platform: ping
+    host: !secret host_tv
+    name: Samsung TV (ping)
+    scan_interval: 5
+    count: 2
+  - platform: ping
+    host: !secret host_soundbar 
+    name: Soundbar (ping)
+    count: 2
+
+light:
+  - platform: rflink
+    devices:
+      newkaku_01d610ee_1: {}
+
+proximity:
+  martijn:
+    zone: home
+    devices:
+      device_tracker.life360_martijn
+    tolerance: 50
+    unit_of_measurement: km
+  jildou:
+    zone: home
+    devices:
+      device_tracker.life360_jildou
+    tolerance: 50
+    unit_of_measurement: km
+
+updater:
+
+recorder:
+  db_url: !secret mariadb_url
+  purge_keep_days: 2
+  include:
+    domains:
+      - sensor
+
+hue:
+  bridges:
+    - host: !secret hue_host
+
+discovery:
+
+#cast:
+#  media_player:
+#    - host: !secret googlehomemini_host
+#    - host: !secret googlechromecast_host
+
+weather:
+  - platform: buienradar
+
+google_assistant:
+  project_id: !secret google_assistant_project_id
+  api_key: !secret google_assistant_api
+  exposed_domains:
+    - switch
+    - light
+    - group
+
+dialogflow:
+
+logger:
+  default: warning
+
+intent_script: !include intent.yaml
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+vacuum:
+  - platform: roomba
+    host: !secret roomba_host
+    username: !secret roomba_username
+    password: !secret roomba_password
+
+ios:
+
+tts:
+  - platform: google_translate
+    language: 'nl'
+
+# Media Players
+media_player:
+
+  - platform: plex
+    scan_interval: 5
+
+  - platform: samsungtv
+    host: !secret host_tv
+    port: !secret port_tv
+    name: '[TV] Woonkamer'
+    mac: !secret mac_tv
+
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_secret_id
+    aliases:
+        12f5cfaeb1730e73ef01264900baa88f: 'Chromecast'
+        a833ebaa14c52c44f00cee5f05b09ec9dd48355a: 'iPhone'
+        58f05582-533c-46bb-aead-75e804f60b6d: 'Soundbar'
+        15e4a82feda5711b3df703f28b3c34c8: 'Google Home'
+        25fffe50b5872e7213fa8b5151e890bf9d25689a: 'iMac'
+
+  - platform: samsung_multi_room
+    name: "Soundbar"
+    host: !secret host_soundbar
+    max_volume: 20
+    power_options: True
+
+shell_command:
+  soundbar_radio_fav1: !secret soundbar_radio_fav1
+  soundbar_radio_fav2: !secret soundbar_radio_fav2
+  soundbar_radio_fav3: !secret soundbar_radio_fav3
+  soundbar_radio_1: !secret soundbar_radio_1
+  soundbar_radio_2: !secret soundbar_radio_2
+  soundbar_radio_3: !secret soundbar_radio_3
+  soundbar_radio_4: !secret soundbar_radio_4
+  soundbar_radio_5: !secret soundbar_radio_5
+  soundbar_radio_6: !secret soundbar_radio_6
+  soundbar_radio_7: !secret soundbar_radio_7
+
+media_extractor:
+
+input_text:
+  text_bar:
+    name: text bar
+    
+input_number:
+  spotify_volume:
+    name: Volume
+    icon: mdi:volume-high
+    initial: 8
+    min: 0
+    max: 25
+    step: 1
+
+input_boolean:
+  spotify_shuffle:
+    name: Shuffle
+    icon: mdi:shuffle-variant
+
+sabnzbd:
+  api_key: !secret sabnzbd_api
+  host: !secret sabnzb_host
+  port: !secret sabnzbd_port
+  sensors:
+    - current_status
+    - speed
+    - queue_size
+    - queue_remaining
+    - disk_size
+    - disk_free
+    - queue_count
+    - day_size
+    - week_size
+    - month_size
+    - total_size
+
+# IFTTT
+ifttt:
+  key: !secret ifttt_api
+
+
+plant:
+  Pachira Aquatica:
+    sensors:
+      moisture: sensor.pachira_aquatica_mqtt_moisture
+      battery: sensor.pachira_aquatica_mqtt_battery
+      temperature: sensor.pachira_aquatica_mqtt_temperature
+      conductivity: sensor.pachira_aquatica_mqtt_conductivity
+      brightness: sensor.pachira_aquatica_mqtt_brightness
+    min_moisture: 15
+    min_conductivity: 100
+    
+  Howea Forsteriana:
+    sensors:
+      moisture: sensor.howea_forsteriana_mqtt_moisture
+      battery: sensor.howea_forsteriana_mqtt_battery
+      temperature: sensor.howea_forsteriana_mqtt_temperature
+      conductivity: sensor.howea_forsteriana_mqtt_conductivity
+      brightness: sensor.howea_forsteriana_mqtt_brightness
+    min_moisture: 15
+    min_conductivity: 100
+
+notify:
+  - name: Google Assistant Broadcast Message
+    platform: rest
+    resource: !secret google_assistant_broadcast
+
+  - name: Google Assistant Command
+    platform: rest
+    resource: !secret google_assistant_command 
+    
+counter: 
+  brievenbus:
+    initial: 0
+    step: 1
+    icon: mdi:mailbox
+
+  played_by:
+    initial: 0
+    step: 1
+    icon: mdi:numeric-0-circle
+  
+  blank_red:
+    initial: 0
+    step: 1
+    icon: mdi:numeric-0-circle
+
+  yy:
+    initial: 0
+    step: 1
+    icon: mdi:numeric-0-circle
+  
+  mic_rodance:
+    initial: 0
+    step: 1
+    icon: mdi:numeric-0-circle
+
+
+
+###################
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+input_select: !include input_select.yaml 

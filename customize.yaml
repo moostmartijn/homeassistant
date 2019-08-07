@@ -1,0 +1,58 @@
+media_player.woonkamer:
+  entity_picture: /local/images/google_home_mini.jpg
+
+# PLANTS
+plant.howea_forsteriana:
+  friendly_name: Howea Forsteriana
+  entity_picture: /local/howea_forsteriana2.jpg
+
+plant.pachira_aquatica:
+  friendly_name: Pachira Aquatica
+  entity_picture: /local/pachira_aquatica.jpg
+
+# PERSONS  
+person.jildou:
+  entity_picture: https://graph.facebook.com/1068824831/picture?type=normal
+
+person.martijn:
+  entity_picture: https://graph.facebook.com/100001251946643/picture?type=normal
+
+sensor.life360_martijn_location:
+  entity_picture: https://graph.facebook.com/100001251946643/picture?type=normal
+
+sensor.life360_jildou_location:
+  entity_picture: https://graph.facebook.com/1068824831/picture?type=normal
+
+sensor.disk_free_home:
+  unit_of_measurement: 'GB'
+
+sensor.network_in_eth0:
+  unit_of_measurement: 'MB'
+
+sensor.network_out_eth0:
+  unit_of_measurement: 'MB'
+
+sensor.memory_use:
+  unit_of_measurement: 'MB'
+
+sensor.memory_free:
+  unit_of_measurement: 'MB'  
+
+sensor.aqara_temperature_1:
+  friendly_name: Badkamer
+
+sensor.aqara_temperature_2:
+  friendly_name: Slaapkamer
+
+sensor.aqara_temperature_3:
+  friendly_name: Woonkamer
+
+sensor.br_temperature:
+  friendly_name: Buiten
+
+sensor.spotify_track_info:
+  icon: mdi:album
+
+media_player.chromecast:
+  friendly_name: Chromecast
+

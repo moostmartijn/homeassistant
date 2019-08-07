@@ -1,0 +1,28 @@
+# A * ensures that everything will be ignored.
+*
+
+# You can whitelist files/folders with !, these will not be ignored.
+!*.yaml
+!.gitignore
+!*.md
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+esphome
+tts
+node-red
+icloud
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+google_calendars.yaml
+sabnzbd.conf
+plex.conf
+.ios.conf
+.spotify-token-cache
+.uuid
+home-assistant.log

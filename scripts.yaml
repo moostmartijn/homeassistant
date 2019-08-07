@@ -1,0 +1,453 @@
+woonkamer_hue_scene_tropische_schemering:
+  alias: Hue Scene Tropische schemering (Woonkamer)
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Woonkamer
+      scene_name: Tropische schemering
+woonkamer_hue_scene_arctische_dageraad:
+  alias: Hue Scene Arctische dageraad (Woonkamer)
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Woonkamer
+      scene_name: Arctische dageraad
+woonkamer_hue_scene_bijna_bij_de_machu_picchu:
+  alias: Bijna bij de Machu Picchu (Woonkamer)
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Woonkamer
+      scene_name: Bijna bij de machu picchu
+
+restart_hass:
+  sequence:
+    - service: homeassistant.restart
+
+spotify_music:
+  alias: "Play selected Spotify playlist"
+  sequence:
+    - service: media_player.select_source
+      data_template: 
+        entity_id: media_player.spotify
+        source: >
+          {% if is_state("input_select.spotify_source", "Soundbar") %} Soundbar
+          {% elif is_state("input_select.spotify_source", "iMac") %} iMac
+          {% elif is_state("input_select.spotify_source", "Hass.io") %} Hass.io
+          {% elif is_state("input_select.spotify_source", "iPhone van Martijn") %} iPhone van Martijn
+          {% elif is_state("input_select.spotify_source", "Google Home") %} Google Home                   
+          {% endif %}
+    - service: media_player.play_media
+      data_template:
+        entity_id: media_player.spotify
+        media_content_type: playlist
+        media_content_id: >
+          {% if is_state("input_select.spotify_playlist", "Party") %} spotify:playlist:05xxVV8jrXNrhxI0afOv5N
+          {% elif is_state("input_select.spotify_playlist", "Fleetwood Mac") %} spotify:playlist:3QwacY2c8gZKSHfxnHFoTk
+          {% elif is_state("input_select.spotify_playlist", "Reggae") %} spotify:playlist:7BtlAY7pqPSFFF1MAZWpem
+          {% elif is_state("input_select.spotify_playlist", "Disco") %} spotify:playlist:0gvE0cOT49HbfgTTVn4spG
+          {% elif is_state("input_select.spotify_playlist", "Discover weekly") %} spotify:playlist:37i9dQZEVXcXFPiktD5mG7
+          {% elif is_state("input_select.spotify_playlist", "Classics") %} spotify:playlist:2K2juaYugwZOlBJOEqnVGB
+          {% elif is_state("input_select.spotify_playlist", "IFTTT / Home Assistant") %} spotify:playlist:5lNUb8LFAznS25SHHainql
+          {% elif is_state("input_select.spotify_playlist", "Release radar") %} spotify:playlist:37i9dQZEVXbwbVpIPOqJbm
+          {% elif is_state("input_select.spotify_playlist", "Selectie Kitchen") %} spotify:playlist:7IFEnn71pVR3ty2nS1ZVSr
+          {% elif is_state("input_select.spotify_playlist", "Minimal") %} spotify:playlist:42fLArrevPVbMIIjzTFBiA 
+          {% elif is_state("input_select.spotify_playlist", "House") %} spotify:playlist:6rXasCrrT51lnSdQnCflwO 
+          {% elif is_state("input_select.spotify_playlist", "Techno") %} spotify:playlist:7x83thDDudoQCGWxb6WRUJ   
+          {% elif is_state("input_select.spotify_playlist", "Dub Techno") %} spotify:playlist:3uR3d6DkC1cbTPgEEu36Tm   
+          {% elif is_state("input_select.spotify_playlist", "Pop") %} spotify:playlist:0KfJmDttXOwLb9pXvzB4LV  
+          {% elif is_state("input_select.spotify_playlist", "Guilty pleasures") %} spotify:playlist:0fGCThIvR5SIyx5WVp54Qg                                                                                 
+          {% endif %}
+
+
+add_to_specific_playlist:
+  alias: Add Spotify track to party playlist
+  sequence:
+    - service: ifttt.trigger
+      data_template: 
+        event: "add_to_specific_playlist"
+        value1: "{{ states.media_player.spotify.attributes.media_artist }}"
+        value2: "{{ states.media_player.spotify.attributes.media_title }}"
+        value3: "{{ states.input_select.spotify_playlist.state }}"
+
+youtube_video:
+  alias: "Play selected Youtube video"
+  sequence:
+    - service: media_extractor.play_media
+      data_template:
+        entity_id: media_player.chromecast
+        media_content_type: video
+        media_content_id: >
+          {% if is_state("input_select.youtube_video", "MANDAR in The Lab LDN") %} https://www.youtube.com/watch?v=3zWV-r8I3pA&t=1s
+          {% elif is_state("input_select.youtube_video", "Mihai Pol - Playedby podcast 29") %} https://www.youtube.com/watch?v=02GD1aCghzQ&feature=youtu.be
+          {% elif is_state("input_select.youtube_video", "Archie Hamilton @ Platform 18 (Attic Room Sessions)") %} https://www.youtube.com/watch?v=7VntYFjLLns        
+          {% elif is_state("input_select.youtube_video", "Barac at Mioritmic Festival, Cluj Napoca Romania") %} https://www.youtube.com/watch?v=T92xtvU4WRc  
+          {% elif is_state("input_select.youtube_video", "Archie Hamilton @ Platform 18 (Attic Room Sessions)") %} https://www.youtube.com/watch?v=7VntYFjLLns                                      
+          {% endif %}
+
+playedby:
+  alias: "Play latest Youtube videos from channel of 'playedby' "
+  sequence:
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_1') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_2') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_3') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_4') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_5') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_6') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_7') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_8') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_9') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.playedby_10') }}"
+      media_content_type: video/youtube
+
+  - service: script.turn_off
+    entity_id: script.blank_red
+
+blank_red:
+  alias: "Play latest Youtube videos from channel of 'Blank & Red' "
+  sequence:
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.blank_red_1') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.blank_red_2') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.blank_red_3') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.blank_red_4') }}"
+      media_content_type: video/youtube
+      
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.blank_red_5') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.blank_red_6') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.blank_red_7') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.blank_red_8') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.blank_red_9') }}"
+      media_content_type: video/youtube
+
+  - service: script.turn_off
+    entity_id: script.blank_red
+
+yy:
+  alias: "Play latest Youtube videos from channel of 'YY' "
+  sequence:
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_1') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_2') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_3') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_4') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_5') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_6') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_7') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_8') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_9') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.yy_10') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+
+  - service: script.turn_off
+    entity_id: script.yy
+
+mic_rodance:
+  alias: "Play latest Youtube videos from channel of 'mic.Rodance' "
+  sequence:
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_1') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}" 
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_2') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_3') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_4') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_5') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_6') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_7') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+  
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_8') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_9') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+  - service: media_extractor.play_media
+    entity_id: media_player.chromecast
+    data_template:
+      media_content_id: "https://www.youtube.com/watch?v={{ states('sensor.mic_rodance_10') }}"
+      media_content_type: video/youtube
+
+  - delay: '00:00:10'
+  - wait_template: "{{ states.media_player.chromecast.state == 'idle' }}"
+
+  - service: script.turn_off
+    entity_id: script.yy

@@ -1,0 +1,591 @@
+  # Weather prediction
+  - platform: yr
+
+# System monitor
+  - platform: systemmonitor
+    resources:
+      - type: last_boot
+      - type: memory_free
+      - type: disk_free
+        arg: /home
+      - type: memory_use
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: ipv4_address
+      - type: processor_use
+
+  - platform: uptime
+
+  - platform: version
+
+  - platform: rpi_power
+    text_state: true
+
+  - platform: rova
+    zip_code: !secret postcode
+    house_number: !secret huisnummer
+    monitored_conditions:
+      - bio
+      - paper
+
+  - platform: time_date
+    display_options:
+      - 'date'
+
+  - platform: buienradar
+    latitude: !secret latitude
+    longitude: !secret longitude
+    monitored_conditions:
+      - stationname
+      - conditioncode
+      - condition
+      - conditiondetailed
+      - conditionexact
+      - symbol
+      - humidity
+      - temperature
+      - groundtemperature
+      - windspeed
+      - windforce
+      - winddirection
+      - windazimuth
+      - pressure
+      - visibility
+      - windgust
+      - precipitation
+      - irradiance
+      - precipitation_forecast_average
+      - precipitation_forecast_total    
+
+  - platform: dsmr
+    port: /dev/ttyUSB0
+    dsmr_version: 4
+
+  - platform: plex
+    host: 192.168.178.226
+    token: !secret token_plex
+
+  - platform: radarr
+    port: 8310
+    host: !secret radarr_host
+    api_key: !secret radarr_api
+  
+  - platform: sonarr
+    port: 8989
+    host: !secret sonarr_host
+    api_key: !secret sonarr_api
+    days: 7
+
+  - platform: postnl
+    username: moostmartijn@gmail.com  
+    password: c43v1822l
+
+  - platform: dnsip
+
+  - platform: sql
+    db_url: !secret mariadb_url
+    scan_interval: 7200
+    queries:
+      - name: hass_db_size
+        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema'
+        column: 'value'
+        unit_of_measurement: MB
+
+  - platform: haveibeenpwned
+    email:
+      - moostmartijn@gmail.com
+
+  - platform: cert_expiry
+    host: moostmartijn.duckdns.org
+
+  - platform: rest
+    resource: http://192.168.178.226:8080/sabnzbd/api?output=json&apikey=d1ead4bc9885423ad29437c9adc9e197&mode=history&start=START&limit=3
+    method: GET
+    name: Sabnzbd Last Downloaded 
+    value_template: '{{ value_json.history.slots[0].name }}'
+
+  - platform: rest
+    resource: https://s3.amazonaws.com/hassio-version/stable.json
+    name: Latest Version
+    value_template: "{{ value_json.homeassistant.raspberrypi3 }}"
+    scan_interval: 3600
+
+  - platform: reddit
+    username: !secret reddit_username
+    password: !secret reddit_password
+    client_id: !secret reddit_client_id
+    client_secret: !secret reddit_client_secret
+    sort_by: new
+    subreddits:
+      - homeassistant
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUdIW-0oPT33y_OjE_ZnQag'
+    name: playedby_1
+    index: 0
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUdIW-0oPT33y_OjE_ZnQag'
+    name: playedby_2
+    index: 1
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUdIW-0oPT33y_OjE_ZnQag'
+    name: playedby_3
+    index: 2
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUdIW-0oPT33y_OjE_ZnQag'
+    name: playedby_4
+    index: 3
+    select: yt\:videoid   
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUdIW-0oPT33y_OjE_ZnQag'
+    name: playedby_5
+    index: 4
+    select: yt\:videoid   
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUdIW-0oPT33y_OjE_ZnQag'
+    name: playedby_6
+    index: 5
+    select: yt\:videoid   
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUdIW-0oPT33y_OjE_ZnQag'
+    name: playedby_7
+    index: 6
+    select: yt\:videoid   
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUdIW-0oPT33y_OjE_ZnQag'
+    name: playedby_8
+    index: 7
+    select: yt\:videoid   
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUdIW-0oPT33y_OjE_ZnQag'
+    name: playedby_9
+    index: 8
+    select: yt\:videoid   
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_1
+    index: 0
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_2
+    index: 1
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_3
+    index: 2
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_4
+    index: 3
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_5
+    index: 4
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_5
+    index: 5
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_5
+    index: 6
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_5
+    index: 7
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_5
+    index: 8
+    select: yt\:videoid  
+    
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXj_GyH8USaENPaO8obvJuQ'
+    name: blank_red_5
+    index: 9
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_1
+    index: 0
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_2
+    index: 1
+    select: yt\:videoid  
+ 
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_3
+    index: 2
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_4
+    index: 3
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_5
+    index: 4
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_6
+    index: 5
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_7
+    index: 6
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_8
+    index: 7
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_9
+    index: 8
+    select: yt\:videoid  
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtSYkZGP9nkvXPMQgjeEIow'
+    name: yy_10
+    index: 9
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_1
+    index: 0
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_2
+    index: 1
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_3
+    index: 2
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_4
+    index: 3
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_5
+    index: 4
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_6
+    index: 5
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_7
+    index: 6
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_8
+    index: 7
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_9
+    index: 8
+    select: yt\:videoid
+
+  - platform: scrape
+    resource: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCvR_9Y1FiYPYw7UlziToOCg'
+    name: mic_rodance_10
+    index: 9
+    select: yt\:videoid
+
+# TEMPLATE SENSORS
+
+  - platform: template 
+    sensors:
+
+      life360_martijn_location:
+        friendly_name: "Martijn"
+        value_template: >-
+          {% if is_state('device_tracker.life360_martijn', 'home') %}
+            Thuis
+          {% elif is_state_attr('device_tracker.life360_martijn', 'moving',true) %}
+            Onderweg
+          {% elif is_state_attr('device_tracker.life360_martijn', 'driving',true) %}
+            Aan het rijden
+          {% elif is_state('device_tracker.life360_martijn', 'not_home') %}
+            Afwezig            
+          {% else %}
+            {{ states("device_tracker.life360_martijn") }}
+          {% endif %}
+
+      life360_jildou_location:
+        friendly_name: "Jildou"
+        value_template: >-
+          {% if is_state('device_tracker.life360_jildou', 'home') %}
+            Thuis          
+          {% elif is_state_attr('device_tracker.life360_jildou','moving',true) %}
+            Onderweg
+          {% elif is_state_attr('device_tracker.life360_jildou','driving',true) %}
+            Aan het rijden
+          {% elif is_state('device_tracker.life360_jildou', 'not_home') %}
+            Afwezig                 
+          {% else %}
+            {{ states("device_tracker.life360_jildou") }}
+          {% endif %}
+
+      roomba_battery_level:
+        entity_id: vacuum.roomba
+        value_template: >
+          {{ state_attr("vacuum.roomba","battery_level") }}
+        friendly_name: Battery Level
+        unit_of_measurement: '%'
+        icon_template: '{{ state_attr("vacuum.mi_robot_vacuum","battery_icon") }}'
+
+      roomba_status:
+        entity_id: vacuum.roomba
+        value_template: >
+          {{ state_attr("vacuum.roomba","status") }}
+        friendly_name: Status
+        icon_template: 'mdi:checkbox-marked-circle-outline'
+      
+      roomba_bin_full:
+        entity_id: vacuum.roomba
+        value_template: >
+          {{ is_state_attr('vacuum.roomba','bin_full',true) }}
+        friendly_name: Bin Full
+        icon_template: 'mdi:trash-can-outline'
+
+      motion_sensor_battery_level:
+        entity_id: binary_sensor.presence_15
+        value_template: >
+          {{ state_attr("binary_sensor.presence_15","battery_level") }}
+        friendly_name: Batterij motion sensor
+        unit_of_measurement: '%'
+        icon_template: 'mdi:motion-sensor'
+
+      motion_sensor2_battery_level:
+        entity_id: binary_sensor.presence_13
+        value_template: >
+          {{ state_attr("binary_sensor.presence_13","battery_level") }}
+        friendly_name: Batterij motion sensor
+        unit_of_measurement: '%'
+        icon_template: 'mdi:motion-sensor'
+      
+      window_door_sensor_battery_level:
+        entity_id: binary_sensor.openclose_14
+        value_template: >
+          {{ state_attr("binary_sensor.openclose_14","battery_level") }}
+        friendly_name: Brievenbus batterij
+        unit_of_measurement: '%'
+        icon_template: 'mdi:mailbox'
+
+      life360_martijn_batterij:
+        entity_id: device_tracker.life360_martijn
+        value_template: >
+          {{ state_attr("device_tracker.life360_martijn","battery") }}
+        friendly_name: iPhone batterij
+        unit_of_measurement: '%'
+        device_class: battery
+
+      life360_martijn_batterij_opladen:
+        entity_id: device_tracker.life360_martijn
+        value_template: >
+          {{ state_attr("device_tracker.life360_martijn","battery_charging") }}
+        friendly_name: Battery Charging
+
+      total_sensors:
+        entity_id: sensor.date
+        value_template: >
+          {%- set domains = ['sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      total_automations:
+        entity_id: sensor.date
+        value_template: >
+          {%- set domains = ['automation'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      total_scripts:
+        entity_id: sensor.date
+        value_template: >
+          {%- set domains = ['script'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      total_device_trackers:
+        entity_id: sensor.date
+        value_template: >
+          {%- set domains = ['device_tracker'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}  
+
+      total_binary_sensors:
+        entity_id: sensor.date
+        value_template: >
+          {%- set domains = ['binary_sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      total_switches:
+        entity_id: sensor.date
+        value_template: >
+          {%- set domains = ['switch'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      total_zones:
+        entity_id: sensor.date
+        value_template: >
+          {%- set domains = ['zone'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      date_last_boot:
+        friendly_name: "Last boot"
+        value_template: '{{ states.sensor.last_boot.state.split("T")[0] }}'
+
+      aqara_battery_1:
+        entity_id: sensor.aqara_temperature_1
+        value_template: >
+          {{ state_attr("sensor.aqara_temperature_1","battery_level") }}
+        friendly_name: Badkamer sensor
+        unit_of_measurement: '%'
+        device_class: battery
+
+      aqara_battery_2:
+        entity_id: sensor.aqara_temperature_2
+        value_template: >
+          {{ state_attr("sensor.aqara_temperature_2","battery_level") }}
+        friendly_name: Slaapkamer sensor
+        unit_of_measurement: '%'
+        device_class: battery
+        
+      aqara_battery_3:
+        entity_id: sensor.aqara_temperature_3
+        value_template: >
+          {{ state_attr("sensor.aqara_temperature_3","battery_level") }}
+        friendly_name: Woonkamer sensor
+        unit_of_measurement: '%'
+        device_class: battery
+
+      week_nummer:
+        friendly_name: 'Week Nummer'
+        entity_id:
+          - sensor.date
+        value_template: "{{ now().strftime('%U') | int +1 }}"
+
+      dag:
+        friendly_name: 'Dag'
+        entity_id: 
+          - sensor.date
+        value_template: "{{ ['Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag','Zondag'][now().weekday()] }}"
+
+      spotify_volume:
+        friendly_name: "Spotify Volume"
+        value_template: "{{ states.media_player.spotify.attributes.volume_level }}"
+
+      spotify_shuffle:
+        friendly_name: "Spotify Shuffle"
+        value_template: "{{ states.media_player.spotify.attributes.shuffle }}"
+
+      spotify_source:
+        friendly_name: "Spotify Source"
+        value_template: "{{ states.media_player.spotify.attributes.source }}"
+
+      spotify_track_info:
+        friendly_name: "Track info"
+        value_template: "{{ states.media_player.spotify.attributes.media_artist }} - {{ states.media_player.spotify.attributes.media_title }}"
