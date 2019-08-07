@@ -14,6 +14,7 @@ esphome
 tts
 node-red
 icloud
+www
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
@@ -43,3 +44,8 @@ home-assistant.log
 ._themes.yaml
 ._ui-lovelace.yaml
 ._zones.yaml
+.DS_Store
+._.DS_Store
+._home-assistant.log
+._plex.conf
+._sabnzbd.conf
