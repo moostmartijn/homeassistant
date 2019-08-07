@@ -32,7 +32,6 @@ cch:
   swipe: true
   swipe_animate: swipe
 
-# Tab 1 - Home
 
 views:
 - path: default_view
