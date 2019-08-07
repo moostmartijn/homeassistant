@@ -23,7 +23,7 @@ resources:
     type: js
   - url: /community_plugin/lovelace-text-input-row/text-input-row.js
     type: js
-# Custom Compact Header - configuration
+
 cch:
   hide_help: true
   chevrons: false
