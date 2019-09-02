@@ -59,4 +59,4 @@ google_calendars.yaml
 ._hacs
 ._plants.yaml
 *.log
-*.conf
+*.confapplication/cache
