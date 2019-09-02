@@ -640,7 +640,7 @@
       data:
         attachment:
           content-type: jpg
-          url: 'https://moostmartijn.duckdns.org/local/snapshots/deurbel_{{ now ().day }}_{{ now ().month }}_{{ now ().hour }}_{{ now ().minute }}.jpg '
+          url: 'https://moostmartijn.duckdns.org/local/snapshots/deurbel_{{ now ().day }}_{{ now ().month }}_{{ now ().hour }}_{{ now ().minute }}.jpg'
           hide-thumbnail: false 
   - delay: 00:00:01
   - service: camera.local_file_update_file_path
