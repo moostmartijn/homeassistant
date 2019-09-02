@@ -57,3 +57,6 @@ google_calendars.yaml
 ._floorplan.html
 ._spotify_controls.yaml
 ._hacs
+._plants.yaml
+*.log
+*.conf
