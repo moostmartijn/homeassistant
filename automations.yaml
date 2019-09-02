@@ -100,8 +100,8 @@
     entity_id: person.martijn
     zone: zone.home
   - condition: time
-    after: 08:00
-    before: '23:00'
+    after: '08:00:00'
+    before: '23:00:00'
   action:
   - service: notify.google_assistant_broadcast_message
     data_template:
@@ -121,8 +121,8 @@
     entity_id: person.martijn
     zone: zone.home
   - condition: time
-    after: 08:00
-    before: '23:00'
+    after: '08:00:00'
+    before: '23:00:00'
   action:
   - service: notify.google_assistant_broadcast_message
     data_template:
@@ -193,37 +193,38 @@
     data_template:
       message: Attentie. Attentie. De wasmachine heeft zijn programma voltooid.
 - id: '1563384253797'
-  alias: 'iOS notificatie: Batterij Aqara sensor 1 = <5%'
+  alias: 'iOS notificatie: Batterij Apparaten beneden 5%'
   trigger:
   - below: '5'
     entity_id: sensor.aqara_battery_1
     platform: numeric_state
-  condition: []
-  action:
-  - data:
-      message: Vervang de batterij van Aqara sensor 1. Batterij niveau = <5%
-    service: notify.ios_iphone_van_martijn
-- id: '1563384324743'
-  alias: 'iOS notificatie: Batterij Aqara sensor 2 = <5%'
-  trigger:
   - below: '5'
     entity_id: sensor.aqara_battery_2
     platform: numeric_state
-  condition: []
-  action:
-  - data:
-      message: Vervang de batterij van Aqara sensor 2. Batterij niveau = <5%
-    service: notify.ios_iphone_van_martijn
-- id: '1563384371262'
-  alias: 'iOS notificatie: Batterij Aqara sensor 3 = <5%'
-  trigger:
   - below: '5'
     entity_id: sensor.aqara_battery_3
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.howea_forsteriana_mqtt_battery
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.pachira_aquatica_mqtt_battery
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.motion_sensor_battery_level
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.motion_sensor2_battery_level
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.window_door_sensor_battery_level
     platform: numeric_state
   condition: []
   action:
   - data:
-      message: Vervang de batterij van Aqara sensor 3. Batterij niveau = <5%
+      message: 'Device ''{{ trigger.to_state.name }}'' has CRITICAL battery: {{ trigger.to_state.state
+        }}%. Batterij niveau beneden de 5%!'
+      title: Vervang de batterij!
     service: notify.ios_iphone_van_martijn
 - id: '1563392538020'
   alias: TV on = TV lights
@@ -422,7 +423,7 @@
 - id: rova-garbage-bio-reminder
   alias: Rova bio container gehaald
   trigger:
-  - at: '18:30:00'
+  - at: '20:30:00'
     platform: time
   condition:
   - condition: template
@@ -439,7 +440,7 @@
 - id: rova-garbage-paper-reminder
   alias: Rova papier container gehaald
   trigger:
-  - at: '18:30:00'
+  - at: '20:30:00'
     platform: time
   condition:
   - condition: template
@@ -529,70 +530,14 @@
     to: 'on'
   condition: []
   action:
-  - data:
-      message: Je hebt een poststuk ontvangen.
-      title: Brievenbus
-    service: notify.ios_iphone_van_martijn
-- alias: Spotify Volume (Set)
-  trigger:
-    platform: state
-    entity_id: input_number.spotify_volume
-  action:
-    service: media_player.volume_set
-    data_template:
-      entity_id: media_player.spotify
-      volume_level: '{{  states.input_number.spotify_volume.state | int / 100  }}'
-  id: 565feb2c7a8b460fa1710b5bc24c7107
-- alias: Spotify Volume (Sync)
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: sensor.spotify_volume
-  action:
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.spotify_volume
-      value: '{{  states.sensor.spotify_volume.state | float | round(2) * 100  }}'
-  id: 645a419513524fecbec7a665a48b6320
-- alias: Spotify Shuffle (Set)
-  trigger:
-    platform: state
-    entity_id: input_boolean.spotify_shuffle
-  action:
-    service: media_player.shuffle_set
-    data_template:
-      entity_id: media_player.spotify
-      shuffle: '{% if is_state(''input_boolean.spotify_shuffle'', ''off'') %}  false
-        {% elif is_state(''input_boolean.spotify_shuffle'', ''on'') %} true {% endif
-        %}
-
-        '
-  id: 1479d8bbc8244a21818f5428c933092c
-- alias: Spotify Shuffle (Sync)
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: sensor.spotify_shuffle
-  action:
-  - service_template: "{% if states.sensor.spotify_shuffle.state == 'False' %}\n \
-      \ input_boolean.turn_off\n{% else %}\n  input_boolean.turn_on\n{% endif %}\n"
+  - service: notify.ios_iphone_van_martijn
     data:
-      entity_id: input_boolean.spotify_shuffle
-  id: c5a686d07ec84750a0ebdda8f62e6fdf
-- alias: Spotify Source (Sync)
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: sensor.spotify_source
-  action:
-    service: input_select.select_option
-    entity_id: input_select.spotify_source
-    data_template:
-      option: '{{  states.sensor.spotify_source.state  }}'
-  id: 1e8245e5b8d04e42a999c90a7e721f4f
+      title: Brievenbus
+      message: Je hebt een poststuk ontvangen.
+      data:
+        attachment:
+          content-type: png
+          url: https://moostmartijn.duckdns.org/local/images/brievenbus.png
 - id: '1564825950855'
   alias: Nieuwe Youtube video kanaal playedby
   trigger:
@@ -628,25 +573,90 @@
   action:
   - service: counter.increment
     entity_id: counter.mic_rodance
-  id: 072471c710e0404881486487a0fe9bd2
-  id: '1564940486679'
-- alias: Snapshot wanneer brievenbus +1
+  id: 876a6a43edb4488dad7b40164ecaeaa5
+- id: '1566224669512'
+  alias: Google Home speelt geluid af wanneer iemand voor de deur staat
   trigger:
-  - entity_id: binary_sensor.openclose_14
+  - entity_id: binary_sensor.doorbell_button
     platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: group.all_devices
+    state: home
+  action:
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.woonkamer
+      media_content_id: https://moostmartijn.duckdns.org/local/audio/classic-doorbell.mp3
+      media_content_type: music
+- id: '1566226431647'
+  alias: Google Home play empty sound when idle -> off
+  trigger:
+    platform: time_pattern
+    minutes: '/2'
+  condition:
+    - condition: and
+      conditions:
+        - condition: time
+          after: '09:00:00'
+          before: '23:00:00'  
+        - condition: state
+          entity_id: group.all_devices
+          state: 'home'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: media_player.woonkamer
+          state: 'off'
+        - condition: state
+          entity_id: media_player.woonkamer
+          state: 'idle'
+  action:
+  - service: media_player.play_media
+    entity_id: media_player.woonkamer  
+    data:
+      media_content_id: https://moostmartijn.duckdns.org/local/audio/1-second-of-silence.mp3
+      media_content_type: music
+- id: '1566414362777'
+  alias: Snapshot wanneer deurbel drukknop naar ON
+  trigger:
+  - entity_id: binary_sensor.doorbell_button
+    platform: state
+    from: 'off'
     to: 'on'
   condition: []
   action:
+  - delay: 00:00:06
   - service: camera.snapshot
     data_template:
-      filename: /config/www/snapshots/snapshot_{{ now ().hour }}_{{ now ().minute }}.jpg
       entity_id: camera.voordeur_camera_deurbel
-  - delay: 00:00:03
+      filename: '/config/www/snapshots/deurbel_{{ now ().day }}_{{ now ().month }}_{{ now ().hour }}_{{ now ().minute }}.jpg'
+  - delay: 00:00:01
   - service: notify.ios_iphone_van_martijn
     data_template:
-      title: Je hebt post bitch!
-      message: Wie is deze postbezorger?
+      title: Deurbel
+      message: Er stond om {{now().strftime('%H:%M')}} iemand voor de deur!
       data:
         attachment:
-          content-type: jpeg
-          url: /local/snapshots/snapshot_{{ now ().hour }}_{{ now ().minute }}.jpg
+          content-type: jpg
+          url: 'https://moostmartijn.duckdns.org/local/snapshots/deurbel_{{ now ().day }}_{{ now ().month }}_{{ now ().hour }}_{{ now ().minute }}.jpg '
+          hide-thumbnail: false 
+  - delay: 00:00:01
+  - service: camera.local_file_update_file_path
+    data_template:
+      entity_id: camera.local_file
+      file_path: '/config/www/snapshots/deurbel_{{ now ().day }}_{{ now ().month }}_{{ now ().hour }}_{{ now ().minute }}.jpg'        
+- id: '1566804781680'
+  alias: Platenspeler uit = Soundbar uit
+  trigger:
+  - platform: state
+    entity_id: switch.newkaku_01d610ee_2
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.soundbar_2
+

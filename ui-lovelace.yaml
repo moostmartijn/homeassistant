@@ -3,7 +3,7 @@ title: Thuis
 resources:
   - url: /community_plugin/mini-graph-card/mini-graph-card.js
     type: module
-  - url: /local/slider-entity-row.js
+  - url: /community_plugin/lovelace-slider-entity-row/slider-entity-row.js
     type: module
   - url: /community_plugin/lovelace-postnl-card/postnl-card.js
     type: module
@@ -15,14 +15,26 @@ resources:
     type: module
   - url: /community_plugin/favicon-counter/favicon-counter.js
     type: js
-  - url: /community_plugin/atomic_calendar/atomic_calendar.js
-    type: module
   - url: /community_plugin/reddit-card/reddit-card.js
-    type: js
-  - url: /community_plugin/calendar-card/calendar-card.js
     type: js
   - url: /community_plugin/lovelace-text-input-row/text-input-row.js
     type: js
+  - url: /community_plugin/lovelace-html-card/html-card.js
+    type: js    
+  - url: /community_plugin/lovelace-media-art-background/media-art-background.js
+    type: module
+  - url: /community_plugin/atomic_calendar/atomic_calendar.js
+    type: module    
+    
+media_art_background:
+  blur: 10px
+  opacity: 0.5
+  transition_opacity: 2s
+  entities:
+    - media_player.soundbar_2
+    - entity: media_player.spotify
+      valid_states: ['playing']
+      image_attribute: 'entity_picture'
 
 cch:
   hide_help: true
@@ -73,32 +85,21 @@ views:
                 - entity: proximity.jildou
                   name: Van huis
 
-        - type: custom:weather-card
-          entity: weather.br_unknown_station
+        - type: entities
+          title: Brievenbus
+          show_header_toggle: false
+          entities: 
+            - entity: counter.brievenbus
+              name: Poststukken ontvangen
 
-        - type: horizontal-stack
-          cards:
-            - type: glance
-              entities: 
-                - entity: sensor.br_ground_temperature
-                  name: Grond temperatuur
-                  icon: mdi:temperature-celsius
-            - type: glance
-              entities:
-                - entity: sensor.br_wind_force
-                  name: Windkracht
-                  icon: mdi:weather-windy
-            - type: glance
-              entities:
-                - entity: sensor.br_wind_speed
-                  name: Windsnelheid
-                  icon: mdi:wind-turbine     
-            - type: glance
-              entities:
-                - entity: sensor.br_wind_direction
-                  name: Windrichting
-                  icon: mdi:compass
-
+        - type: entities
+          show_header_toggle: false
+          title: Rova
+          entities:
+            - entity: sensor.rova_paper
+              name: Oud papier container
+            - entity: sensor.rova_bio
+              name: Groene container
 
     - type: vertical-stack
       cards:
@@ -227,10 +228,80 @@ views:
               service_data:
                 entity_id: script.woonkamer_hue_scene_bijna_bij_de_machu_picchu
 
+
+# Tab 2 - Weather
+- path: Weather
+  title: Weather
+  icon: 'mdi:weather-partly-lightning'
+  badges: []
+  cards:
+    - type: vertical-stack
+      cards:
+
+        - type: picture-entity
+          entity: camera.buienradar
+          camera_view: live
+          show_state: false
+
+        - type: custom:weather-card
+          entity: weather.br_unknown_station
+
+        - type: horizontal-stack
+          cards:
+            - type: glance
+              entities: 
+                - entity: sensor.br_ground_temperature
+                  name: Grond temperatuur
+                  icon: mdi:temperature-celsius
+            - type: glance
+              entities:
+                - entity: sensor.br_wind_force
+                  name: Windkracht
+                  icon: mdi:weather-windy
+            - type: glance
+              entities:
+                - entity: sensor.br_wind_speed
+                  name: Windsnelheid
+                  icon: mdi:wind-turbine     
+            - type: glance
+              entities:
+                - entity: sensor.br_wind_direction
+                  name: Windrichting
+                  icon: mdi:compass
+
+    - type: vertical-stack
+      cards:
+
+        - type: glance
+          title: Batterijen van apparaten
+          entities:
+            - sensor.howea_forsteriana_mqtt_battery
+            - sensor.pachira_aquatica_mqtt_battery
+            - sensor.aqara_battery_1
+            - sensor.aqara_battery_2
+            - sensor.aqara_battery_3
+            - sensor.motion_sensor_battery_level
+            - sensor.motion_sensor2_battery_level
+            - sensor.window_door_sensor_battery_level
+            - sensor.life360_martijn_batterij
+
+
         - type: glance
           entities:
             - entity: sensor.current_version
               name: Current version
+            - entity: sensor.dag
+              name: Dag
+              icon: mdi:calendar-today
+            - entity: sensor.week_nummer
+              name: Weeknummer
+              icon: mdi:calendar-week
+            - entity: sensor.ssl_certificate_expiry
+              name: Certicate expiry
+              icon: mdi:certificate
+
+        - type: glance
+          entities:
             - entity: sensor.uptime
               name: Uptime
             - entity: sensor.date_last_boot
@@ -259,125 +330,130 @@ views:
               name: Scripts
               icon: mdi:script-text
 
-        - type: glance
+        - type: "custom:postnl-card"
+          delivery: sensor.postnl_delivery
+#          distribution: sensor.postnl_distribution
+          letters: sensor.postnl_letters
+          past_days: 7
+          hide:
+            delivered: true
+            first_letter: true
+            header: false
+
+
+    - type: vertical-stack
+      cards:
+
+        - type: custom:mini-graph-card  
+          name: Temperatuur
+          icon: mdi:home-thermometer
           entities:
-            - entity: sensor.dag
-              name: Dag
-              icon: mdi:calendar-today
-            - entity: sensor.week_nummer
-              name: Weeknummer
-              icon: mdi:calendar-week
-            - entity: sensor.ssl_certificate_expiry
-              name: Certicate expiry
-              icon: mdi:certificate
-            - entity: sensor.breaches_moostmartijn_gmail_com
-              name: Have I Been Pwned?
+            - entity: sensor.br_temperature
+              name: Buiten
+            - entity: sensor.aqara_temperature_2
+              name: Slaapkamer
+            - entity: sensor.aqara_temperature_3
+              name: Woonkamer
+          show:
+            extrema: true                  
+          hours_to_show: 12
+          points_per_hour: 1
+          animate: true
 
 
-# Tab 2 - Music
+
+        - type: horizontal-stack
+          cards:
+
+            - type: custom:mini-graph-card  
+              name: Badkamer (temperatuur)
+              icon: mdi:shower-head
+              entities:
+                - entity: sensor.aqara_temperature_1
+                  name: Temperatuur
+              show:
+                extrema: true                  
+              hours_to_show: 12
+              points_per_hour: 4
+              animate: true 
+              align_icon: left
+
+            - type: custom:mini-graph-card
+              name: Badkamer (luchtvochtigheid)
+              icon: mdi:water-percent
+              entities:
+                - entity: sensor.aqara_humidity_1
+              show:
+                extrema: true
+              line_color: '#3399ff'
+              hours_to_show: 12
+              points_per_hour: 4
+              animate: true 
+              align_icon: left
+
+
+        - type: horizontal-stack
+          cards:
+            - type: custom:mini-graph-card
+              name: Slaapkamer (temperatuur)
+              icon: mdi:bed-empty
+              entities:
+                - entity: sensor.aqara_temperature_2
+              show:
+                extrema: true                
+              hours_to_show: 12
+              points_per_hour: 4    
+              animate: true 
+              align_icon: left
+
+            - type: custom:mini-graph-card
+              name: Slaapkamer (luchtvochtigheid)
+              icon: mdi:water-percent
+              entities:
+                - entity: sensor.aqara_humidity_2
+              show:
+                extrema: true
+              line_color: '#3399ff'
+              hours_to_show: 12
+              points_per_hour: 4
+              animate: true 
+              align_icon: left
+
+        - type: horizontal-stack
+          cards:               
+            - type: custom:mini-graph-card
+              name: Woonkamer (temperatuur)
+              icon: mdi:sofa
+              entities:
+                - entity: sensor.aqara_temperature_3
+              show:
+                extrema: true                
+              hours_to_show: 12
+              points_per_hour: 4  
+              animate: true 
+              align_icon: left
+
+            - type: custom:mini-graph-card
+              name: Woonkamer (luchtvochtigheid)
+              icon: mdi:water-percent
+              entities:
+                - entity: sensor.aqara_humidity_3
+              show:
+                extrema: true
+              line_color: '#3399ff'
+              hours_to_show: 12
+              points_per_hour: 4
+              animate: true 
+              align_icon: left
+
+
+# Tab 3 - Music
 
 - path: Music
   title: Music
   icon: 'mdi:music-box'
   badges: []
   cards: 
-    - type: vertical-stack
-      cards:
-
-
-        - type: horizontal-stack
-          cards:
-            - type: picture-entity
-              entity: script.playedby
-              state_image:
-                "on": /local/youtube-channel/playedby-logo-on.jpg
-                "off": /local/youtube-channel/playedby-logo-off.jpg
-              tap_action: 
-                action: call-service
-                service: script.playedby
-
-        - type: horizontal-stack
-          cards:
-            - type: picture-entity
-              entity: script.blank_red
-              state_image:
-                "on": /local/blank_red_on.jpg
-                "off": /local/blank_red_on.jpg
-              tap_action:
-                action: call-service
-                service: script.blank_red
-
-        - type: horizontal-stack
-          cards:
-            - type: picture-entity
-              entity: script.yy
-              state_image:
-                "on": /local/youtube-channel/yy-logo-on.jpg
-                "off": /local/youtube-channel/yy-logo-off.jpg
-              tap_action:
-                action: call-service
-                service: script.yy
-
-        - type: horizontal-stack
-          cards:
-            - type: picture-entity
-              entity: script.mic_rodance
-              state_image:
-                "on": /local/mic_rodance_on.jpg
-                "off": /local/mic_rodance_off.jpg
-              tap_action:
-                action: call-service
-                service: script.mic_rodance
-
-        - type: horizontal-stack
-          cards:
-            - type: entities
-              title: Nieuwe Youtube videos kanalen deze week
-              show_header_toggle: false
-              entities:
-                - entity: counter.played_by
-                  name: Playedby
-                - entity: counter.blank_red
-                  name: Blank & Red
-                - entity: counter.yy
-                  name: Yoyaku
-                - entity: counter.mic_rodance
-                  name: Mic Rodance
-
-    - type: vertical-stack
-      cards:
-
-        - type: entities
-          title: Radio station
-          entities:
-            - input_select.radio_soundbar
-          show_header_toggle: false
-
-        - type: entities
-          title: Youtube videos
-          show_header_toggle: false
-          entities:
-            - input_select.youtube_video
-            - type: call-service
-              icon: mdi:play-box-outline
-              name: Speel geselecteerde video af
-              action_name: Afspelen
-              service: script.turn_on
-              service_data:
-                entity_id: script.youtube_video
-
-        - type: entities
-          entities:
-            - entity: input_text.text_bar
-              type: 'custom:text-input-row'
-              name: Zoek op Youtube
-            - type: call-service
-              name: ' '
-              icon: 'mdi:search-web'
-              action_name: Afspelen
-              service: script.turn_on
-              service_data:
-                entity_id: script.text_to_youtube
 
     - type: vertical-stack
       cards:
@@ -449,6 +525,18 @@ views:
             power_state: false
 
 
+
+    - type: vertical-stack
+      cards:
+
+        - type: entities
+          title: Platenspeler
+          show_header_toggle: false
+          entities:
+            - entity: switch.newkaku_01d610ee_2
+              name: SL-1210 MKII
+              icon: mdi:record-player
+
         - type: "custom:mini-media-player"
           entity: media_player.woonkamer
 #          background: /local/images/google_home2.jpg
@@ -461,188 +549,39 @@ views:
             language: 'nl'
             enity_id: media_player.woonkamer
 
-# Tab 3
-
-- path: Extra's
-  title: Extra's
-  icon: 'mdi:finance'
-  badges: []
-  cards: 
-    - type: vertical-stack
-      cards:
-
-        - type: glance
-          title: Batterijen van apparaten
-          entities:
-            - sensor.howea_forsteriana_mqtt_battery
-            - sensor.pachira_aquatica_mqtt_battery
-            - sensor.aqara_battery_1
-            - sensor.aqara_battery_2
-            - sensor.aqara_battery_3
-            - sensor.motion_sensor_battery_level
-            - sensor.motion_sensor2_battery_level
-            - sensor.window_door_sensor_battery_level
-            - sensor.life360_martijn_batterij
-
-        - type: horizontal-stack
-          cards:
-
-            - type: custom:mini-graph-card  
-              name: Badkamer (temperatuur)
-              icon: mdi:shower-head
-              entities:
-                - entity: sensor.aqara_temperature_1
-                  name: Temperatuur
-              show:
-                extrema: true                  
-              hours_to_show: 12
-              points_per_hour: 4
-              animate: true 
-              align_icon: left
-
-            - type: custom:mini-graph-card
-              name: Badkamer (luchtvochtigheid)
-              icon: mdi:water-percent
-              entities:
-                - entity: sensor.aqara_humidity_1
-              show:
-                extrema: true
-              line_color: '#3399ff'
-              hours_to_show: 12
-              points_per_hour: 4
-              animate: true 
-              align_icon: left
-
-        - type: horizontal-stack
-          cards:
-            - type: custom:mini-graph-card
-              name: Slaapkamer (temperatuur)
-              icon: mdi:bed-empty
-              entities:
-                - entity: sensor.aqara_temperature_2
-              show:
-                extrema: true                
-              hours_to_show: 12
-              points_per_hour: 4    
-              animate: true 
-              align_icon: left
-
-            - type: custom:mini-graph-card
-              name: Slaapkamer (luchtvochtigheid)
-              icon: mdi:water-percent
-              entities:
-                - entity: sensor.aqara_humidity_2
-              show:
-                extrema: true
-              line_color: '#3399ff'
-              hours_to_show: 12
-              points_per_hour: 4
-              animate: true 
-              align_icon: left
-
-        - type: horizontal-stack
-          cards:               
-            - type: custom:mini-graph-card
-              name: Woonkamer (temperatuur)
-              icon: mdi:sofa
-              entities:
-                - entity: sensor.aqara_temperature_3
-              show:
-                extrema: true                
-              hours_to_show: 12
-              points_per_hour: 4  
-              animate: true 
-              align_icon: left
-
-            - type: custom:mini-graph-card
-              name: Woonkamer (luchtvochtigheid)
-              icon: mdi:water-percent
-              entities:
-                - entity: sensor.aqara_humidity_3
-              show:
-                extrema: true
-              line_color: '#3399ff'
-              hours_to_show: 12
-              points_per_hour: 4
-              animate: true 
-              align_icon: left
-
-    - type: vertical-stack
-      cards:
         - type: entities
-          title: ComfoFanS
-          show_header_toggle: false
+          title: Radio station
           entities:
-            - type: section
-              label: "FAN"
-            - type: custom:slider-entity-row
-              entity: light.newkaku_01d610ee_1
-              full_row: true
-              toggle: true
-
-        - type: "custom:postnl-card"
-          delivery: sensor.postnl_delivery
-#          distribution: sensor.postnl_distribution
-          letters: sensor.postnl_letters
-          past_days: 7
-          hide:
-            delivered: true
-            first_letter: true
-            header: false
+            - input_select.radio_soundbar
+          show_header_toggle: false
 
         - type: entities
-          title: Brievenbus
+          title: Youtube videos
           show_header_toggle: false
-          entities: 
-            - entity: counter.brievenbus
-              name: Poststukken ontvangen
-
+          entities:
+            - input_select.youtube_video
+            - type: call-service
+              icon: mdi:play-box-outline
+              name: Speel geselecteerde video af
+              action_name: Afspelen
+              service: script.turn_on
+              service_data:
+                entity_id: script.youtube_video
 
         - type: entities
-          show_header_toggle: false
           entities:
-            - entity: sensor.rova_paper
-              name: Oud papier container
-            - entity: sensor.rova_bio
-              name: Groene container
+            - entity: input_text.text_bar
+              type: 'custom:text-input-row'
+              name: Zoek op Youtube
+            - type: call-service
+              name: ' '
+              icon: 'mdi:search-web'
+              action_name: Afspelen
+              service: script.turn_on
+              service_data:
+                entity_id: script.text_to_youtube
 
 
-
-    - type: vertical-stack
-      cards:
-        - type: custom:mini-graph-card  
-          name: Temperatuur
-          icon: mdi:home-thermometer
-          entities:
-            - entity: sensor.br_temperature
-              name: Buiten
-            - entity: sensor.aqara_temperature_2
-              name: Slaapkamer
-            - entity: sensor.aqara_temperature_3
-              name: Woonkamer
-          show:
-            extrema: true                  
-          hours_to_show: 12
-          points_per_hour: 1
-          animate: true
-
-        - type: "custom:atomic-calendar"
-          title: "Agenda"
-          maxDaysToShow: 7
-          showMonth: true      
-          entities:
-          - entity: calendar.moostmartijn_gmail_com
-          - entity: calendar.jildouvaneverdink_gmail_com
-            maxDaysToShow: 7  
-          - entity: calendar.contacts
-          - entity: calendar.feestdagen_in_nederland
-
-
-        - type: custom:reddit-card
-          header: Reddit
-          entities:
-            - sensor.reddit_homeassistant
-          max: 5
 
 # Tab 4 - ESPhome / ESP32-cam
 - path: Camera
@@ -674,8 +613,47 @@ views:
           title: ESP32 camera
           camera_image: camera.voordeur_camera_deurbel
           camera_view: live
-          
 
+    - type: vertical-stack
+      cards:
+
+    #        - type: picture-glance
+    #          entities:
+    #            - camera.my_camera
+    #          title: ESP32-Cam
+    #          camera_image: camera.my_camera
+    #          camera_view: live
+
+        - type: entities
+          title: Slimme deurbel
+          show_header_toggle: false    
+          entities:
+            - entity: switch.doorbell_chime_active
+              name: Deurbel actief?
+            - entity: switch.doorbell_chime
+              name: Deurbel
+            - entity: binary_sensor.doorbell_button
+              name: Deurbel drukknop
+            - entity: sensor.doorbell_bssid
+              name: BSSID
+            - entity: sensor.doorbell_esphome_version
+              name: ESPHome Version
+            - entity: sensor.doorbell_ip
+              name: Deurbel IP adres
+            - entity: sensor.doorbell_ssid
+              name: Deurbel SSID
+            - entity: sensor.doorbell_uptime
+              name: Deurbel uptime (S)
+            - entity: sensor.doorbell_wifi_signal
+              name: Deurbel Wifi signaal
+
+        - type: entities
+          title: ESP32-Cam (TTGO T-Camera)
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.pir
+              name: PIR sensor ESP32
+            
 
 # Tab 5 - Monitoring
 
@@ -685,55 +663,52 @@ views:
   badges: []
   cards:
 
-
-
-    - type: entities
-      title: System information
-      show_header_toggle: false
-      entities:
-        - sensor.last_boot
-        - sensor.disk_free_home
-        - sensor.memory_use
-        - sensor.memory_free
-        - sensor.processor_use
-        - sensor.ipv4_address
-        - sensor.network_in_eth0
-        - sensor.network_out_eth0
-
-    - type: entities
-      title: SABnzbd
-      show_header_toggle: false
-      entities:
-        - sensor.sabnzbd_daily_total
-        - sensor.sabnzbd_disk
-        - sensor.sabnzbd_disk_free
-        - sensor.sabnzbd_left
-        - sensor.sabnzbd_monthly_total
-        - sensor.sabnzbd_queue
-        - sensor.sabnzbd_queue_count
-        - sensor.sabnzbd_speed
-        - sensor.sabnzbd_status
-        - sensor.sabnzbd_total
-        - sensor.sabnzbd_weekly_total
-
-    - type: entity-button
-      entity: script.restart_hass
-      icon: 'mdi:restart'
-      name: Home Assistant herstarten
-      tap_action:
-        action: call-service
-        service: homeassistant.restart
-
-
-# Tab 6 - ADGUARD
-
-- path: AdGuard
-  title: AdGuard
-  icon: 'mdi:block-helper'
-  badges: []
-  cards: 
     - type: vertical-stack
       cards:
+
+        - type: entities
+          title: System information
+          show_header_toggle: false
+          entities:
+            - sensor.last_boot
+            - sensor.disk_free_home
+            - sensor.memory_use
+            - sensor.memory_free
+            - sensor.processor_use
+            - sensor.ipv4_address
+            - sensor.network_in_eth0
+            - sensor.network_out_eth0
+
+        - type: entity-button
+          entity: script.restart_hass
+          icon: 'mdi:restart'
+          name: Home Assistant herstarten
+          tap_action:
+            action: call-service
+            service: homeassistant.restart
+
+    - type: vertical-stack
+      cards:
+
+        - type: entities
+          title: SABnzbd
+          show_header_toggle: false
+          entities:
+            - sensor.sabnzbd_daily_total
+            - sensor.sabnzbd_disk
+            - sensor.sabnzbd_disk_free
+            - sensor.sabnzbd_left
+            - sensor.sabnzbd_monthly_total
+            - sensor.sabnzbd_queue
+            - sensor.sabnzbd_queue_count
+            - sensor.sabnzbd_speed
+            - sensor.sabnzbd_status
+            - sensor.sabnzbd_total
+            - sensor.sabnzbd_weekly_total
+
+    - type: vertical-stack
+      cards:
+
         - type: entities
           title: AdGuard
           show_header_toggle: false
@@ -767,17 +742,35 @@ views:
 
 
 # TAB 7 - AUTOMATION-TRIGGERS
-- path: Automations
-  title: Automations
-  icon: 'mdi:robot'
+- path: TEST
+  title: TEST
+  icon: 'mdi:test-tube'
   badges: []
   cards: 
+
+    - type: vertical-stack
+      cards:
+
+        - type: picture-glance          
+          entities:
+            - camera.local_file
+          title: Wie stond er voor de deur?
+          camera_image: camera.local_file
+
+        - type: custom:reddit-card
+          header: Reddit
+          entities:
+            - sensor.reddit_homeassistant
+          max: 5
+
     - type: vertical-stack
       cards:
         - type: entities
           title: Automations
           show_header_toggle: false
           entities:
+            - entity:  automation.google_home_speelt_geluid_af_wanneer_iemand_voor_de_deur_staat
+              name: Google Home speelt geluid af wanneer iemand op de bel drukt
             - entity: automation.batterij_iphone_100_opgeladen
               name: iPhone batterij 100% - TTS via Google Home
             - entity: automation.lichten_aan_in_de_woonkamer_een_half_uur_voor_zonsondergang
@@ -790,10 +783,8 @@ views:
               name: Broadcast message Google Home wanneer brievenbus +1
             - entity: automation.googletranslate_tts_wanneer_wasmachine_klaar_is   
               name: Googletranslate TTS wanneer wasmachine klaar is    
-            - entity: automation.snapshot_wanneer_brievenbus_1
-              name: Snapshot wanneer brievenbus +1
             - entity: automation.tv_on_tv_lights
-              name: TV on = TV lights 80 brightness
+              name: TV on = TV lights 80 brightness 
 
         - type: entities
           title: Last Downloaded SabNZBD
@@ -806,17 +797,15 @@ views:
               name: HACS
 
 
-#        - type: picture
-#          image: http://192.168.178.26:81/stream
-        
-
-#        - type: custom:calendar-card
-#          title: "Agenda"
-#          progressBar: true
-#          entities:
-#            - calendar.moostmartijn_gmail_com
-#            - calendar.jildouvaneverdink_gmail_com
-#            - calendar.contacts
-#            - calendar.feestdagen_in_nederland
-
+        - type: "custom:atomic-calendar"
+          title: "Agenda"
+          maxDaysToShow: 7
+          showMonth: true      
+          entities:
+          - entity: calendar.moostmartijn_gmail_com
+            color: red
+          - entity: calendar.jildouvaneverdink_gmail_com
+            maxDaysToShow: 7  
+          - entity: calendar.contacts
+          - entity: calendar.feestdagen_in_nederland
 

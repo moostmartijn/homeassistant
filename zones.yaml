@@ -9,23 +9,19 @@
     latitude: !secret latitude_work_jildou
     longitude: !secret longitude_work_jildou
     radius: 400
-  - name: Jumbo
-    latitude: !secret latitude_jumbo
-    longitude: !secret longitude_jumbo
-    radius: 100
-  - name: Albert Heijn
-    latitude: !secret latitude_albert_heijn
-    longitude: !secret longitude_albert_heijn
-    radius: 150
+#  - name: Jumbo
+#    latitude: !secret latitude_jumbo
+#    longitude: !secret longitude_jumbo
+#    radius: 100
+#  - name: Albert Heijn
+#    latitude: !secret latitude_albert_heijn
+#    longitude: !secret longitude_albert_heijn
+#    radius: 150
   - name: Ouders van Martijn
     latitude: !secret latitude_ouders_van_martijn
     longitude: !secret longitude_ouders_van_martijn
     radius: 100
-  - name: Binnenstad Zwolle
-    latitude: 52.512045
-    longitude: 6.093258
-    radius: 750
-  - name: Leeuwarden
-    latitude: 53.1991171
-    longitude: 5.7965319
-    radius: 1200
+#  - name: Binnenstad Zwolle
+#    latitude: 52.512045
+#    longitude: 6.093258
+#    radius: 750

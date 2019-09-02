@@ -4,11 +4,11 @@ media_player.woonkamer:
 # PLANTS
 plant.howea_forsteriana:
   friendly_name: Howea Forsteriana
-  entity_picture: /local/howea_forsteriana2.jpg
+  entity_picture: /local/images/howea_forsteriana.jpg
 
 plant.pachira_aquatica:
   friendly_name: Pachira Aquatica
-  entity_picture: /local/pachira_aquatica.jpg
+  entity_picture: /local/images/pachira_aquatica.jpg
 
 # PERSONS  
 person.jildou:

@@ -1,0 +1,19 @@
+Pachira Aquatica:
+  sensors:
+    moisture: sensor.pachira_aquatica_mqtt_moisture
+    battery: sensor.pachira_aquatica_mqtt_battery
+    temperature: sensor.pachira_aquatica_mqtt_temperature
+    conductivity: sensor.pachira_aquatica_mqtt_conductivity
+    brightness: sensor.pachira_aquatica_mqtt_brightness
+  min_moisture: 15
+  min_conductivity: 100
+
+Howea Forsteriana:
+  sensors:
+    moisture: sensor.howea_forsteriana_mqtt_moisture
+    battery: sensor.howea_forsteriana_mqtt_battery
+    temperature: sensor.howea_forsteriana_mqtt_temperature
+    conductivity: sensor.howea_forsteriana_mqtt_conductivity
+    brightness: sensor.howea_forsteriana_mqtt_brightness
+  min_moisture: 15
+  min_conductivity: 100

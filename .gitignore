@@ -9,7 +9,7 @@
 # Ignore folders.
 .storage
 .cloud
-.google.token
+.git
 esphome
 tts
 node-red
@@ -27,6 +27,7 @@ plex.conf
 .spotify-token-cache
 .uuid
 home-assistant.log
+.google.token
 ._automations.yaml
 ._configuration.yaml
 ._customize.yaml
@@ -49,3 +50,4 @@ home-assistant.log
 ._home-assistant.log
 ._plex.conf
 ._sabnzbd.conf
+google_calendars.yaml

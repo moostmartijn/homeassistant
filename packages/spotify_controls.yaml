@@ -1,0 +1,76 @@
+media_player:
+
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_secret_id
+    aliases:
+        12f5cfaeb1730e73ef01264900baa88f: 'Chromecast'
+        a833ebaa14c52c44f00cee5f05b09ec9dd48355a: 'iPhone'
+        58f05582-533c-46bb-aead-75e804f60b6d: 'Soundbar'
+        15e4a82feda5711b3df703f28b3c34c8: 'Google Home'
+        25fffe50b5872e7213fa8b5151e890bf9d25689a: 'iMac'
+
+input_boolean:
+  spotify_shuffle:
+    name: Shuffle
+    icon: mdi:shuffle-variant
+
+sensor:
+  - platform: template 
+    sensors:
+      spotify_volume:
+        friendly_name: "Spotify Volume"
+        value_template: "{{ states.media_player.spotify.attributes.volume_level }}"
+
+      spotify_shuffle:
+        friendly_name: "Spotify Shuffle"
+        value_template: "{{ states.media_player.spotify.attributes.shuffle }}"
+
+      spotify_source:
+        friendly_name: "Spotify Source"
+        value_template: "{{ states.media_player.spotify.attributes.source }}"
+
+      spotify_track_info:
+        friendly_name: "Track info"
+        value_template: "{{ states.media_player.spotify.attributes.media_artist }} - {{ states.media_player.spotify.attributes.media_title }}"
+
+
+automation:
+  - alias: Spotify Shuffle (Set)
+    trigger:
+      platform: state
+      entity_id: input_boolean.spotify_shuffle
+    action:
+      service: media_player.shuffle_set
+      data_template:
+        entity_id: media_player.spotify
+        shuffle: '{% if is_state(''input_boolean.spotify_shuffle'', ''off'') %}  false
+          {% elif is_state(''input_boolean.spotify_shuffle'', ''on'') %} true {% endif
+          %}
+
+          '
+    id: 1479d8bbc8244a21818f5428c933092c
+  - alias: Spotify Shuffle (Sync)
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sensor.spotify_shuffle
+    action:
+    - service_template: "{% if states.sensor.spotify_shuffle.state == 'False' %}\n \
+        \ input_boolean.turn_off\n{% else %}\n  input_boolean.turn_on\n{% endif %}\n"
+      data:
+        entity_id: input_boolean.spotify_shuffle
+    id: c5a686d07ec84750a0ebdda8f62e6fdf
+  - alias: Spotify Source (Sync)
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sensor.spotify_source
+    action:
+      service: input_select.select_option
+      entity_id: input_select.spotify_source
+      data_template:
+        option: '{{  states.sensor.spotify_source.state  }}'
+    id: 1e8245e5b8d04e42a999c90a7e721f4f

@@ -6,6 +6,13 @@ homeassistant:
   unit_system: metric  
   customize: !include customize.yaml    
   packages: !include_dir_named packages
+  time_zone: Europe/Amsterdam
+
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.178.0
+        - 82.74.122.94
 
 map:
 
@@ -82,7 +89,6 @@ http:
   ssl_key: /ssl/privkey.pem
   ip_ban_enabled: True
   login_attempts_threshold: 3
-  api_password: !secret http_password
 
 api:
 
@@ -110,7 +116,19 @@ binary_sensor:
 light:
   - platform: rflink
     devices:
-      newkaku_01d610ee_1: {}
+      newkaku_01d610ee_1: {}   
+
+switch:
+  - platform: rflink
+    devices:
+      newkaku_01d610ee_2: {}
+
+camera:
+  - platform: buienradar
+    name: Buienradar
+
+  - platform: local_file
+    file_path: /config/www/snapshots/deurbel.jpg
 
 proximity:
   martijn:
@@ -152,15 +170,27 @@ weather:
 google_assistant:
   project_id: !secret google_assistant_project_id
   api_key: !secret google_assistant_api
+  expose_by_default: false
   exposed_domains:
     - switch
-    - light
-    - group
+  entity_config:
+    switch.newkaku_01d610ee_2:
+      expose: true
+
 
 dialogflow:
 
 logger:
   default: warning
+  logs:
+    buienradar.buienradar_json: error
+    homeassistant.components.input_select: error
+    homeassistant.helpers.condition: error
+    homeassistant.helpers.entity: error
+    homeassistant.components.media_player: error
+    homeassistant.loader: error
+    homeassistant.setup: error
+    homeassistant.components.binary_sensor: error
 
 intent_script: !include intent.yaml
 
@@ -175,6 +205,7 @@ vacuum:
     password: !secret roomba_password
 
 ios:
+
 
 tts:
   - platform: google_translate
@@ -191,16 +222,6 @@ media_player:
     port: !secret port_tv
     name: '[TV] Woonkamer'
     mac: !secret mac_tv
-
-  - platform: spotify
-    client_id: !secret spotify_client_id
-    client_secret: !secret spotify_secret_id
-    aliases:
-        12f5cfaeb1730e73ef01264900baa88f: 'Chromecast'
-        a833ebaa14c52c44f00cee5f05b09ec9dd48355a: 'iPhone'
-        58f05582-533c-46bb-aead-75e804f60b6d: 'Soundbar'
-        15e4a82feda5711b3df703f28b3c34c8: 'Google Home'
-        25fffe50b5872e7213fa8b5151e890bf9d25689a: 'iMac'
 
   - platform: samsung_multi_room
     name: "Soundbar"
@@ -225,20 +246,6 @@ media_extractor:
 input_text:
   text_bar:
     name: text bar
-    
-input_number:
-  spotify_volume:
-    name: Volume
-    icon: mdi:volume-high
-    initial: 8
-    min: 0
-    max: 25
-    step: 1
-
-input_boolean:
-  spotify_shuffle:
-    name: Shuffle
-    icon: mdi:shuffle-variant
 
 sabnzbd:
   api_key: !secret sabnzbd_api
@@ -261,28 +268,6 @@ sabnzbd:
 ifttt:
   key: !secret ifttt_api
 
-
-plant:
-  Pachira Aquatica:
-    sensors:
-      moisture: sensor.pachira_aquatica_mqtt_moisture
-      battery: sensor.pachira_aquatica_mqtt_battery
-      temperature: sensor.pachira_aquatica_mqtt_temperature
-      conductivity: sensor.pachira_aquatica_mqtt_conductivity
-      brightness: sensor.pachira_aquatica_mqtt_brightness
-    min_moisture: 15
-    min_conductivity: 100
-    
-  Howea Forsteriana:
-    sensors:
-      moisture: sensor.howea_forsteriana_mqtt_moisture
-      battery: sensor.howea_forsteriana_mqtt_battery
-      temperature: sensor.howea_forsteriana_mqtt_temperature
-      conductivity: sensor.howea_forsteriana_mqtt_conductivity
-      brightness: sensor.howea_forsteriana_mqtt_brightness
-    min_moisture: 15
-    min_conductivity: 100
-
 notify:
   - name: Google Assistant Broadcast Message
     platform: rest
@@ -291,36 +276,17 @@ notify:
   - name: Google Assistant Command
     platform: rest
     resource: !secret google_assistant_command 
-    
+
 counter: 
   brievenbus:
     initial: 0
     step: 1
     icon: mdi:mailbox
 
-  played_by:
-    initial: 0
-    step: 1
-    icon: mdi:numeric-0-circle
-  
-  blank_red:
-    initial: 0
-    step: 1
-    icon: mdi:numeric-0-circle
-
-  yy:
-    initial: 0
-    step: 1
-    icon: mdi:numeric-0-circle
-  
-  mic_rodance:
-    initial: 0
-    step: 1
-    icon: mdi:numeric-0-circle
-
 
 
 ###################
+plant: !include plants.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
