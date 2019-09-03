@@ -1,0 +1,11 @@
+# Turn ComfoFanS off when the humidity in the bathroom drops below 80%
+
+- alias: comfofans off humidity
+  trigger:
+  - below: '80'
+    entity_id: sensor.aqara_humidity_1
+    platform: numeric_state
+
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.newkaku_01d610ee_1

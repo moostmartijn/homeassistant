@@ -1,0 +1,17 @@
+# Receive an iOS notification when receiving new mail
+
+- alias: ios new mail
+  trigger:
+  - entity_id: binary_sensor.openclose_14
+    platform: state
+    to: 'on'
+
+  action:
+  - service: notify.ios_iphone_van_martijn
+    data:
+      title: Brievenbus
+      message: Je hebt een poststuk ontvangen.
+      data:
+        attachment:
+          content-type: png
+          url: https://moostmartijn.duckdns.org/local/images/brievenbus.png

@@ -1,0 +1,17 @@
+# Let Google Home broadcast a message when mail is received
+
+- alias: google home broadcast new mail
+  trigger:
+  - entity_id: binary_sensor.openclose_14
+    platform: state
+    to: 'on'
+
+  condition:
+  - condition: state
+    entity_id: group.all_devices
+    state: home
+    
+  action:
+  - data_template:
+      message: Attentie. Attentie. Er is een poststuk in de brievenbus gedaan!
+    service: notify.google_assistant_broadcast_message

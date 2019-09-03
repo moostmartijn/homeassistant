@@ -1,0 +1,14 @@
+# Turn off the soundbar when pick-up player is turned off
+
+- alias: soundbar off platenspeler off
+
+  trigger:
+  - platform: state
+    entity_id: switch.newkaku_01d610ee_2
+    from: 'on'
+    to: 'off'
+
+  action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.soundbar_2

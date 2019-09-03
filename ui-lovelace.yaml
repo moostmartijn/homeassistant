@@ -785,6 +785,8 @@ views:
               name: Googletranslate TTS wanneer wasmachine klaar is    
             - entity: automation.tv_on_tv_lights
               name: TV on = TV lights 80 brightness 
+            - entity: automation.snapshot_wanneer_deurbel_drukknop_naar_on
+              name: Snapshot wanneer deurbel
 
         - type: entities
           title: Last Downloaded SabNZBD

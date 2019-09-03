@@ -1,0 +1,36 @@
+# Send an iOS notification with a snapshot of someone who is in front of the door and pushed the doorbell button
+
+- alias: ios snapshot doorbell
+
+  trigger:
+  - entity_id: binary_sensor.doorbell_button
+    platform: state
+    from: 'off'
+    to: 'on'
+
+  action:
+  - delay: 00:00:06
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.voordeur_camera_deurbel
+      filename: '/config/www/snapshots/deurbel_{{ now ().day }}_{{ now ().month }}_{{ now ().hour }}_{{ now ().minute }}.jpg'
+
+  - delay: 00:00:01
+
+  - service: notify.ios_iphone_van_martijn
+    data_template:
+      title: Deurbel
+      message: Er stond om {{now().strftime('%H:%M')}} iemand voor de deur!
+      data:
+        attachment:
+          content-type: jpg
+          url: 'https://moostmartijn.duckdns.org/local/snapshots/deurbel_{{ now ().day }}_{{ now ().month }}_{{ now ().hour }}_{{ now ().minute }}.jpg'
+          hide-thumbnail: false 
+
+  - delay: 00:00:01
+  
+  - service: camera.local_file_update_file_path
+    data_template:
+      entity_id: camera.local_file
+      file_path: '/config/www/snapshots/deurbel_{{ now ().day }}_{{ now ().month }}_{{ now ().hour }}_{{ now ().minute }}.jpg'

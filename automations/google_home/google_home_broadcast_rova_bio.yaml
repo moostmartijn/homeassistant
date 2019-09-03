@@ -1,0 +1,20 @@
+# Let Google Home broadcast a message the day before the bio waste is collected
+
+- alias: google home broadcast rova bio
+  trigger:
+  - at: '20:30:00'
+    platform: time
+
+  condition:
+  - condition: template
+    value_template: '{% if (as_timestamp(states(''sensor.rova_bio'')) - as_timestamp(now()))
+      < 43200 %}true{% endif %}'
+  - condition: template
+    value_template: '{% if (as_timestamp(states(''sensor.rova_bio'')) - as_timestamp(now()))
+      > 0 %}true{% endif %}'
+      
+  action:
+  - data_template:
+      message: Attentie. Attentie. Morgen wordt de groene container leeg gehaald!
+        Vergeet niet de container aan de kant van de straat te zetten.
+    service: notify.google_assistant_broadcast_message

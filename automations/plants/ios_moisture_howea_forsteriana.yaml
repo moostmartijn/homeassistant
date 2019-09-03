@@ -1,0 +1,18 @@
+# Send iOS notification when moisture of Howea Forsteriana is 20% or lower
+
+- alias: ios moisture howea forsteriana
+  trigger:
+  - entity_id: person.martijn
+    event: enter
+    platform: zone
+    zone: zone.home
+
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.howea_forsteriana_mqtt_moisture
+    below: '21'
+
+  action:
+  - service: notify.ios_iphone_van_martijn
+    data:
+      message: Geef de Howea Forsteriana water! Het vochtgehalte van de grond is 20% of lager.

@@ -1,0 +1,20 @@
+# Let Google Home play a sound when someone pushes the doorbell button
+
+- alias: google home sound doorbell
+
+  trigger:
+  - entity_id: binary_sensor.doorbell_button
+    platform: state
+    to: 'on'
+
+  condition:
+  - condition: state
+    entity_id: group.all_devices
+    state: home
+    
+  action:
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.woonkamer
+      media_content_id: https://moostmartijn.duckdns.org/local/audio/classic-doorbell.mp3
+      media_content_type: music

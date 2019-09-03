@@ -1,0 +1,11 @@
+# Increase the counter.brievenbus when receiving new mail
+
+- alias: mailbox counter increment
+  trigger:
+  - entity_id: binary_sensor.openclose_14
+    platform: state
+    to: 'on'
+
+  action:
+  - service: counter.increment
+    entity_id: all

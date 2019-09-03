@@ -192,8 +192,6 @@ logger:
     homeassistant.setup: error
     homeassistant.components.binary_sensor: error
 
-intent_script: !include intent.yaml
-
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
@@ -288,7 +286,8 @@ counter:
 ###################
 plant: !include plants.yaml
 group: !include groups.yaml
-automation: !include automations.yaml
+#automation: !include automations.yaml
+automation: !include_dir_merge_list automations
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 input_select: !include input_select.yaml 

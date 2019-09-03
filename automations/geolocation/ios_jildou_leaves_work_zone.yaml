@@ -1,0 +1,13 @@
+# Send an iOS notification when Jildou comes home from work
+
+- alias: ios jildou leaves work zone
+  trigger:
+  - entity_id: person.jildou
+    event: leave
+    platform: zone
+    zone: zone.werk_2
+
+  action:
+  - data:
+      message: Jildou vertrekt vanaf het Deventer Ziekenhuis naar huis
+    service: notify.ios_iphone_van_martijn

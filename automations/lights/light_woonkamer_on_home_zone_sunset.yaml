@@ -1,0 +1,24 @@
+# Turn on the lights if someone comes home 30 minutes before sunset or later
+
+- alias: light.woonkamer on home zone sunset
+  trigger:
+  - entity_id: person.jildou
+    event: enter
+    platform: zone
+    zone: zone.home
+  - entity_id: person.martijn
+    event: enter
+    platform: zone
+    zone: zone.home
+
+  condition:
+  - after: sunset
+    after_offset: -00:30:00
+    condition: sun
+
+  action:
+  - data:
+      brightness: 120
+      transition: 10
+    entity_id: light.woonkamer
+    service: light.turn_on

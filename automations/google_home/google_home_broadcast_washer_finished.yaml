@@ -1,0 +1,13 @@
+# Let Google Home broadcast a message when the washer finished
+
+- alias: google home broadcast washer finished
+  trigger:
+  - entity_id: sensor.wasmachine_washer_machine_state
+    from: run
+    platform: state
+    to: stop
+
+  action:
+  - service: notify.google_assistant_broadcast_message
+    data_template:
+      message: Attentie. Attentie. De wasmachine heeft zijn programma voltooid.

@@ -1,0 +1,24 @@
+# Upload all snapshots to Dropbox everyday at 03:00
+
+- alias: snapshot daily dropbox upload
+  trigger:
+  - at: 03:00
+    platform: time
+
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    - sun
+    
+  action:
+  - data:
+      addon: 7be23ff5_dropbox_sync
+      input:
+        command: upload
+    service: hassio.addon_stdin

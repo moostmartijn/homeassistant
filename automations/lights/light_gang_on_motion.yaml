@@ -1,0 +1,16 @@
+# Turn on light.gang when motion is detected
+
+- alias: light gang on motion
+  trigger:
+  - entity_id: binary_sensor.motion_sensor_gang
+    platform: state
+    to: 'on'
+
+  condition:
+  - after: sunset
+    after_offset: -00:45:00
+    condition: sun
+    
+  action:
+  - entity_id: light.gang
+    service: light.turn_on

@@ -1,0 +1,10 @@
+# Reset brievenbus.counter at 00:00 everyday
+
+- alias: mailbox counter reset
+  trigger:
+  - at: 00:00
+    platform: time
+
+  action:
+  - service: counter.reset
+    entity_id: all

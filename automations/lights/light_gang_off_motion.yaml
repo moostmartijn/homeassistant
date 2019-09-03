@@ -1,0 +1,11 @@
+# Turn of light.gang when no motion is detected for 1 minute
+
+- alias: light gang off motion
+  trigger:
+  - entity_id: binary_sensor.motion_sensor_gang
+    platform: state
+    to: 'off'
+
+  action:
+  - service: light.turn_off
+    entity_id: light.gang

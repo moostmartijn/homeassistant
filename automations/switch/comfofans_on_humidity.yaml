@@ -1,0 +1,12 @@
+# Turn on the ComfoFanS when the humidity in the bathroom is 80% or higher
+
+- alias: comfofans on humidity
+
+  trigger:
+  - above: '80'
+    entity_id: sensor.aqara_humidity_1
+    platform: numeric_state
+
+  action:
+    service: light.turn_on
+    entity_id: light.newkaku_01d610ee_1

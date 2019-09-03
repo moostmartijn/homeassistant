@@ -1,0 +1,13 @@
+# Turn off lights.wc when no motion for 3 minutes
+
+- alias: light.wc off motion 
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_wc
+    to: 'off'
+    for:
+      minutes: 3
+
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.wc

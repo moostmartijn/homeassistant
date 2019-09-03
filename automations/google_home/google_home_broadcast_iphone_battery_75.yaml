@@ -1,0 +1,25 @@
+# Let Google Home broadcast a message when the battery of iPhone is 75% or higher
+
+- alias: google home broadcast iphone battery 75
+  trigger:
+  - above: '74'
+    below: '99'
+    entity_id: sensor.life360_martijn_batterij
+    platform: numeric_state
+
+  condition:
+  - condition: state
+    entity_id: sensor.life360_martijn_batterij_opladen
+    state: 'True'
+  - condition: zone
+    entity_id: person.martijn
+    zone: zone.home
+  - condition: time
+    after: '08:00:00'
+    before: '23:00:00'
+    
+  action:
+  - service: notify.google_assistant_broadcast_message
+    data_template:
+      message: Attentie attentie. De batterij van mijn iPhone is nu voor ongeveer
+        75% opgeladen.

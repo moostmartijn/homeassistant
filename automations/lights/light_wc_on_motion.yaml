@@ -1,0 +1,12 @@
+# Turn on light.wc when motion detected in WC
+
+- alias: light.wc on motion
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_wc
+    to: 'on'
+
+
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.wc

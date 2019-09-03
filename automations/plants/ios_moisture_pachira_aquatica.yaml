@@ -1,0 +1,18 @@
+# Send iOS notification when moisture of Pachira Aquatica is 16% or lower
+
+- alias: ios moisture pachira aquatica
+  trigger:
+  - entity_id: person.martijn
+    event: enter
+    platform: zone
+    zone: zone.home
+
+  condition:
+  - below: '16'
+    condition: numeric_state
+    entity_id: sensor.pachira_aquatica_mqtt_moisture
+    
+  action:
+  - service: notify.ios_iphone_van_martijn
+    data: 
+      message: Geef de Pachira Aquatica water! Het vochtgehalte 15% of lager.
