@@ -5,7 +5,7 @@
   trigger:
   - at: 03:00
     platform: time
-
+    
   condition:
   - condition: time
     weekday:
