@@ -1,6 +1,7 @@
 # Generate a full snapshot of Hassio everyday at 02:00
 
 - alias: snapshot daily
+
   trigger:
   - at: 02:00
     platform: time

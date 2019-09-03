@@ -1,6 +1,7 @@
 # Turn on light.woonkamer 30 minutes before sunset
 
 - alias: light.woonkamer on sunset
+
   trigger:
   - event: sunset
     offset: -00:30:00

@@ -1,6 +1,7 @@
 # Turn ComfoFanS off when the humidity in the bathroom drops below 80%
 
 - alias: comfofans off humidity
+
   trigger:
   - below: '80'
     entity_id: sensor.aqara_humidity_1

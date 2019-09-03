@@ -1,6 +1,7 @@
 # Upload all snapshots to Dropbox everyday at 03:00
 
 - alias: snapshot daily dropbox upload
+
   trigger:
   - at: 03:00
     platform: time

@@ -1,6 +1,7 @@
 # Send iOS notification when moisture of Pachira Aquatica is 16% or lower
 
 - alias: ios moisture pachira aquatica
+
   trigger:
   - entity_id: person.martijn
     event: enter

@@ -1,6 +1,7 @@
 # Let Google Home broadcast a message when the battery of iPhone is 75% or higher
 
 - alias: google home broadcast iphone battery 75
+
   trigger:
   - above: '74'
     below: '99'

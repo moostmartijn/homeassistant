@@ -1,6 +1,7 @@
 # Send an iOS notification when Jildou comes home from work
 
-- alias: ios jildou leaves work zone
+- alias: ios jildou leaves zone work
+
   trigger:
   - entity_id: person.jildou
     event: leave

@@ -1,6 +1,7 @@
 # # Let Google Home broadcast a message when the battery of iPhone is 100%
 
 - alias: google home broadcast iphone battery 100
+
   trigger:
   - above: '97'
     entity_id: sensor.life360_martijn_batterij

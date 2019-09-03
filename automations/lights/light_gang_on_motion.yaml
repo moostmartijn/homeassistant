@@ -1,6 +1,7 @@
 # Turn on light.gang when motion is detected
 
 - alias: light gang on motion
+
   trigger:
   - entity_id: binary_sensor.motion_sensor_gang
     platform: state

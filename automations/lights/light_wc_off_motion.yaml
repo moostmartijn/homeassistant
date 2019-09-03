@@ -1,6 +1,7 @@
 # Turn off lights.wc when no motion for 3 minutes
 
 - alias: light.wc off motion 
+
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_wc

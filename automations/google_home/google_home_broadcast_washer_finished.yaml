@@ -1,6 +1,7 @@
 # Let Google Home broadcast a message when the washer finished
 
 - alias: google home broadcast washer finished
+
   trigger:
   - entity_id: sensor.wasmachine_washer_machine_state
     from: run

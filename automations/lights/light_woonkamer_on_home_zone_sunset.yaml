@@ -1,6 +1,7 @@
 # Turn on the lights if someone comes home 30 minutes before sunset or later
 
 - alias: light.woonkamer on home zone sunset
+
   trigger:
   - entity_id: person.jildou
     event: enter
@@ -17,8 +18,9 @@
     condition: sun
 
   action:
-  - data:
+  - service: light.turn_on
+    entity_id: light.woonkamer  
+    data:
       brightness: 120
       transition: 10
-    entity_id: light.woonkamer
-    service: light.turn_on
+    
