@@ -15,7 +15,7 @@
         arg: eth0
       - type: ipv4_address
       - type: processor_use
-
+      
   - platform: uptime
 
   - platform: version
