@@ -1,0 +1,11 @@
+# Play radio stations fav1 on soundbar 
+
+- alias: radio soundbar fav1
+
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Radio 10
+
+  action:
+  - service: shell_command.soundbar_radio_fav1
