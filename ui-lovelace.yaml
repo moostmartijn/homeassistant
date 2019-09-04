@@ -771,22 +771,6 @@ views:
           entities:
             - entity:  automation.google_home_speelt_geluid_af_wanneer_iemand_voor_de_deur_staat
               name: Google Home speelt geluid af wanneer iemand op de bel drukt
-            - entity: automation.batterij_iphone_100_opgeladen
-              name: iPhone batterij 100% - TTS via Google Home
-            - entity: automation.lichten_aan_in_de_woonkamer_een_half_uur_voor_zonsondergang
-              name: Lichten aan 45 minuten voor zonsondergang
-            - entity: automation.tv_on_tv_lights
-              name: Brightness lichten 80 wanneer TV aan gaat
-            - entity: automation.brievenbus_1
-              name: Brievenbus +1
-            - entity: automation.broadcast_message_google_home_wanneer_brievenbus_1
-              name: Broadcast message Google Home wanneer brievenbus +1
-            - entity: automation.googletranslate_tts_wanneer_wasmachine_klaar_is   
-              name: Googletranslate TTS wanneer wasmachine klaar is    
-            - entity: automation.tv_on_tv_lights
-              name: TV on = TV lights 80 brightness 
-            - entity: automation.snapshot_wanneer_deurbel_drukknop_naar_on
-              name: Snapshot wanneer deurbel
 
         - type: entities
           title: Last Downloaded SabNZBD
