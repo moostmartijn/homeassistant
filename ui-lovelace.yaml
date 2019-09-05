@@ -794,4 +794,7 @@ views:
             maxDaysToShow: 7  
           - entity: calendar.contacts
           - entity: calendar.feestdagen_in_nederland
+        
+        - type: media-control
+          entity: media_player.samsung_smart_tv
 

@@ -16,6 +16,9 @@ homeassistant:
 
 map:
 
+smartir:
+  update_branch: rc
+
 mqtt:
   broker: !secret mqtt_broker
   port: !secret mqtt_port
@@ -123,6 +126,10 @@ switch:
     devices:
       newkaku_01d610ee_2: {}
 
+  - platform: broadlink
+    host: 192.168.178.32
+    mac: 'C8:F7:42:75:26:93'
+
 camera:
   - platform: buienradar
     name: Buienradar
@@ -226,6 +233,13 @@ media_player:
     host: !secret host_soundbar
     max_volume: 20
     power_options: True
+
+  - platform: smartir
+    name: Samsung Smart TV
+    unique_id: samsung_smart_tv
+    device_code: 1060
+    controller_data: 192.168.178.32
+    power_sensor: binary_sensor.samsung_tv_ping
 
 shell_command:
   soundbar_radio_fav1: !secret soundbar_radio_fav1
