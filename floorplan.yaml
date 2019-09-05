@@ -13,7 +13,7 @@
 
       groups:
 
-        - name: Sensors          
+        - name: Sensors           
           entities:       
              -  sensor.dark_sky_temperature  
           #text_template: '${entity.state ? entity.state : "unknown"}'
