@@ -1,0 +1,9 @@
+woonkamer_hue_scene_bijna_bij_de_machu_picchu:
+
+  alias: Bijna bij de Machu Picchu (Woonkamer)
+  
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Woonkamer
+      scene_name: Bijna bij de machu picchu

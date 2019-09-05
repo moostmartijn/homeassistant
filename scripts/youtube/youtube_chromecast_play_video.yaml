@@ -1,0 +1,16 @@
+youtube_video:
+
+  alias: "Play selected Youtube video"
+  
+  sequence:
+    - service: media_extractor.play_media
+      data_template:
+        entity_id: media_player.chromecast
+        media_content_type: video
+        media_content_id: >
+          {% if is_state("input_select.youtube_video", "MANDAR in The Lab LDN") %} https://www.youtube.com/watch?v=3zWV-r8I3pA&t=1s
+          {% elif is_state("input_select.youtube_video", "Mihai Pol - Playedby podcast 29") %} https://www.youtube.com/watch?v=02GD1aCghzQ&feature=youtu.be
+          {% elif is_state("input_select.youtube_video", "Archie Hamilton @ Platform 18 (Attic Room Sessions)") %} https://www.youtube.com/watch?v=7VntYFjLLns        
+          {% elif is_state("input_select.youtube_video", "Barac at Mioritmic Festival, Cluj Napoca Romania") %} https://www.youtube.com/watch?v=T92xtvU4WRc  
+          {% elif is_state("input_select.youtube_video", "Archie Hamilton @ Platform 18 (Attic Room Sessions)") %} https://www.youtube.com/watch?v=7VntYFjLLns                                      
+          {% endif %}

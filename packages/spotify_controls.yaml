@@ -74,3 +74,50 @@ automation:
       data_template:
         option: '{{  states.sensor.spotify_source.state  }}'
     id: 1e8245e5b8d04e42a999c90a7e721f4f
+
+    script:
+      spotify_music:
+        alias: "Play selected Spotify playlist"
+        sequence:
+          - service: media_player.select_source
+            data_template: 
+              entity_id: media_player.spotify
+              source: >
+                {% if is_state("input_select.spotify_source", "Soundbar") %} Soundbar
+                {% elif is_state("input_select.spotify_source", "iMac") %} iMac
+                {% elif is_state("input_select.spotify_source", "Hass.io") %} Hass.io
+                {% elif is_state("input_select.spotify_source", "iPhone van Martijn") %} iPhone van Martijn
+                {% elif is_state("input_select.spotify_source", "Google Home") %} Google Home                   
+                {% endif %}
+          - service: media_player.play_media
+            data_template:
+              entity_id: media_player.spotify
+              media_content_type: playlist
+              media_content_id: >
+                {% if is_state("input_select.spotify_playlist", "Party") %} spotify:playlist:05xxVV8jrXNrhxI0afOv5N
+                {% elif is_state("input_select.spotify_playlist", "Fleetwood Mac") %} spotify:playlist:3QwacY2c8gZKSHfxnHFoTk
+                {% elif is_state("input_select.spotify_playlist", "Reggae") %} spotify:playlist:7BtlAY7pqPSFFF1MAZWpem
+                {% elif is_state("input_select.spotify_playlist", "Disco") %} spotify:playlist:0gvE0cOT49HbfgTTVn4spG
+                {% elif is_state("input_select.spotify_playlist", "Discover weekly") %} spotify:playlist:37i9dQZEVXcXFPiktD5mG7
+                {% elif is_state("input_select.spotify_playlist", "Classics") %} spotify:playlist:2K2juaYugwZOlBJOEqnVGB
+                {% elif is_state("input_select.spotify_playlist", "IFTTT / Home Assistant") %} spotify:playlist:5lNUb8LFAznS25SHHainql
+                {% elif is_state("input_select.spotify_playlist", "Release radar") %} spotify:playlist:37i9dQZEVXbwbVpIPOqJbm
+                {% elif is_state("input_select.spotify_playlist", "Selectie Kitchen") %} spotify:playlist:7IFEnn71pVR3ty2nS1ZVSr
+                {% elif is_state("input_select.spotify_playlist", "Minimal") %} spotify:playlist:42fLArrevPVbMIIjzTFBiA 
+                {% elif is_state("input_select.spotify_playlist", "House") %} spotify:playlist:6rXasCrrT51lnSdQnCflwO 
+                {% elif is_state("input_select.spotify_playlist", "Techno") %} spotify:playlist:7x83thDDudoQCGWxb6WRUJ   
+                {% elif is_state("input_select.spotify_playlist", "Dub Techno") %} spotify:playlist:3uR3d6DkC1cbTPgEEu36Tm   
+                {% elif is_state("input_select.spotify_playlist", "Pop") %} spotify:playlist:0KfJmDttXOwLb9pXvzB4LV  
+                {% elif is_state("input_select.spotify_playlist", "Guilty pleasures") %} spotify:playlist:0fGCThIvR5SIyx5WVp54Qg                                                                                 
+                {% endif %}
+
+
+      add_to_specific_playlist:
+        alias: Add Spotify track to party playlist
+        sequence:
+          - service: ifttt.trigger
+            data_template: 
+              event: "add_to_specific_playlist"
+              value1: "{{ states.media_player.spotify.attributes.media_artist }}"
+              value2: "{{ states.media_player.spotify.attributes.media_title }}"
+              value3: "{{ states.input_select.spotify_playlist.state }}"

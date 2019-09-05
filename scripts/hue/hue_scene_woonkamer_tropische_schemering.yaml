@@ -1,0 +1,9 @@
+woonkamer_hue_scene_tropische_schemering:
+
+  alias: Hue Scene Tropische schemering (Woonkamer)
+  
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Woonkamer
+      scene_name: Tropische schemering
