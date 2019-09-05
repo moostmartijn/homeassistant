@@ -18,6 +18,7 @@ www
 ._home-assistant.log
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+._*
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
