@@ -192,40 +192,40 @@
 #  - service: notify.google_assistant_broadcast_message
 #    data_template:
 #      message: Attentie. Attentie. De wasmachine heeft zijn programma voltooid.
-- id: '1563384253797'
-  alias: 'iOS notificatie: Batterij Apparaten beneden 5%'
-  trigger:
-  - below: '5'
-    entity_id: sensor.aqara_battery_1
-    platform: numeric_state
-  - below: '5'
-    entity_id: sensor.aqara_battery_2
-    platform: numeric_state
-  - below: '5'
-    entity_id: sensor.aqara_battery_3
-    platform: numeric_state
-  - below: '5'
-    entity_id: sensor.howea_forsteriana_mqtt_battery
-    platform: numeric_state
-  - below: '5'
-    entity_id: sensor.pachira_aquatica_mqtt_battery
-    platform: numeric_state
-  - below: '5'
-    entity_id: sensor.motion_sensor_battery_level
-    platform: numeric_state
-  - below: '5'
-    entity_id: sensor.motion_sensor2_battery_level
-    platform: numeric_state
-  - below: '5'
-    entity_id: sensor.window_door_sensor_battery_level
-    platform: numeric_state
-  condition: []
-  action:
-  - data:
-      message: 'Device ''{{ trigger.to_state.name }}'' has CRITICAL battery: {{ trigger.to_state.state
-        }}%. Batterij niveau beneden de 5%!'
-      title: Vervang de batterij!
-    service: notify.ios_iphone_van_martijn
+#- id: '1563384253797'
+#  alias: 'iOS notificatie: Batterij Apparaten beneden 5%'
+#  trigger:
+#  - below: '5'
+#    entity_id: sensor.aqara_battery_1
+#    platform: numeric_state
+#  - below: '5'
+#    entity_id: sensor.aqara_battery_2
+#    platform: numeric_state
+#  - below: '5'
+#    entity_id: sensor.aqara_battery_3
+#    platform: numeric_state
+#  - below: '5'
+#    entity_id: sensor.howea_forsteriana_mqtt_battery
+#    platform: numeric_state
+#  - below: '5'
+#    entity_id: sensor.pachira_aquatica_mqtt_battery
+#    platform: numeric_state
+#  - below: '5'
+#    entity_id: sensor.motion_sensor_battery_level
+#    platform: numeric_state
+#  - below: '5'
+#    entity_id: sensor.motion_sensor2_battery_level
+#    platform: numeric_state
+#  - below: '5'
+#    entity_id: sensor.window_door_sensor_battery_level
+#    platform: numeric_state
+#  condition: []
+#  action:
+#  - data:
+#      message: 'Device ''{{ trigger.to_state.name }}'' has CRITICAL battery: {{ trigger.to_state.state
+#        }}%. Batterij niveau beneden de 5%!'
+#      title: Vervang de batterij!
+#    service: notify.ios_iphone_van_martijn
 - id: '1563392538020'
   alias: TV on = TV lights
   trigger:
@@ -299,127 +299,127 @@
 #  action:
 #  - service: light.turn_off
 #    entity_id: light.gang
-- id: '1563637461631'
-  alias: Radio Soundbar fav 1
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Radio 10
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_fav1
-- id: '1563637806654'
-  alias: Radio Soundbar fav 2
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Radio Veronica
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_fav2
-- id: '1563638018088'
-  alias: Radio Soundbar fav 3
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Qmusic
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_fav3
-- id: '1563638086795'
-  alias: Radio soundbar uit
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Soundbar uit
-  condition: []
-  action:
-  - service: media_player.turn_off
-    entity_id: media_player.soundbar_2
-- id: '1563640474355'
-  alias: Radio Soundbar radio 1
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: NPO 3FM
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_1
-- id: '1563640545749'
-  alias: Radio soundbar radio 2
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Skyradio
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_2
-- id: '1563644547326'
-  alias: Radio soundbar radio 3
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Qmusic - Het Foute Uur
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_3
-- id: '1563644616076'
-  alias: Radio soundbar radio 4
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Radio 10 - Disco Classics
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_4
-- id: '1563707914071'
-  alias: Radio soundbar radio 5 - Radio 10 - Guilty Pleasures
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Radio 10 - Guilty Pleasures
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_5
-- id: '1563708013671'
-  alias: Radio soundbar radio 6 - Radio 538
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Radio 538
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_6
-- id: '1563708884809'
-  alias: Radio soundbar radio 7 - Radio 538
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: NPO Radio 2
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_7
-- id: '1563708924095'
-  alias: Radio soundbar radio 8 - Radio 10 - 80's Hits
-  trigger:
-  - entity_id: input_select.radio_soundbar
-    platform: state
-    to: Radio 10 - 80's Hits
-  condition: []
-  action:
-  - service: shell_command.soundbar_radio_8
-- id: '1563717823204'
-  alias: input select naar - maak een keuze - wanneer de Soundbar uit gaat
-  trigger:
-  - entity_id: media_player.soundbar_2
-    platform: state
-    to: 'off'
-  condition: []
-  action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.radio_soundbar
-      option: Maak een keuze
+#- id: '1563637461631'
+#  alias: Radio Soundbar fav 1
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Radio 10
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_fav1
+#- id: '1563637806654'
+#  alias: Radio Soundbar fav 2
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Radio Veronica
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_fav2
+#- id: '1563638018088'
+#  alias: Radio Soundbar fav 3
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Qmusic
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_fav3
+#- id: '1563638086795'
+#  alias: Radio soundbar uit
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Soundbar uit
+#  condition: []
+#  action:
+#  - service: media_player.turn_off
+#    entity_id: media_player.soundbar_2
+#- id: '1563640474355'
+#  alias: Radio Soundbar radio 1
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: NPO 3FM
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_1
+#- id: '1563640545749'
+#  alias: Radio soundbar radio 2
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Skyradio
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_2
+#- id: '1563644547326'
+#  alias: Radio soundbar radio 3
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Qmusic - Het Foute Uur
+# condition: []
+# action:
+#  - service: shell_command.soundbar_radio_3
+#- id: '1563644616076'
+#  alias: Radio soundbar radio 4
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Radio 10 - Disco Classics
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_4
+#- id: '1563707914071'
+#  alias: Radio soundbar radio 5 - Radio 10 - Guilty Pleasures
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Radio 10 - Guilty Pleasures
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_5
+#- id: '1563708013671'
+#  alias: Radio soundbar radio 6 - Radio 538
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Radio 538
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_6
+#- id: '1563708884809'
+#  alias: Radio soundbar radio 7 - Radio 538
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: NPO Radio 2
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_7
+#- id: '1563708924095'
+#  alias: Radio soundbar radio 8 - Radio 10 - 80's Hits
+#  trigger:
+#  - entity_id: input_select.radio_soundbar
+#    platform: state
+#    to: Radio 10 - 80's Hits
+#  condition: []
+#  action:
+#  - service: shell_command.soundbar_radio_8
+#- id: '1563717823204'
+#  alias: input select naar - maak een keuze - wanneer de Soundbar uit gaat
+#  trigger:
+#  - entity_id: media_player.soundbar_2
+#    platform: state
+#    to: 'off'
+#  condition: []
+#  action:
+#  - service: input_select.select_option
+#    data:
+#      entity_id: input_select.radio_soundbar
+#      option: Maak een keuze
 #- id: rova-garbage-bio-reminder
 #  alias: Rova bio container gehaald
 #  trigger:
@@ -457,38 +457,38 @@
 #      message: Attentie. Attentie. Morgen wordt de papier container leeg gehaald!
 #        Vergeet niet de container aan de kant van de straat te zetten.
 #    service: notify.google_assistant_broadcast_message
-- id: rpi_power_issue
-  alias: Power Problem Notification
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.rpi_power_status
-    value_template: '{{ state.attributes.value }}'
-    above: 0
-    for:
-      minutes: 5
-  condition:
-  action:
-  - service: persistent_notification.create
-    data_template:
-      message: 'RPI Power reported {{ states.sensor.rpi_power_status.state }}. The
-        state had changed from {{ trigger.from_state.state }} '
-      title: Power Supply Issue
-  - service: notify.ios_iphone_van_martijn
-    data_template:
-      message: RPI Power reported {{ states.sensor.rpi_power_status.state }}. The
-        state had  changed from {{ trigger.from_state.state }}
-      title: Power Supply Issue
-- id: '1563910893213'
-  alias: Nieuwe update available
-  trigger:
-  - platform: state
-    entity_id: sensor.latest_version
-  condition: []
-  action:
-  - data:
-      message: Version {{ states.sensor.latest_version.state }} is available!
-      title: Nieuwe update Home Assistant beschikbaar
-    service: notify.ios_iphone_van_martijn
+#- id: rpi_power_issue
+#  alias: Power Problem Notification
+#  trigger:
+#  - platform: numeric_state
+#    entity_id: sensor.rpi_power_status
+#    value_template: '{{ state.attributes.value }}'
+#    above: 0
+#    for:
+#      minutes: 5
+#  condition:
+#  action:
+#  - service: persistent_notification.create
+#    data_template:
+#      message: 'RPI Power reported {{ states.sensor.rpi_power_status.state }}. The
+#        state had changed from {{ trigger.from_state.state }} '
+#      title: Power Supply Issue
+#  - service: notify.ios_iphone_van_martijn
+#    data_template:
+#      message: RPI Power reported {{ states.sensor.rpi_power_status.state }}. The
+#        state had  changed from {{ trigger.from_state.state }}
+#      title: Power Supply Issue
+#- id: '1563910893213'
+#  alias: Nieuwe update available
+#  trigger:
+#  - platform: state
+#    entity_id: sensor.latest_version
+#  condition: []
+#  action:
+#  - data:
+#      message: Version {{ states.sensor.latest_version.state }} is available!
+#      title: Nieuwe update Home Assistant beschikbaar
+#    service: notify.ios_iphone_van_martijn
 #- id: '1564235311997'
 #  alias: Brievenbus +1
 #  trigger:
@@ -554,34 +554,6 @@
 #      entity_id: media_player.woonkamer
 #      media_content_id: https://moostmartijn.duckdns.org/local/audio/classic-doorbell.mp3
 #      media_content_type: music
-- id: '1566226431647'
-  alias: Google Home play empty sound when idle -> off
-  trigger:
-    platform: time_pattern
-    minutes: '/2'
-  condition:
-    - condition: and
-      conditions:
-        - condition: time
-          after: '09:00:00'
-          before: '23:00:00'  
-        - condition: state
-          entity_id: group.all_devices
-          state: 'home'
-    - condition: or
-      conditions:
-        - condition: state
-          entity_id: media_player.woonkamer
-          state: 'off'
-        - condition: state
-          entity_id: media_player.woonkamer
-          state: 'idle'
-  action:
-  - service: media_player.play_media
-    entity_id: media_player.woonkamer  
-    data:
-      media_content_id: https://moostmartijn.duckdns.org/local/audio/1-second-of-silence.mp3
-      media_content_type: music
 #- id: '1566414362777'
 #  alias: Snapshot wanneer deurbel drukknop naar ON
 #  trigger:

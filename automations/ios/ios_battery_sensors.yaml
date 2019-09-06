@@ -1,0 +1,35 @@
+# Send an iOS notification when the battery level of any sensor is 5% or lower
+
+- id: alias: 'iOS notificatie: Batterij Apparaten beneden 5%'
+  
+  trigger:
+  - below: '5'
+    entity_id: sensor.aqara_battery_1
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.aqara_battery_2
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.aqara_battery_3
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.howea_forsteriana_mqtt_battery
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.pachira_aquatica_mqtt_battery
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.motion_sensor_battery_level
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.motion_sensor2_battery_level
+    platform: numeric_state
+  - below: '5'
+    entity_id: sensor.window_door_sensor_battery_level
+    platform: numeric_state
+
+  action:
+  - data:
+      message: 'Device ''{{ trigger.to_state.name }}'' has CRITICAL battery: {{ trigger.to_state.state }}%. Batterij niveau beneden de 5%!'
+      title: Vervang de batterij!
+    service: notify.ios_iphone_van_martijn

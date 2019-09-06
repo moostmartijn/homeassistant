@@ -1,0 +1,13 @@
+# Send an iOS notification when there is a new version of Home Assistant
+
+- alias: ios update home assistant
+
+  trigger:
+  - platform: state
+    entity_id: sensor.latest_version
+
+  action:
+  - data:
+      message: Version {{ states.sensor.latest_version.state }} is available!
+      title: Home Assistant update available!
+    service: notify.ios_iphone_van_martijn

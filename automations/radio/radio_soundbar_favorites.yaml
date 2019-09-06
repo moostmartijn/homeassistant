@@ -1,0 +1,112 @@
+# Play radio stations fav1 on soundbar 
+
+- alias: radio soundbar fav1
+
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Radio 10
+  action:
+  - service: shell_command.soundbar_radio_fav1
+
+- alias: radio soundbar fav2
+
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Radio Veronica
+  action:
+  - service: shell_command.soundbar_radio_fav2
+
+- alias: radio soundbar fav3
+  
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Qmusic
+  action:
+  - service: shell_command.soundbar_radio_fav3
+
+- alias: radio soundbar radio1
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: NPO 3FM
+  action:
+  - service: shell_command.soundbar_radio_1
+
+- alias: radio soundbar radio2
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Skyradio
+  action:
+  - service: shell_command.soundbar_radio_2
+
+- alias: radio soundbar radio3
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Qmusic - Het Foute Uur
+  action:
+  - service: shell_command.soundbar_radio_3
+
+- alias: radio soundbar radio4
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Radio 10 - Disco Classics
+  action:
+  - service: shell_command.soundbar_radio_4
+
+- alias: radio soundbar radio5
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Radio 10 - Guilty Pleasures
+  action:
+  - service: shell_command.soundbar_radio_5
+
+- alias: radio soundbar radio6
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Radio 538
+  action:
+  - service: shell_command.soundbar_radio_6
+
+- alias: radio soundbar radio7
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: NPO Radio 2
+  action:
+  - service: shell_command.soundbar_radio_7
+
+- alias: radio soundbar raduio8
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Radio 10 - 80's Hits
+  action:
+  - service: shell_command.soundbar_radio_8
+
+- alias: radio soundbar input select maak een keuze
+  trigger:
+  - entity_id: media_player.soundbar_2
+    platform: state
+    to: 'off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.radio_soundbar
+      option: Maak een keuze
+
+- alias: radio soundbar input select soundbar off
+  trigger:
+  - entity_id: input_select.radio_soundbar
+    platform: state
+    to: Soundbar uit
+  action:
+  - service: media_player.turn_off
+    entity_id: media_player.soundbar_2

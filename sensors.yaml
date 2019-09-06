@@ -284,7 +284,7 @@
       aqara_battery_1:
 #        entity_id: sensor.aqara_temperature_1
         value_template: >
-          {{ states.sensor.aqara_temperature_1.attributes.battery_level }}
+          {{ state_attr('sensor.aqara_temperature_1' , 'battery_level') }}
         friendly_name: Badkamer sensor
         unit_of_measurement: '%'
         device_class: battery
@@ -292,7 +292,7 @@
       aqara_battery_2:
 #        entity_id: sensor.aqara_temperature_2
         value_template: >
-          {{ states.sensor.aqara_temperature_2.attributes.battery_level }}
+          {{ state_attr('sensor.aqara_temperature_2' , 'battery_level') }}
         friendly_name: Slaapkamer sensor
         unit_of_measurement: '%'
         device_class: battery
