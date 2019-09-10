@@ -1,0 +1,10 @@
+
+broadlink_samsungtv_netflix:
+  alias: "broadlink samsungtv netflix"
+  sequence:
+  - service: broadlink.send
+    data:
+      host: 192.168.178.33
+      packet:
+      - JgBIAAABxxxxxxxxxxxx==
+    

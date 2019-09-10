@@ -129,6 +129,21 @@ switch:
   - platform: broadlink
     host: 192.168.178.32
     mac: 'C8:F7:42:75:26:93'
+    timeout: 15
+    retry: 5
+    type: 'rm_mini'
+    switches:
+      broadlink_samsungtv:
+        friendly_name: "Samsung TV"
+        command_on: 'JgBGAJKVETkRORA6ERQRFBEUERQRFBE5ETkQOhAVEBUQFREUEBUQOhEUERQRORE5EBURFBA6EBUQOhE5EBUQFRA6EDoRFBEADQUAAA=='
+        command_off: 'JgBGAJWVEjgSOBI4EhISEhISEhISEhI4EjgSOBISEhISEhISEhISEhISEhISOBI4EhISEhI4EjgSOBI4EhISEhI4EjgSEhIABi0NBQ'
+
+  - platform: broadlink
+    host: 192.168.178.32
+    mac: 'C8:F7:42:75:26:93'
+    timeout: 30
+    friendly_name: "RM3 mini"
+    type: rm_mini
 
 camera:
   - platform: buienradar
@@ -180,11 +195,16 @@ google_assistant:
   expose_by_default: false
   exposed_domains:
     - switch
+    - script
   entity_config:
     switch.newkaku_01d610ee_2:
       expose: true
-
-
+    script.1567790333091:
+      name: Netflix
+      expose: true 
+    script.1567796599705:
+      name: Plex
+      expose: true 
 dialogflow:
 
 logger:
@@ -210,7 +230,6 @@ vacuum:
     password: !secret roomba_password
 
 ios:
-
 
 tts:
   - platform: google_translate
@@ -295,13 +314,14 @@ counter:
     step: 1
     icon: mdi:mailbox
 
-
+shopping_list:
 
 ###################
 plant: !include plants.yaml
 group: !include groups.yaml
 #automation: !include automations.yaml
 automation: !include_dir_merge_list automations
-script: !include_dir_merge_named scripts
+#script: !include_dir_merge_named scripts
+script: !include scripts.yaml
 sensor: !include sensors.yaml
 input_select: !include input_select.yaml 

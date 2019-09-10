@@ -1,0 +1,93 @@
+'1567790333091':
+  alias: broadlink samsungtv netflix
+  sequence:
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgBGAJKVETkRORA6ERQRFBEUERQRFBE5ETkQOhAVEBUQFREUEBUQOhEUERQRORE5EBURFBA6EBUQOhE5EBUQFRA6EDoRFBEADQUAAA
+    service: broadlink.send
+  - timeout: 00:00:04
+    wait_template: ''
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgCMAJaTFDYUNhM2FBEUERQRFBEUERM2FDYUNhQRFBETEhMRFBEUERQRFBEUNhMSEzYUNhMSEzcTNhQ2FBEUNhMSExEUNhQABgSVkxQ2FDYTNhQRFBEUERQRFBETNhQ2FDYUERQRExITERQRFBEUERQRFDYTEhM2FDYUERQ2EzYUNhQRFDYTEhMRFDYUAA0FAAAAAAAAAAAAAAAA
+    service: broadlink.send
+  - timeout: 00:00:02
+    wait_template: ''
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgCMAJaTFDYUNhM2FBEUERQRFBEUERM2FDYUNhQRFBETEhMRFBEUERQRFBEUNhMSEzYUNhMSEzcTNhQ2FBEUNhMSExEUNhQABgSVkxQ2FDYTNhQRFBEUERQRFBETNhQ2FDYUERQRExITERQRFBEUERQRFDYTEhM2FDYUERQ2EzYUNhQRFDYTEhMRFDYUAA0FAAAAAAAAAAAAAAAA
+    service: broadlink.send
+'1567796599705':
+  alias: broadlink samsungtv plex
+  sequence:
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgBGAJKVETkRORA6ERQRFBEUERQRFBE5ETkQOhAVEBUQFREUEBUQOhEUERQRORE5EBURFBA6EBUQOhE5EBUQFRA6EDoRFBEADQUAAA
+    service: broadlink.send
+  - timeout: 00:00:04
+    wait_template: ''
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgDSAI6VETkQORE4ERQRFBEUERQRExE5ETYTORETERQRFBEUERMRFBE5ERQQFBEUETkQOREUETgRFBE5EDkRORETERQROREABgGTlRE5EDkROBITERQRFBEUEBQRORE4ETkRFBAUERQRFBEUERMROREUERMRFBE5ETgRFBE4ERQRORE4ETkRFBAUETkRAAYCkpURORE4ETkRFBETERQRFBEUETgRORE4ERQRFBEUEBQRFBEUETgRFBEUERQROBE5ERMROREUETgRORE4ERQRFBE4EQANBQAAAAAAAA==
+    service: broadlink.send
+  - timeout: 00:00:03
+    wait_template: ''
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgCMAJaTFDYUNhM2FBEUERQRFBEUERM2FDYUNhQRFBETEhMRFBEUERQRFBEUNhMSEzYUNhMSEzcTNhQ2FBEUNhMSExEUNhQABgSVkxQ2FDYTNhQRFBEUERQRFBETNhQ2FDYUERQRExITERQRFBEUERQRFDYTEhM2FDYUERQ2EzYUNhQRFDYTEhMRFDYUAA0FAAAAAAAAAAAAAAAA
+    service: broadlink.send
+  - timeout: 00:00:10
+    wait_template: ''
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgCMAI6VETgRORE4ERQRFBEUERMRFBE5ETgRORAUERQRFBEUERMROREUETgRFBEUERMRFBEUERQROBEUETgSOBE4ETkSNxEABgKSlRE3EzgROREUEBQRFBEUERQQORE5EDkRFBEUEBQRFBEUEjcRFBE5EBQRFBEUERQQFBEUETgRFBE5ETgRORE4ETkRAA0FAAAAAAAAAAAAAAAA
+    service: broadlink.send
+  - timeout: 00:00:01
+    wait_template: ''
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgCMAI6VETgRORE4ERQRFBETERQRFBE4ETkROBEUERQRFBEUEBQRFBE5EDkRFBETERQRFBEUETgRFBEUETgRORE4ETkROBEABgGTlRE5ETgRORETERQRFBEUERMRORE4ETkRFBETERQRFBEUERMRORE4ERQRFBEUERMRFBE5EBQRFBE5ETgRORE4ETkQAA0FAAAAAAAAAAAAAAAA
+    service: broadlink.send
+  - timeout: 00:00:01
+    wait_template: ''
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgCMAI6VETkROBE5ERQRExEUERQRFBA5ETgROREUERMRFBEUERQRExEUERQROBEUERQRFBAUETkROBE5ERQQORE5EDkROBEABgKSlRE5ETgROREUEhIRFBEUERQROBE5ETgRFBEUERMRFBEUERQQFBEUETkRExEUERQRFBA5ETkQOREUETgRORE4ETkRAA0FAAAAAAAAAAAAAAAA
+    service: broadlink.send
+  - timeout: 00:00:01
+    wait_template: ''
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgDSAI+UEjcTNxI3ExISExISExITEhI3EzcSNxMSExISExISExITNhMSEzcSNxEUExISExAUExIRORAUExITNxI3EzcSNxMABgORkxM2EzcTNhMSExITEhETExIRORI3EzcSEhMSExITEhISEzcTEhI3EzcSEhMSExIRFBISETkTEhETEzcROBE5EjcTAAYBkZUTNxE4EzcTEhISExIRFBMSETgRORI3ERQRFBETExITEhE4ERQRORI3ExIRFBETERQRFBE4ExIRFBE4ETkSNxE5EgANBQAAAAAAAA==
+    service: broadlink.send
+'woonkamer_hue_scene_tropische_schemering':
+  alias: Tropische schemering
+  sequence:
+  - data:
+      group_name: Woonkamer
+      scene_name: Tropische schemering 
+    service: hue.hue_activate_scene
+'woonkamer_hue_scene_arctische_dageraad':
+  alias: Hue Scene Arctische dageraad (Woonkamer)
+  sequence:
+  - data:
+      group_name: Woonkamer
+      scene_name: Arctische dageraad
+    service: hue.hue_activate_scene
+'woonkamer_hue_scene_bijna_bij_de_machu_picchu':
+  alias: Bijna bij de Machu Picchu (Woonkamer)
+  sequence:
+  - data:
+      group_name: Woonkamer
+      scene_name: Bijna bij de machu picchu
+    service: hue.hue_activate_scene

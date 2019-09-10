@@ -1,6 +1,6 @@
 # Send an iOS notification when the battery level of any sensor is 5% or lower
 
-- id: alias: 'iOS notificatie: Batterij Apparaten beneden 5%'
+- alias: ios battery sensors
   
   trigger:
   - below: '5'

@@ -135,6 +135,9 @@
     home_zone: zone.thuis
     api_key: !secret email_jildou
 
+  - platform: command_line
+    name: shopping_list
+    command: python3 /config/shopping_list.py
 
 
 # TEMPLATE SENSORS

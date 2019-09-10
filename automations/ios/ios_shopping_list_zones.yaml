@@ -1,0 +1,19 @@
+# Send the shopping list items as an iOS notification when I enter the shop zones zone.jumbo and zone.albert_heijn
+
+- alias: ios shopping list zones
+
+  trigger:
+  - entity_id: person.martijn
+    event: enter
+    platform: zone
+    zone: zone.jumbo
+  - entity_id: person.martijn
+    event: enter
+    platform: zone
+    zone: zone.albert_heijn
+
+  action: 
+  - service: notify.ios_iphone_van_martijn
+    data_template:
+      message: '{{states.sensor.shopping_list.state}}'
+    

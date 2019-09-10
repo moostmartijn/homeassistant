@@ -1,7 +1,5 @@
 woonkamer_hue_scene_arctische_dageraad:
-
   alias: Hue Scene Arctische dageraad (Woonkamer)
-  
   sequence:
   - service: hue.hue_activate_scene
     data:

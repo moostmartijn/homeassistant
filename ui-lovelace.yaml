@@ -184,6 +184,9 @@ views:
             - type: custom:slider-entity-row
               entity: light.achter_de_bank
               toggle: true
+            - type: custom:slider-entity-row
+              entity: light.platenspeler
+              toggle: true              
             - type: section
               label: "KEUKEN"
             - type: custom:slider-entity-row
@@ -446,8 +449,53 @@ views:
               animate: true 
               align_icon: left
 
+# Tab 3 - Calendar
 
-# Tab 3 - Music
+- path: Calendar
+  title: Calendar
+  icon: 'mdi:calendar'
+  badges: []
+  cards: 
+
+    - type: vertical-stack
+      cards:
+
+        - type: picture-glance          
+          entities:
+            - camera.local_file
+          title: Wie stond er voor de deur?
+          camera_image: camera.local_file
+
+        - type: shopping-list
+          title: Shopping List  
+
+    - type: vertical-stack
+      cards:
+
+        - type: custom:reddit-card
+          header: Reddit
+          entities:
+            - sensor.reddit_homeassistant
+          max: 5
+
+    - type: vertical-stack
+      cards:
+
+
+        - type: "custom:atomic-calendar"
+          title: "Agenda"
+          maxDaysToShow: 7
+          showMonth: true      
+          entities:
+          - entity: calendar.moostmartijn_gmail_com
+            color: red
+          - entity: calendar.jildouvaneverdink_gmail_com
+            maxDaysToShow: 7  
+          - entity: calendar.contacts
+          - entity: calendar.feestdagen_in_nederland
+        
+
+# Tab 4 - Music
 
 - path: Music
   title: Music
@@ -499,6 +547,7 @@ views:
                 shuffle: false
 
 
+
         - type: custom:mini-media-player
           entity: media_player.soundbar_2
           icon: mdi:speaker
@@ -513,6 +562,16 @@ views:
             controls: true
             artwork_border: false
             runtime: false
+
+        - type: custom:mini-media-player
+          entity: media_player.samsung_smart_tv
+          icon: mdi:television
+          artwork: cover
+          hide:
+            volume: false
+            source: false
+            power_state: false
+
 
 
         - type: custom:mini-media-player
@@ -750,21 +809,6 @@ views:
 
     - type: vertical-stack
       cards:
-
-        - type: picture-glance          
-          entities:
-            - camera.local_file
-          title: Wie stond er voor de deur?
-          camera_image: camera.local_file
-
-        - type: custom:reddit-card
-          header: Reddit
-          entities:
-            - sensor.reddit_homeassistant
-          max: 5
-
-    - type: vertical-stack
-      cards:
         - type: entities
           title: Automations
           show_header_toggle: false
@@ -782,19 +826,4 @@ views:
             - entity: sensor.hacs
               name: HACS
 
-
-        - type: "custom:atomic-calendar"
-          title: "Agenda"
-          maxDaysToShow: 7
-          showMonth: true      
-          entities:
-          - entity: calendar.moostmartijn_gmail_com
-            color: red
-          - entity: calendar.jildouvaneverdink_gmail_com
-            maxDaysToShow: 7  
-          - entity: calendar.contacts
-          - entity: calendar.feestdagen_in_nederland
-        
-        - type: media-control
-          entity: media_player.samsung_smart_tv
 
