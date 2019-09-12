@@ -547,7 +547,6 @@ views:
                 shuffle: false
 
 
-
         - type: custom:mini-media-player
           entity: media_player.soundbar_2
           icon: mdi:speaker
@@ -567,12 +566,23 @@ views:
           entity: media_player.samsung_smart_tv
           icon: mdi:television
           artwork: cover
+          volume_stateless: true
+          toggle_power: false
           hide:
+            mute: false
             volume: false
             source: false
             power_state: false
-
-
+            controls: true
+            
+        - type: custom:mini-media-player
+          entity: media_player.mediabox_next
+          icon: mdi:set-top-box
+          artwork: cover
+          hide:
+            volume: true
+            source: false
+            power_state: false
 
         - type: custom:mini-media-player
           entity: media_player.chromecast
@@ -813,8 +823,22 @@ views:
           title: Automations
           show_header_toggle: false
           entities:
-            - entity:  automation.google_home_speelt_geluid_af_wanneer_iemand_voor_de_deur_staat
-              name: Google Home speelt geluid af wanneer iemand op de bel drukt
+            - entity: automation.google_home_broadcast_iphone_battery_75
+              name: Google Home broadcast - iPhone charged for 75%
+            - entity: automation.google_home_broadcast_iphone_battery_100
+              name: Google Home broadcast - iPhone charged for 100%
+            - entity: automation.google_home_broadcast_new_mail
+              name: Google Home broadcast - Received new mail
+            - entity: automation.google_home_broadcast_rova_bio
+              name: Google Home broadcast - Bio bin
+            - entity: automation.google_home_broadcast_rova_paper
+              name: Google Home broadcast - Paper bin 
+            - entity: automation.google_home_broadcast_washer_finished
+              name: Google Home broadcast - Washes is finished 
+            - entity: automation.google_home_sound_doorbell
+              name: Google Home sound - Doorbell
+            - entity: automation.ios_snapshot_doorbell
+              name: Service - Snapshot front door
 
         - type: entities
           title: Last Downloaded SabNZBD

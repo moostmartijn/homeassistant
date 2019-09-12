@@ -1,0 +1,14 @@
+# Turn off the soundbar when Samsungtv is turned off
+
+- alias: soundbar off samsungtv off
+
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.samsung_tv_ping
+    from: 'on'
+    to: 'off'
+
+  action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.soundbar_2

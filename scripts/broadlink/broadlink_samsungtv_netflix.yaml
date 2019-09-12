@@ -1,10 +1,32 @@
+'broadlink_netflix_start':
 
-broadlink_samsungtv_netflix:
-  alias: "broadlink samsungtv netflix"
+  alias: broadlink netflix start
+
   sequence:
   - service: broadlink.send
     data:
-      host: 192.168.178.33
+      host: 192.168.178.32
       packet:
-      - JgBIAAABxxxxxxxxxxxx==
+      # Power TV ON
+      - JgBGAJKVETkRORA6ERQRFBEUERQRFBE5ETkQOhAVEBUQFREUEBUQOhEUERQRORE5EBURFBA6EBUQOhE5EBUQFRA6EDoRFBEADQUAAA
+  
+  - delay: 00:00:01
+
+  - service: broadlink.send
+    data:
+      host: 192.168.178.32
+      packet:
+      # OK
+      - JgCMAJaTFDYUNhM2FBEUERQRFBEUERM2FDYUNhQRFBETEhMRFBEUERQRFBEUNhMSEzYUNhMSEzcTNhQ2FBEUNhMSExEUNhQABgSVkxQ2FDYTNhQRFBEUERQRFBETNhQ2FDYUERQRExITERQRFBEUERQRFDYTEhM2FDYUERQ2EzYUNhQRFDYTEhMRFDYUAA0FAAAAAAAAAAAAAAAA
+  
+  - delay: 00:00:03
+
+  - service: broadlink.send
+    data:
+      host: 192.168.178.32
+      packet:
+      # OK
+      - JgCMAJaTFDYUNhM2FBEUERQRFBEUERM2FDYUNhQRFBETEhMRFBEUERQRFBEUNhMSEzYUNhMSEzcTNhQ2FBEUNhMSExEUNhQABgSVkxQ2FDYTNhQRFBEUERQRFBETNhQ2FDYUERQRExITERQRFBEUERQRFDYTEhM2FDYUERQ2EzYUNhQRFDYTEhMRFDYUAA0FAAAAAAAAAAAAAAAA
+  
+    
     

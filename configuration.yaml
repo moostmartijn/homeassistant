@@ -11,8 +11,8 @@ homeassistant:
   auth_providers:
     - type: trusted_networks
       trusted_networks:
-        - 192.168.178.0
-        - 82.74.122.94
+        - !secret trustedip_1
+        - !secret trustedip_2
 
 map:
 
@@ -138,13 +138,6 @@ switch:
         command_on: 'JgBGAJKVETkRORA6ERQRFBEUERQRFBE5ETkQOhAVEBUQFREUEBUQOhEUERQRORE5EBURFBA6EBUQOhE5EBUQFRA6EDoRFBEADQUAAA=='
         command_off: 'JgBGAJWVEjgSOBI4EhISEhISEhISEhI4EjgSOBISEhISEhISEhISEhISEhISOBI4EhISEhI4EjgSOBI4EhISEhI4EjgSEhIABi0NBQ'
 
-  - platform: broadlink
-    host: 192.168.178.32
-    mac: 'C8:F7:42:75:26:93'
-    timeout: 30
-    friendly_name: "RM3 mini"
-    type: rm_mini
-
 camera:
   - platform: buienradar
     name: Buienradar
@@ -181,11 +174,6 @@ hue:
 
 discovery:
 
-#cast:
-#  media_player:
-#    - host: !secret googlehomemini_host
-#    - host: !secret googlechromecast_host
-
 weather:
   - platform: buienradar
 
@@ -196,15 +184,32 @@ google_assistant:
   exposed_domains:
     - switch
     - script
+    - media_player
   entity_config:
+    media_player.mediabox_next:
+      name: Mediabox Next
+      expose: true
     switch.newkaku_01d610ee_2:
       expose: true
-    script.1567790333091:
-      name: Netflix
+    switch.broadlink_samsungtv: 
+      name: TV
       expose: true 
-    script.1567796599705:
+    script.broadlink_plex_start:
       name: Plex
       expose: true 
+    script.broadlink_netflix_start:
+      name: Netflix
+      expose: true 
+    script.broadlink_plex_pauze:
+      name: Plex pauze
+      expose: true
+    script.broadlink_plex_play:
+      name: Plex play
+      expose: true    
+    script.turn_everything_off:
+      name: Turn everything off
+      expose: true
+
 dialogflow:
 
 logger:
@@ -230,7 +235,17 @@ vacuum:
     password: !secret roomba_password
 
 ios:
-
+  push:
+    categories:
+      - name: Empty Shopping List
+        identifier: 'empty_shopping_list'
+        actions:
+          - identifier: 'EMPTY'
+            title: 'Empty'
+            destructive: true
+          - identifier: 'KEEP'
+            title: 'Keep'
+          
 tts:
   - platform: google_translate
     language: 'nl'
@@ -259,6 +274,10 @@ media_player:
     device_code: 1060
     controller_data: 192.168.178.32
     power_sensor: binary_sensor.samsung_tv_ping
+
+  - platform: ziggo-mediabox-next
+    username: !secret ziggo_username
+    password: !secret ziggo_password
 
 shell_command:
   soundbar_radio_fav1: !secret soundbar_radio_fav1
@@ -319,9 +338,7 @@ shopping_list:
 ###################
 plant: !include plants.yaml
 group: !include groups.yaml
-#automation: !include automations.yaml
 automation: !include_dir_merge_list automations
-#script: !include_dir_merge_named scripts
-script: !include scripts.yaml
+script: !include_dir_merge_named scripts
 sensor: !include sensors.yaml
 input_select: !include input_select.yaml 

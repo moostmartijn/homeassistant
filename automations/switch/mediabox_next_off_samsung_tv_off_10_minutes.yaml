@@ -1,0 +1,20 @@
+# Turn off mediabox next when samsung tv is turned off and mediabox next is still on after 10 minutes
+
+- alias: mediabox next off samsung tv off 10 minutes
+
+  trigger:
+  - platform: state
+    entity_id: media_player.samsung_smart_tv
+    from: 'on'
+    to: 'off'
+    for:
+        minutes: 10
+
+  - condition: state
+    entity_id: media_player.mediabox_next
+    state: 'on'
+
+  action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.mediabox_next

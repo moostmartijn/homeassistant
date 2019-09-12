@@ -13,4 +13,6 @@
       message: 'Check the release notes here.'
       data:
         url: 'https://www.home-assistant.io/blog/'
-    
+        attachment:
+          content-type: jpg
+          url: https://moostmartijn.duckdns.org/local/images/update_available.jpg 

@@ -1,0 +1,10 @@
+'broadlink_plex_pauze':
+
+  alias: broadlink plex pauze
+  
+  sequence:
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgBGAJOTEjgSOBI4EhISEhISEhISEhI4EjgSOBISEhISEhISEhISEhI4EhISOBISEhISOBISEjgSEhI4EhISOBI4EhISOBIABgsNBQ==
+    service: broadlink.send

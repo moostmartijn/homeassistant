@@ -1,0 +1,10 @@
+'broadlink_plex_play':
+
+  alias: broadlink plex play
+  
+  sequence:
+  - data:
+      host: 192.168.178.32
+      packet:
+      - JgBGAJGSEjcSNxI3EhISEhISExISEhI3EjcSNxISEhMSEhISEhITNhM2EjcSExISEhISNxISExISEhISEjcSNxI3EhITNhMABe0NBQ==
+    service: broadlink.send

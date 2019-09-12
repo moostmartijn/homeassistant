@@ -1,0 +1,47 @@
+'empty_shopping_list':
+
+  alias: empty shopping list
+
+  sequence:
+
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[1] }}
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[2] }}
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[3] }}
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[4] }}
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[5] }}
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[6] }}
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[7] }}
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[8] }}
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[9] }}
+  - service: shopping_list.complete_item
+    data_template:
+      name: >-
+        {{ states.sensor.shopping_list.state.split('-')[10] }}
+       

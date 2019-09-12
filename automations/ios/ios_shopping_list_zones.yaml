@@ -16,4 +16,6 @@
   - service: notify.ios_iphone_van_martijn
     data_template:
       message: '{{states.sensor.shopping_list.state}}'
-    
+      data:
+        push:
+          category: "empty_shopping_list" 
