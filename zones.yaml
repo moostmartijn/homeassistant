@@ -21,7 +21,3 @@
     latitude: !secret latitude_ouders_van_martijn
     longitude: !secret longitude_ouders_van_martijn
     radius: 100
-#  - name: Binnenstad Zwolle
-#    latitude: 52.512045
-#    longitude: 6.093258
-#    radius: 750
