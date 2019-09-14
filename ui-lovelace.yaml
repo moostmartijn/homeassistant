@@ -53,6 +53,21 @@ views:
   cards:
     - type: vertical-stack
       cards: 
+
+        - type: glance
+          entities:
+            - entity: sensor.current_version
+              name: Current version
+            - entity: sensor.dag
+              name: Dag
+              icon: mdi:calendar-today
+            - entity: sensor.week_nummer
+              name: Weeknummer
+              icon: mdi:calendar-week
+            - entity: sensor.ssl_certificate_expiry
+              name: Certicate expiry
+              icon: mdi:certificate
+
         - type: map
           aspect_ratio: 16:9
           default_zoom: 15
@@ -85,24 +100,22 @@ views:
                 - entity: proximity.jildou
                   name: Van huis
 
-        - type: entities
-          title: Brievenbus
-          show_header_toggle: false
-          entities: 
-            - entity: counter.brievenbus
-              name: Poststukken ontvangen
-
-        - type: entities
-          show_header_toggle: false
-          title: Rova
-          entities:
-            - entity: sensor.rova_paper
-              name: Oud papier container
-            - entity: sensor.rova_bio
-              name: Groene container
 
     - type: vertical-stack
       cards:
+
+        - type: glance
+          entities:
+            - entity: sensor.uptime
+              name: Uptime
+            - entity: sensor.date_last_boot
+              name: Last boot
+            - entity: sensor.disk_free_home
+              name: Free space
+            - entity: sensor.processor_use
+              name: Processor use
+
+
 
         - type: horizontal-stack
           cards: 
@@ -162,6 +175,25 @@ views:
 
     - type: vertical-stack
       cards:
+        - type: glance
+          entities:
+            - entity: sensor.hass_db_size
+              name: Database
+              icon: mdi:database
+            - entity: sensor.total_sensors
+              name: Sensors
+              icon: mdi:counter
+            - entity: sensor.total_automations
+              name: Automations
+              icon: mdi:robot
+            - entity: sensor.total_zones
+              name: Zones
+              icon: mdi:map              
+            - entity: sensor.total_scripts
+              name: Scripts
+              icon: mdi:script-text
+
+
         - type: entities
           title: PHILIPS HUE
           show_header_toggle: false
@@ -288,50 +320,15 @@ views:
             - sensor.window_door_sensor_battery_level
             - sensor.life360_martijn_batterij
 
-
-        - type: glance
+        - type: entities
+          show_header_toggle: false
+          title: Rova
           entities:
-            - entity: sensor.current_version
-              name: Current version
-            - entity: sensor.dag
-              name: Dag
-              icon: mdi:calendar-today
-            - entity: sensor.week_nummer
-              name: Weeknummer
-              icon: mdi:calendar-week
-            - entity: sensor.ssl_certificate_expiry
-              name: Certicate expiry
-              icon: mdi:certificate
+            - entity: sensor.rova_paper
+              name: Oud papier container
+            - entity: sensor.rova_bio
+              name: Groene container
 
-        - type: glance
-          entities:
-            - entity: sensor.uptime
-              name: Uptime
-            - entity: sensor.date_last_boot
-              name: Last boot
-            - entity: sensor.disk_free_home
-              name: Free space
-            - entity: sensor.processor_use
-              name: Processor use
-
-
-        - type: glance
-          entities:
-            - entity: sensor.hass_db_size
-              name: Database
-              icon: mdi:database
-            - entity: sensor.total_sensors
-              name: Sensors
-              icon: mdi:counter
-            - entity: sensor.total_automations
-              name: Automations
-              icon: mdi:robot
-            - entity: sensor.total_zones
-              name: Zones
-              icon: mdi:map              
-            - entity: sensor.total_scripts
-              name: Scripts
-              icon: mdi:script-text
 
         - type: "custom:postnl-card"
           delivery: sensor.postnl_delivery
@@ -469,18 +466,10 @@ views:
         - type: shopping-list
           title: Shopping List  
 
-    - type: vertical-stack
-      cards:
 
-        - type: custom:reddit-card
-          header: Reddit
-          entities:
-            - sensor.reddit_homeassistant
-          max: 5
 
     - type: vertical-stack
       cards:
-
 
         - type: "custom:atomic-calendar"
           title: "Agenda"
@@ -494,6 +483,13 @@ views:
           - entity: calendar.contacts
           - entity: calendar.feestdagen_in_nederland
         
+
+        - type: custom:reddit-card
+          header: Reddit
+          entities:
+            - sensor.reddit_homeassistant
+          max: 5
+
 
 # Tab 4 - Music
 
@@ -579,6 +575,8 @@ views:
           entity: media_player.mediabox_next
           icon: mdi:set-top-box
           artwork: cover
+          idle_view:
+            when_idle: true
           hide:
             volume: true
             source: false
