@@ -3,12 +3,13 @@
 - alias: ios jildou leaves zone work
 
   trigger:
-  - entity_id: person.jildou
+  - platform: zone
+    entity_id: person.jildou
     event: leave
-    platform: zone
     zone: zone.werk_2
 
   action:
-  - data:
+  - service: notify.ios_iphone_van_martijn
+    data:
       message: Jildou vertrekt vanaf het Deventer Ziekenhuis naar huis
-    service: notify.ios_iphone_van_martijn
+    

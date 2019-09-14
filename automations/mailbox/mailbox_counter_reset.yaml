@@ -3,8 +3,9 @@
 - alias: mailbox counter reset
 
   trigger:
-  - at: 00:00
-    platform: time
+  - platform: time
+    at: 00:00
+    
 
   action:
   - service: counter.reset

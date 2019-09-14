@@ -1,13 +1,13 @@
 # Action when triggering 'Empty Shopping List' button from actionable push notification
 
-- alias: ios actionable empty
+#- alias: ios actionable empty
 
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: EMPTY
+#  trigger:
+#  - platform: event
+#    event_type: ios.notification_action_fired
+#    event_data:
+#      actionName: EMPTY
 
-  action:
-    service: script.toggle
-    entity_id: script.empty_shopping_list
+#  action:
+#  - service: script.toggle
+#    entity_id: script.empty_shopping_list

@@ -54,20 +54,6 @@ views:
     - type: vertical-stack
       cards: 
 
-        - type: glance
-          entities:
-            - entity: sensor.current_version
-              name: Current version
-            - entity: sensor.dag
-              name: Dag
-              icon: mdi:calendar-today
-            - entity: sensor.week_nummer
-              name: Weeknummer
-              icon: mdi:calendar-week
-            - entity: sensor.ssl_certificate_expiry
-              name: Certicate expiry
-              icon: mdi:certificate
-
         - type: map
           aspect_ratio: 16:9
           default_zoom: 15
@@ -100,9 +86,19 @@ views:
                 - entity: proximity.jildou
                   name: Van huis
 
-
-    - type: vertical-stack
-      cards:
+        - type: glance
+          entities:
+            - entity: sensor.current_version
+              name: Current version
+            - entity: sensor.dag
+              name: Dag
+              icon: mdi:calendar-today
+            - entity: sensor.week_nummer
+              name: Weeknummer
+              icon: mdi:calendar-week
+            - entity: sensor.ssl_certificate_expiry
+              name: Certicate expiry
+              icon: mdi:certificate
 
         - type: glance
           entities:
@@ -115,7 +111,28 @@ views:
             - entity: sensor.processor_use
               name: Processor use
 
+        - type: glance
+          entities:
+            - entity: sensor.hass_db_size
+              name: Database
+              icon: mdi:database
+            - entity: sensor.total_sensors
+              name: Sensors
+              icon: mdi:counter
+            - entity: sensor.total_automations
+              name: Automations
+              icon: mdi:robot
+            - entity: sensor.total_zones
+              name: Zones
+              icon: mdi:map              
+            - entity: sensor.total_scripts
+              name: Scripts
+              icon: mdi:script-text
 
+
+
+    - type: vertical-stack
+      cards:
 
         - type: horizontal-stack
           cards: 
@@ -175,24 +192,6 @@ views:
 
     - type: vertical-stack
       cards:
-        - type: glance
-          entities:
-            - entity: sensor.hass_db_size
-              name: Database
-              icon: mdi:database
-            - entity: sensor.total_sensors
-              name: Sensors
-              icon: mdi:counter
-            - entity: sensor.total_automations
-              name: Automations
-              icon: mdi:robot
-            - entity: sensor.total_zones
-              name: Zones
-              icon: mdi:map              
-            - entity: sensor.total_scripts
-              name: Scripts
-              icon: mdi:script-text
-
 
         - type: entities
           title: PHILIPS HUE

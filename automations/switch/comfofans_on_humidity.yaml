@@ -3,9 +3,9 @@
 - alias: comfofans on humidity
 
   trigger:
-  - above: '80'
+  - platform: numeric_state
+    above: '80'
     entity_id: sensor.aqara_humidity_1
-    platform: numeric_state
 
   action:
     service: light.turn_on

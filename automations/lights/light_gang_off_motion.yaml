@@ -3,8 +3,8 @@
 - alias: light gang off motion
 
   trigger:
-  - entity_id: binary_sensor.motion_sensor_gang
-    platform: state
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_gang
     to: 'off'
 
   action:

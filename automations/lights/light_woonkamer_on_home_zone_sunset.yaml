@@ -3,19 +3,19 @@
 - alias: light.woonkamer on home zone sunset
 
   trigger:
-  - entity_id: person.jildou
+  - platform: zone
+    entity_id: person.jildou
     event: enter
-    platform: zone
     zone: zone.home
-  - entity_id: person.martijn
+  - platform: zone
+    entity_id: person.martijn
     event: enter
-    platform: zone
     zone: zone.home
 
   condition:
-  - after: sunset
-    after_offset: -00:30:00
-    condition: sun
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
 
   action:
   - service: light.turn_on

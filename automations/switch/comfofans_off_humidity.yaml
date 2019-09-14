@@ -3,9 +3,9 @@
 - alias: comfofans off humidity
 
   trigger:
-  - below: '80'
+  - platform: numeric_state
+    below: '80'
     entity_id: sensor.aqara_humidity_1
-    platform: numeric_state
 
   action:
     service: homeassistant.turn_off

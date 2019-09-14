@@ -3,8 +3,8 @@
 - alias: ios new mail
 
   trigger:
-  - entity_id: binary_sensor.openclose_14
-    platform: state
+  - platform: state
+    entity_id: binary_sensor.openclose_14
     to: 'on'
 
   action:
