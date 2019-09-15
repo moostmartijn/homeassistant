@@ -297,6 +297,35 @@ input_text:
   text_bar:
     name: text bar
 
+input_datetime:
+  vacuuming:
+    name: Stofzuigen
+    has_date: true
+
+  mopping:
+    name: Dweilen
+    has_date: true
+
+  cleaning_the_bathroom:
+    name: Badkamer schoonmaken
+    has_date: true
+
+  clean_the_toilet:
+    name: Toilet schoonmaken
+    has_date: true
+
+  dust_off:
+    name: Afstoffen
+    has_date: true
+
+  change_bedding:
+    name: Beddengoed verschonen
+    has_date: true
+
+  clean_up_studio:
+    name: Studio opruimen
+    has_date: true
+
 sabnzbd:
   api_key: !secret sabnzbd_api
   host: !secret sabnzb_host

@@ -33,6 +33,7 @@
   - platform: time_date
     display_options:
       - 'date'
+      - 'time'
 
   - platform: buienradar
     latitude: !secret latitude
@@ -331,3 +332,45 @@
         entity_id: sensor.date
         friendly_name: 'Date'
         value_template: '{{ as_timestamp(now()) | timestamp_custom("%d/%m/%y", True) }}'
+
+      days_after_vacuuming:
+        friendly_name: Days after vacuuming
+        entity_id: sensor.time
+        unit_of_measurement: 'days'
+        value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.vacuuming','timestamp')) | int / 86400) | round(0) }}"
+
+      days_after_mopping:
+        friendly_name: Days after mopping
+        entity_id: sensor.time
+        unit_of_measurement: 'days'
+        value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.mopping','timestamp')) | int / 86400) | round(0) }}"
+
+      days_after_cleaning_the_bathroom:
+        friendly_name: Days after cleaning the bathroom
+        entity_id: sensor.time
+        unit_of_measurement: 'days'
+        value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.cleaning_the_bathroom','timestamp')) | int / 86400) | round(0) }}"
+
+      days_after_clean_the_toilet:
+        friendly_name: Days after clean the toilet
+        entity_id: sensor.time
+        unit_of_measurement: 'days'
+        value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.clean_the_toilet','timestamp')) | int / 86400) | round(0) }}"
+
+      days_after_dust_off:
+        friendly_name: Days after dust off
+        entity_id: sensor.time
+        unit_of_measurement: 'days'
+        value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.dust_off','timestamp')) | int / 86400) | round(0) }}"
+
+      days_after_change_bedding:
+        friendly_name: Days after change bedding
+        entity_id: sensor.time
+        unit_of_measurement: 'days'
+        value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.change_bedding','timestamp')) | int / 86400) | round(0) }}"
+
+      days_after_clean_up_studio:
+        friendly_name: Days after clean up studio
+        entity_id: sensor.time
+        unit_of_measurement: 'days'
+        value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.clean_up_studio','timestamp')) | int / 86400) | round(0) }}"

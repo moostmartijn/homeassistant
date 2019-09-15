@@ -1,7 +1,9 @@
 # homeassistant
-Home Assistant configuration
+I run Home Assistant under Hass.io on a Raspberry Pi 3B. 
 
 # 1. Hardware
+
+Raspberry Pi 3B
 
 Phoscon Conbee II Zigbee USB stick
 - Ikea light bulbs
@@ -12,6 +14,13 @@ RFLink gateway (Arduino Mega)
 
 Raspberry Pi Zero (Plantgateway)
 - Xiaomi plant sensors
+
+
+## Connected hardware through Home Assistant:
+- Broadlink RM3 mini
+- Google Home Mini
+- Soundbar HW-MS650
+- 
 
 # 2. Add-ons
 

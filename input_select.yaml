@@ -60,3 +60,14 @@ youtube_video:
     - Raresh | Nights.Ro (Romania) DJ Set | DanceTrippin
     - playedby004] Lizz - Chapter I (4x12"LP)
   initial: Maak een keuze
+
+household_task:
+  name: Select Household Task
+  options:
+    - Stofzuigen
+    - Dweilen
+    - Badkamer schoonmaken
+    - Toilet schoonmaken
+    - Afstoffen
+    - Beddengoed verschonen
+    - Studio opruimen
