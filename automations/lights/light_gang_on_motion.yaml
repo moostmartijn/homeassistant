@@ -9,9 +9,10 @@
 
   condition:
   - after: sunset
-    after_offset: -00:45:00
+    after_offset: '-00:45:00'
     condition: sun
     
   action:
-  - entity_id: light.gang
-    service: light.turn_on
+  - service: light.turn_on
+    entity_id: light.gang
+    

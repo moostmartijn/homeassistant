@@ -1,0 +1,11 @@
+  - platform: broadlink
+    host: 192.168.178.32
+    mac: 'C8:F7:42:75:26:93'
+    timeout: 15
+    retry: 5
+    type: 'rm_mini'
+    switches:
+      broadlink_samsungtv:
+        friendly_name: "Samsung TV"
+        command_on: 'JgBGAJKVETkRORA6ERQRFBEUERQRFBE5ETkQOhAVEBUQFREUEBUQOhEUERQRORE5EBURFBA6EBUQOhE5EBUQFRA6EDoRFBEADQUAAA=='
+        command_off: 'JgBGAJWVEjgSOBI4EhISEhISEhISEhI4EjgSOBISEhISEhISEhISEhISEhISOBI4EhISEhI4EjgSOBI4EhISEhI4EjgSEhIABi0NBQ'

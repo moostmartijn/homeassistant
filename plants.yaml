@@ -17,3 +17,13 @@ Howea Forsteriana:
     brightness: sensor.howea_forsteriana_mqtt_brightness
   min_moisture: 15
   min_conductivity: 100
+
+Ecosysteem:
+  sensors:
+    moisture: sensor.ecosysteem_mqtt_moisture
+    battery: sensor.ecosysteem_mqtt_battery
+    temperature: sensor.ecosysteem_mqtt_temperature
+    conductivity: sensor.ecosysteem_mqtt_conductivity
+    brightness: sensor.ecosysteem_mqtt_brightness
+  min_moisture: 30
+  min_conductivity: 150

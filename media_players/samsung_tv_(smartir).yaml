@@ -1,0 +1,6 @@
+  - platform: smartir
+    name: Samsung TV
+    unique_id: samsung_tv
+    device_code: 1060
+    controller_data: 192.168.178.32
+    power_sensor: binary_sensor.samsung_tv_ping

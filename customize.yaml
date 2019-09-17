@@ -10,6 +10,10 @@ plant.pachira_aquatica:
   friendly_name: Pachira Aquatica
   entity_picture: /local/images/pachira_aquatica.jpg
 
+plant.ecosysteem:
+  friendly_name: Ecosysteem
+  entity_picture: /local/images/ecosysteem.jpg
+
 # PERSONS  
 person.jildou:
   entity_picture: https://graph.facebook.com/1068824831/picture?type=normal

@@ -46,7 +46,6 @@ panel_iframe:
     icon: mdi:chart-timeline
     url: !secret grafana_url 
 
-
 panel_custom:
   - name: floorplan
     sidebar_title: Floorplan
@@ -120,23 +119,6 @@ light:
   - platform: rflink
     devices:
       newkaku_01d610ee_1: {}   
-
-switch:
-  - platform: rflink
-    devices:
-      newkaku_01d610ee_2: {}
-
-  - platform: broadlink
-    host: 192.168.178.32
-    mac: 'C8:F7:42:75:26:93'
-    timeout: 15
-    retry: 5
-    type: 'rm_mini'
-    switches:
-      broadlink_samsungtv:
-        friendly_name: "Samsung TV"
-        command_on: 'JgBGAJKVETkRORA6ERQRFBEUERQRFBE5ETkQOhAVEBUQFREUEBUQOhEUERQRORE5EBURFBA6EBUQOhE5EBUQFRA6EDoRFBEADQUAAA=='
-        command_off: 'JgBGAJWVEjgSOBI4EhISEhISEhISEhI4EjgSOBISEhISEhISEhISEhISEhISOBI4EhISEhI4EjgSOBI4EhISEhI4EjgSEhIABi0NBQ'
 
 camera:
   - platform: buienradar
@@ -250,81 +232,11 @@ tts:
   - platform: google_translate
     language: 'nl'
 
-# Media Players
-media_player:
-
-  - platform: plex
-    scan_interval: 5
-
-  - platform: samsungtv
-    host: !secret host_tv
-    port: !secret port_tv
-    name: '[TV] Woonkamer'
-    mac: !secret mac_tv
-
-  - platform: samsung_multi_room
-    name: "Soundbar"
-    host: !secret host_soundbar
-    max_volume: 20
-    power_options: True
-
-  - platform: smartir
-    name: Samsung Smart TV
-    unique_id: samsung_smart_tv
-    device_code: 1060
-    controller_data: 192.168.178.32
-    power_sensor: binary_sensor.samsung_tv_ping
-
-  - platform: ziggo-mediabox-next
-    username: !secret ziggo_username
-    password: !secret ziggo_password
-
-shell_command:
-  soundbar_radio_fav1: !secret soundbar_radio_fav1
-  soundbar_radio_fav2: !secret soundbar_radio_fav2
-  soundbar_radio_fav3: !secret soundbar_radio_fav3
-  soundbar_radio_1: !secret soundbar_radio_1
-  soundbar_radio_2: !secret soundbar_radio_2
-  soundbar_radio_3: !secret soundbar_radio_3
-  soundbar_radio_4: !secret soundbar_radio_4
-  soundbar_radio_5: !secret soundbar_radio_5
-  soundbar_radio_6: !secret soundbar_radio_6
-  soundbar_radio_7: !secret soundbar_radio_7
-
 media_extractor:
 
 input_text:
   text_bar:
     name: text bar
-
-input_datetime:
-  vacuuming:
-    name: Stofzuigen
-    has_date: true
-
-  mopping:
-    name: Dweilen
-    has_date: true
-
-  cleaning_the_bathroom:
-    name: Badkamer schoonmaken
-    has_date: true
-
-  clean_the_toilet:
-    name: Toilet schoonmaken
-    has_date: true
-
-  dust_off:
-    name: Afstoffen
-    has_date: true
-
-  change_bedding:
-    name: Beddengoed verschonen
-    has_date: true
-
-  clean_up_studio:
-    name: Studio opruimen
-    has_date: true
 
 sabnzbd:
   api_key: !secret sabnzbd_api
@@ -370,4 +282,8 @@ group: !include groups.yaml
 automation: !include_dir_merge_list automations
 script: !include_dir_merge_named scripts
 sensor: !include sensors.yaml
+shell_command: !include shell_command.yaml
+input_datetime: !include input_datetime.yaml
 input_select: !include input_select.yaml 
+switch: !include_dir_merge_list switches
+media_player: !include_dir_merge_list media_players

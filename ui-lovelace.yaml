@@ -191,11 +191,13 @@ views:
               animate: true 
 
         - type: plant-status
+          entity: plant.ecosysteem
+          
+        - type: plant-status
           entity: plant.howea_forsteriana
       
         - type: plant-status
           entity: plant.pachira_aquatica
-
 
 
     - type: vertical-stack
@@ -566,7 +568,7 @@ views:
             runtime: false
 
         - type: custom:mini-media-player
-          entity: media_player.samsung_smart_tv
+          entity: media_player.samsung_tv
           icon: mdi:television
           artwork: cover
           volume_stateless: true

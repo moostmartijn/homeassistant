@@ -1,0 +1,3 @@
+  - platform: rflink
+    devices:
+      newkaku_01d610ee_2: {}

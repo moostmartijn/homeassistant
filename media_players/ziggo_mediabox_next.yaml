@@ -1,0 +1,3 @@
+  - platform: ziggo-mediabox-next
+    username: !secret ziggo_username
+    password: !secret ziggo_password
