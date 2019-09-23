@@ -16,6 +16,8 @@ homeassistant:
 
 map:
 
+hassio:
+
 smartir:
   update_branch: rc
 

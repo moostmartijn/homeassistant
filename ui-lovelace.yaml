@@ -894,9 +894,9 @@ views:
                   type: custom:secondaryinfo-entity-row
                   secondary_info: "[[ sensor.days_after_change_bedding.state ]] Dagen geleden"
 
-                - entity: input_datetime.clean_up_studio
-                  type: custom:secondaryinfo-entity-row
-                  secondary_info: "[[ sensor.days_after_clean_up_studio.state ]] Dagen geleden"
+#                - entity: input_datetime.clean_up_studio
+#                  type: custom:secondaryinfo-entity-row
+#                  secondary_info: "[[ sensor.days_after_clean_up_studio.state ]] Dagen geleden"
 
         - type: entities
           title: Werk Taak Bij

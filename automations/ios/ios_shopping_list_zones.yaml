@@ -12,6 +12,10 @@
     event: enter
     zone: zone.albert_heijn
 
+  condition:
+  - condition: template
+    value_template: "{{ not is_state('sensor.shopping_list', 'Boodschappen:') }}"
+
   action: 
   - service: notify.ios_iphone_van_martijn
     data_template:

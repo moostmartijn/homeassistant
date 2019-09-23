@@ -20,7 +20,7 @@ Raspberry Pi Zero (Plantgateway)
 - Broadlink RM3 mini
 - Google Home Mini
 - Soundbar HW-MS650
-- 
+- Roomba 960 (connecting through this guide worked for me: https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password)
 
 # 2. Add-ons
 

@@ -1,4 +1,4 @@
-  # Weather prediction
+# Weather prediction
   - platform: yr
 
 # System monitor
@@ -140,6 +140,8 @@
     name: shopping_list
     command: python3 /config/shopping_list.py
 
+#  - platform: rest
+#    resource: http://a0d7b954-wireguard
 
 # TEMPLATE SENSORS
 
