@@ -42,6 +42,7 @@ Raspberry Pi 3B
 ## Home 
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_home.png "Home Tab")
 
+[View this tab in uit-lovelace.yaml](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
 
 # 4. Automations
 
