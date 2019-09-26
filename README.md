@@ -23,9 +23,9 @@ Because the Xiaomi plant sensors are too far away from the Raspberry Pi, they're
 
 Whenever the moisture of a plant is below a certain percentage, Home Assistant will send me an iOS notification whenever I enter my home zone so I can water the plant when I come home. 
 
-[View my configuration of this automation in `/automations`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_moisture_howea_forsteriana.yaml)
-[View my configuration of the plants in `plants.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/plants.yaml)
-[View my configuration of the plant monitor card in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/c8971cdf8f6bc1da83494fb637db72655925539a/ui-lovelace.yaml#L193-L200)
+<br>[View my configuration of this automation in `/automations`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_moisture_howea_forsteriana.yaml)
+<br>[View my configuration of the plants in `plants.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/plants.yaml)
+<br>[View my configuration of the plant monitor card in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/c8971cdf8f6bc1da83494fb637db72655925539a/ui-lovelace.yaml#L193-L200)
 
 ## Connected hardware through Home Assistant:
 <br>Broadlink RM3 mini
@@ -54,29 +54,29 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/custom_compact_header.png "Compact Custom Header")
 
-[View my configuration in 'ui-lovelace.yaml'](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L47-L53)
+[View my configuration in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L47-L53)
 
 ## Home 
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_home.png "Home Tab")
 
-[View this tab in 'ui-lovelace.yaml'](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
+[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
 
 ## Weather
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_weather.png "Weather Tab")
 
-[View this tab in 'ui-lovelace.yaml'](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L281-L462)
+[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L281-L462)
 
 ## Music
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_music.png "Music Tab")
 
-[View this tab in 'ui-lovelace.yaml'](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L508-L666)
+[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L508-L666)
 
 ### Background
 As seen a little bit in this picture, the background of the Home Assistant frontend shows the current playing track of Spotify using the community add-on [Lovelace Media Art Background](https://github.com/TheLastProject/lovelace-media-art-background)
 
 ### Spotify controls
 
-[View my configuration in spotify_controls.yaml (in `/packages`)](https://github.com/moostmartijn/homeassistant/blob/master/packages/spotify_controls.yaml)
+[View the configuration of `spotify_controls.yaml` in `/packages`](https://github.com/moostmartijn/homeassistant/blob/master/packages/spotify_controls.yaml)
 
 
 ### Media players
@@ -88,15 +88,23 @@ For all my media players I use the '[Mini Media Player](https://github.com/kalki
 
 # 4. Automations
 
-iOS notifications:
-
-Lights:
-- [Turn on the lights when someone comes home after sunset](/automations/lights/light_woonkamer_on_home_zone_sunset.yaml)
-
-Switch:
-
-
-# 5. Backups
-
+## Backups
 I automate my backups using [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync) add-on, uploading my daily (full) snapshot to Dropbox. This upload to Dropbox is automaticly stored on my Synology DS718+, which keeps the last 5 snapshots and delete the other snapshots. 
+
+[View my backup configuration in `/automation/backups`](https://github.com/moostmartijn/homeassistant/tree/master/automations/backups)
+
+## Lights
+
+
+<br>[Turn on the lights when someone comes home after sunset](/automations/lights/light_woonkamer_on_home_zone_sunset.yaml)
+<br>[Turn on the hall lights for one minute whenever there is motion](https://github.com/moostmartijn/homeassistant/blob/master/automations/lights/light_gang_on_motion.yaml)
+
+[View all light automations in `/automations/lights`](https://github.com/moostmartijn/homeassistant/tree/master/automations/lights)
+
+
+## iOS notifications
+
+[View all ios notification automations in `/automations/ios`](https://github.com/moostmartijn/homeassistant/tree/master/automations/ios)
+
+
 
