@@ -19,25 +19,31 @@ Raspberry Pi 3B
 
 
 ## Connected hardware through Home Assistant:
-- Broadlink RM3 mini
-- Google Home Mini
-- Soundbar HW-MS650 (to control the Soundbar I installed a community add-on through HACS named [Samsung Multi Room](https://github.com/dariornelas/ha_samsung_multi_room) )
-- Roomba 960 [connecting the Roomba with Home Asistant](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password)
-- ESP32-Cam [Flashing the ESP32-Cam](https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/)
+<br>Broadlink RM3 mini
+<br>Google Home Mini
+<br>Soundbar HW-MS650 (to control the Soundbar I installed a community add-on through HACS named [Samsung Multi Room](https://github.com/dariornelas/ha_samsung_multi_room) )
+<br>Roomba 960 [connecting the Roomba with Home Asistant](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password)
+<br>ESP32-Cam [Flashing the ESP32-Cam](https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/)
 # 2. Add-ons
 
-- [AdGuard Home](https://community.home-assistant.io/t/community-hass-io-add-on-adguard-home/90684)
-- [ESPHome](https://esphome.io/)
-- [Google Assistant webserver](https://community.home-assistant.io/t/community-hass-io-add-on-google-assistant-webserver-broadcast-messages-without-interrupting-music/37274)
-- [Grafana](https://community.home-assistant.io/t/community-hass-io-add-on-grafana/54674)
-- [InfluxDB](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491/9)
-- [Node-RED](https://community.home-assistant.io/t/community-hass-io-add-on-node-red/55023)
-- [Samba share](https://www.home-assistant.io/addons/samba/)
-- [Spotify Connect](https://community.home-assistant.io/t/community-hass-io-add-on-spotify-connect/61210)
-- [Wire Guard](https://community.home-assistant.io/t/community-hass-io-add-on-wireguard/134662)
-- [deCONZ](https://github.com/home-assistant/hassio-addons/tree/master/deconz)
+<br>[AdGuard Home](https://community.home-assistant.io/t/community-hass-io-add-on-adguard-home/90684)
+<br>[ESPHome](https://esphome.io/)
+<br>[Google Assistant webserver](https://community.home-assistant.io/t/community-hass-io-add-on-google-assistant-webserver-broadcast-messages-without-interrupting-music/37274)
+<br>[Grafana](https://community.home-assistant.io/t/community-hass-io-add-on-grafana/54674)
+<br>[InfluxDB](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491/9)
+[Node-RED](https://community.home-assistant.io/t/community-hass-io-add-on-node-red/55023)
+<br>[Samba share](https://www.home-assistant.io/addons/samba/)
+<br>[Spotify Connect](https://community.home-assistant.io/t/community-hass-io-add-on-spotify-connect/61210)
+<br>[Wire Guard](https://community.home-assistant.io/t/community-hass-io-add-on-wireguard/134662)
+<br>[deCONZ](https://github.com/home-assistant/hassio-addons/tree/master/deconz)
 
-# 3. Automations
+# 3. Frontend
+
+## Home 
+![alt text](https://github.com/moostmartijn
+
+
+# 4. Automations
 
 iOS notifications:
 
@@ -47,7 +53,7 @@ Lights:
 Switch:
 
 
-# 4. Backups
+# 5. Backups
 
 I automate my backups using [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync) add-on, uploading my daily (full) snapshot to Dropbox. This upload to Dropbox is automaticly stored on my Synology DS718+, which keeps the last 5 snapshots and delete the other snapshots. 
 
