@@ -101,10 +101,18 @@ I automate my backups using [Dropbox Sync](https://github.com/danielwelch/hassio
 
 [View all light automations in `/automations/lights`](https://github.com/moostmartijn/homeassistant/tree/master/automations/lights)
 
+## Mailbox
+My mailbox is a few meters outside of my house and because I wanted to know when I received new mail, I installed a Xiamo window/door sensor on the lid. Whenever the mailman brings me mail and opens the lid, Home Assistant will send me an iOS notification. 
+
+[View my mailbox configuration in `/automations/ios`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_brievenbus.yaml)
 
 ## iOS notifications
 
 [View all ios notification automations in `/automations/ios`](https://github.com/moostmartijn/homeassistant/tree/master/automations/ios)
 
 
+## Radio
+To play a radio station with just a few clicks, I use [`MultiRoom.sh`](https://github.com/moostmartijn/homeassistant/blob/master/multiroom/MultiRoom.sh) script. I favorited some radio stations in the Samsung Multiroom app. The script will play the selected radio station using the pre-installed multiroom software of the Samsung soundbar.
+
+[View the configuration of radio automation in `/automations/radio`](https://github.com/moostmartijn/homeassistant/blob/master/automations/radio/radio_soundbar_favorites.yaml)
 
