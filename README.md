@@ -62,7 +62,12 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 
 [View this tab in 'ui-lovelace.yaml'](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L508-L666)
 
-##
+### Background
+As seen a little bit in this picture, the background of the Home Assistant frontend shows the current playing track of Spotify using the community add-on [Lovelace Media Art Background](https://github.com/TheLastProject/lovelace-media-art-background)
+
+### Spotify controls
+
+[View my configuration in spotify_controls.yaml (in `/packages`)](https://github.com/moostmartijn/homeassistant/blob/master/packages/spotify_controls.yaml)
 
 # 4. Automations
 
