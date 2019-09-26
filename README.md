@@ -39,10 +39,30 @@ Raspberry Pi 3B
 
 # 3. Frontend
 
+## Custom Compact Header
+
+To save space on my Home Assistant iPhone app I use the [Compact Custom Header](https://community.home-assistant.io/t/compact-custom-header/83716) community add-on.
+
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/custom_compact_header.png "Compact Custom Header")
+
+[View my configuration in 'ui-lovelace.yaml'](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L47-L53)
+
 ## Home 
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_home.png "Home Tab")
 
-[View this tab in uit-lovelace.yaml](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
+[View this tab in 'ui-lovelace.yaml'](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
+
+## Weather
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_weather.png "Weather Tab")
+
+[View this tab in 'ui-lovelace.yaml'](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L281-L462)
+
+## Music
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_music.png "Music Tab")
+
+[View this tab in 'ui-lovelace.yaml'](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L508-L666)
+
+##
 
 # 4. Automations
 
