@@ -82,9 +82,14 @@ As seen a little bit in this picture, the background of the Home Assistant front
 ### Media players
 For all my media players I use the '[Mini Media Player](https://github.com/kalkih/mini-media-player)' component. This component has a lot of features to customize. 
 
-<br>Sounbar (Samsung HW-MS650)
-<br>Samsung Smart TV (UE55JU6000)
-<br>Ziggo Mediabox Next
+#### <br>Sounbar (Samsung HW-MS650)
+To control some funcations of the Soundbar such as the volume, source and power buttons, I installed a component through HACS called [ha_samsung_multi_room](https://github.com/dariornelas/ha_samsung_multi_room)
+#### <br>Samsung Smart TV (UE55JU6000)
+Because this smart TV is not that smart, I use a [Broadlink RM Mini 3](https://www.banggood.com/nl/Broadlink-Black-Bean-Smart-Home-Wifi-Remote-IR-Controller-Universal-Appliances-Smart-Control-p-1049494.html?gmcCountry=NL&currency=EUR&createTmp=1&utm_source=googleshopping&utm_medium=cpc_bgs&utm_content=frank&utm_campaign=pla-nl-rm-all-0506&ad_id=346898361050&gclid=Cj0KCQjww7HsBRDkARIsAARsIT7IQkt374ke-nlRnJire91LPmSAOxkBxqBURcDsH6nF-EdY7HzwI_0aAmGmEALw_wcB&cur_warehouse=CN) to power the TV, change the source and staring Netflix and Plex using scripts toggled by voice using the Google Home Mini. 
+
+[View these scripts in `/scripts/broadlink`](https://github.com/moostmartijn/homeassistant/tree/master/scripts/broadlink)
+
+#### <br>Ziggo Mediabox Next
 
 # 4. Automations
 
@@ -108,7 +113,7 @@ My mailbox is a few meters outside of my house and because I wanted to know when
 
 ## iOS notifications
 
-[View all ios notification automations in `/automations/ios`](https://github.com/moostmartijn/homeassistant/tree/master/automations/ios)
+[View all iOS notification automations in `/automations/ios`](https://github.com/moostmartijn/homeassistant/tree/master/automations/ios)
 
 
 ## Radio
