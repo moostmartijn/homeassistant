@@ -8,9 +8,13 @@
     to: 'on'
 
   condition:
-  - after: sunset
-    after_offset: '-00:45:00'
-    condition: sun
+  - condition: or
+    conditions:
+    - condition: sun
+      after: sunset
+      after_offset: '-00:45:00'
+    - condition: sun
+      before: sunrise
     
   action:
   - service: light.turn_on

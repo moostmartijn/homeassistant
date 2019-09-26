@@ -19,9 +19,9 @@ Raspberry Pi Zero (Plantgateway)
 ## Connected hardware through Home Assistant:
 - Broadlink RM3 mini
 - Google Home Mini
-- Soundbar HW-MS650
-- Roomba 960 (connecting through this guide worked for me: https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password)
-
+- Soundbar HW-MS650 (to control the Soundbar I installed a community add-on through HACS named [Samsung Multi Room]((https://github.com/dariornelas/ha_samsung_multi_room))
+- Roomba 960 (connecting the Roomba with Home Asistant: https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password)
+- ESP32-Cam (Flashing the ESP32-Cam: https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/)
 # 2. Add-ons
 
 - Adguard Home

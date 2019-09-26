@@ -1,0 +1,22 @@
+# If light.gang is 'ON' for more than half an hour, send an iOS push notification with a button to turn the lights off
+
+- alias: ios light slaapkamer off
+
+  trigger:
+  - platform: state
+    entity_id: light.slaapkamer
+    from: 'off'
+    to: 'on'
+    for:
+      minutes: 30
+
+  action: 
+  - service: notify.ios_iphone_van_martijn
+    data_template:
+      message: Het licht in de slaapkamer staat meer dan 30 minuten aan, wil je het licht uit doen?
+      data:
+        attachment:
+          content-type: jpg
+          url: https://moostmartijn.duckdns.org/local/images/light_switch.jpeg
+        push:
+          category: "turn_off_light_slaapkamer" 

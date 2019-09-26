@@ -229,7 +229,14 @@ ios:
             destructive: true
           - identifier: 'KEEP'
             title: 'Keep'
-          
+      - name: Turn Off Light Slaapkamer   
+        identifier: 'turn_off_light_slaapkamer'
+        actions:
+          - identifier: 'UIT'
+            title: 'Uit'
+            destructive: true
+          - identifier: 'AAN'
+            title: 'Aan' 
 tts:
   - platform: google_translate
     language: 'nl'

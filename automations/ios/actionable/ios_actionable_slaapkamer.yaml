@@ -1,0 +1,13 @@
+# Action when triggering 'Turn Off Light Slaapkamer' button from actionable push notification
+
+- alias: ios actionable slaapkamer
+
+  trigger:
+  - platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: UIT
+
+  action:
+  - service: light.turn_off
+    entity_id: light.slaapkamer

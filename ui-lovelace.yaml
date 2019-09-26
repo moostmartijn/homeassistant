@@ -231,7 +231,7 @@ views:
             - type: section
               label: "KEUKEN"
             - type: custom:slider-entity-row
-              entity: light.vogel
+              entity: light.de_vogel
               toggle: true
             - type: section
               label: "WC"
@@ -243,6 +243,11 @@ views:
             - type: custom:slider-entity-row
               entity: light.gang
               toggle: true   
+            - type: section
+              label: "SLAAPKAMER"
+            - type: custom:slider-entity-row  
+              entity: light.slaapkamer
+              toggle: true
 
             - type: section
               label: "HUE SCENES"

@@ -1,6 +1,6 @@
 # Receive an iOS notification when receiving new mail
 
-- alias: ios new mail
+- alias: ios brievenbus
 
   trigger:
   - platform: state
@@ -9,9 +9,9 @@
 
   action:
   - service: notify.ios_iphone_van_martijn
-    data:
+    data_template:
       title: Brievenbus
-      message: Je hebt een poststuk ontvangen.
+      message: Je hebt vandaag om {{ now ().hour }}:{{ now ().minute }} een poststuk ontvangen.
       data:
         attachment:
           content-type: png
