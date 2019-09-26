@@ -11,12 +11,21 @@ Raspberry Pi 3B
 
 ## RFLink gateway (Arduino Mega)
 ### Klik Aan Klik Uit
-    I use the ACL-LV10 to control the ComfoFanS ventilation unit. 
+To control my main ventilation unit in my house, the so called ComfoFanS, I use a ACL-LV10 Klik Aan Klik Uit (KAKU) device. The RFLink gateway sends a 433 mhz signal to control it.
+
+Instead of a smart power outlet I use one KAKU ACM-1000 device to switch on my pick-up player using my voice and a Google Home Mini.
 
 ## Raspberry Pi Zero (Plantgateway)
-### Xiaomi plant sensors
-    Because the Xiaomi plant sensors are too far away from the Raspberry Pi, they're not able to communicatie with eacht other through bluetooth. So solve this problem I installed [Plantgateway](https://github.com/ChristianKuehnel/plantgateway) on a Raspberry Pi Zero to send the sensor output over to Home Assistant using MQTT)
+### Xiaomi Mi Flora plant monitor sensors
+I have three Xiaomi Mi Flora plant monirots to monitor two plants and an eco-system in a bottle. 
 
+Because the Xiaomi plant sensors are too far away from the Raspberry Pi, they're not able to communicatie with eacht other through bluetooth. So solve this problem I installed [Plantgateway](https://github.com/ChristianKuehnel/plantgateway) on a Raspberry Pi Zero to send the sensor output over to Home Assistant using MQTT)
+
+Whenever the moisture of a plant is below a certain percentage, Home Assistant will send me an iOS notification whenever I enter my home zone so I can water the plant when I come home. 
+
+[View my configuration of this automation in `/automations`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_moisture_howea_forsteriana.yaml)
+[View my configuration of the plants in `plants.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/plants.yaml)
+[View my configuration of the plant monitor card in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/c8971cdf8f6bc1da83494fb637db72655925539a/ui-lovelace.yaml#L193-L200)
 
 ## Connected hardware through Home Assistant:
 <br>Broadlink RM3 mini
@@ -68,6 +77,14 @@ As seen a little bit in this picture, the background of the Home Assistant front
 ### Spotify controls
 
 [View my configuration in spotify_controls.yaml (in `/packages`)](https://github.com/moostmartijn/homeassistant/blob/master/packages/spotify_controls.yaml)
+
+
+### Media players
+For all my media players I use the '[Mini Media Player](https://github.com/kalkih/mini-media-player)' component. This component has a lot of features to customize. 
+
+<br>Sounbar (Samsung HW-MS650)
+<br>Samsung Smart TV (UE55JU6000)
+<br>Ziggo Mediabox Next
 
 # 4. Automations
 
