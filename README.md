@@ -5,15 +5,17 @@ I run Home Assistant under Hass.io on a Raspberry Pi 3B.
 
 Raspberry Pi 3B
 
-Phoscon Conbee II Zigbee USB stick
+## Phoscon Conbee II Zigbee USB stick
 - Ikea light bulbs
 - Xiaomi Aqara sensors (temperature/humidity & door window open/close)
 
-RFLink gateway (Arduino Mega)
-- Klik Aan Klik Uit
+## RFLink gateway (Arduino Mega)
+### Klik Aan Klik Uit
+    I use the ACL-LV10 to control the ComfoFanS ventilation unit. 
 
-Raspberry Pi Zero (Plantgateway)
-- Xiaomi plant sensors
+## Raspberry Pi Zero (Plantgateway)
+### Xiaomi plant sensors
+    Because the Xiaomi plant sensors are too far away from the Raspberry Pi, they're not able to communicatie with eacht other through bluetooth. So solve this problem I installed [Plantgateway](https://github.com/ChristianKuehnel/plantgateway) on a Raspberry Pi Zero to send the sensor output over to Home Assistant using MQTT)
 
 
 ## Connected hardware through Home Assistant:
@@ -30,6 +32,7 @@ Raspberry Pi Zero (Plantgateway)
 - [Grafana](https://community.home-assistant.io/t/community-hass-io-add-on-grafana/54674)
 - [InfluxDB](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491/9)
 - [Node-RED](https://community.home-assistant.io/t/community-hass-io-add-on-node-red/55023)
+- [Samba share](https://www.home-assistant.io/addons/samba/)
 - [Spotify Connect](https://community.home-assistant.io/t/community-hass-io-add-on-spotify-connect/61210)
 - [Wire Guard](https://community.home-assistant.io/t/community-hass-io-add-on-wireguard/134662)
 - [deCONZ](https://github.com/home-assistant/hassio-addons/tree/master/deconz)
