@@ -40,7 +40,7 @@ Raspberry Pi 3B
 # 3. Frontend
 
 ## Home 
-![alt text](https://github.com/moostmartijn
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_home.png "Home Tab")
 
 
 # 4. Automations
