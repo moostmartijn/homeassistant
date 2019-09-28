@@ -9,6 +9,15 @@ Raspberry Pi 3B
 - Ikea light bulbs
 - Xiaomi Aqara sensors (temperature/humidity & door window open/close)
 
+<br>
+<br>
+
+| Hardware       | Connected through           | Description  |
+| ------------- |:-------------:| -----:|
+| ![Xiaomi Aqara window/door sensor](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg)    | right-aligned | $1600 |
+| ![Xiaomi Aqara temperature sensor](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_temperature_sensor.jpg)   | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 ## RFLink gateway (Arduino Mega)
 ### Klik Aan Klik Uit
 To control my main ventilation unit in my house, the so called ComfoFanS, I use a ACL-LV10 Klik Aan Klik Uit (KAKU) device. The RFLink gateway sends a 433 mhz signal to control it.
