@@ -14,9 +14,12 @@ Raspberry Pi 3B
 
 | Hardware       | Connected through           | Description  |
 | ------------- |:-------------:| -----:|
-| ![Xiaomi Aqara window/door sensor](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg)    | right-aligned | $1600 |
+| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg" alt="Xiaomi Aqara window/door sensor" width="200"/>    | right-aligned | $1600 |
 | ![Xiaomi Aqara temperature sensor](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_temperature_sensor.jpg)   | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
+
+
+
 
 ## RFLink gateway (Arduino Mega)
 ### Klik Aan Klik Uit
