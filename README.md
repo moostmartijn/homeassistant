@@ -3,14 +3,10 @@ I run Home Assistant under Hass.io on a Raspberry Pi 3B.
 
 # 1. Hardware
 
-Raspberry Pi 3B
+| Hardware | Description |
+| ---------|-------------|
 
-## Phoscon Conbee II Zigbee USB stick
-- Ikea light bulbs
-- Xiaomi Aqara sensors (temperature/humidity & door window open/close)
 
-<br>
-<br>
 
 | Hardware       | Connected through           | Description  |
 | ------------- |:-------------:| -----:|
