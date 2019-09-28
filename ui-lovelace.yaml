@@ -104,7 +104,7 @@ views:
             - entity: sensor.week_nummer
               name: Weeknummer
               icon: mdi:calendar-week
-            - entity: sensor.ssl_certificate_expiry
+            - entity: sensor.ssl_certificate_expiry_2
               name: Certicate expiry
               icon: mdi:certificate
 
