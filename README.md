@@ -16,10 +16,7 @@ I run Home Assistant under Hass.io on a Raspberry Pi 3B.
 | ------------- |:-------------:| -----:|
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg" alt="Xiaomi Aqara window/door sensor" width="200"/>    | Conbee II Zigbee USB stick | $1600 |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_temperature_sensor.jpg" alt="Xiaomi Aqara temperature sensor" width="200"/>   | Conbee II Zigbee USB stick      |   $12 |
-| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/conbee_ii_stick.jpg" alt="Conbee II Zigbee USB stick" width="200"/> | Raspberry Pi 3b      |    $1 |
-| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/raspberry_pi_zero_w.jpg" alt="Raspberry Pi Zero W" width="200"/> | Raspberry Pi 3b     |    $2 |
-| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_1000.jpg" alt="Klik Aan Klik Uit ACM-1000" width="200"/> | Arduino Mega RFlink gateway     |    $3 |
-| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_lv10.jpg" alt="Klik Aan Klik Uit ACM-LV10" width="200"/> | Arduino Mega RFlink gateway    |    $4 |
+| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_mi_flora_plant_monitor.jpg" alt="Xiaomi Mi Flora plant monitor" width="200"/> | Raspberry Pi Zero W | |
 
 
 
