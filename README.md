@@ -109,6 +109,8 @@ This image shows the last snapshot that is taken from my front door camera, whic
 
 I made my dumb wired doorbell 'smart' through [this awesome guide](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) of [Frenck](https://frenck.dev/).
 
+If there's no snapshot to show after a re-start of Home Assistant, it will show this doorbell image.
+
 ### Shopping list
 I love the Shopping list of Home Assistant. I keep this shopping list up to date with items I need from the local store. Whenever I enter the zone of my local supermarket, Home Assistant sends me the shopping list to my iPhone.
 
@@ -117,6 +119,12 @@ I created a custom sensor with `shopping_list.py`, a Python script I found on th
 I also created an iOS actionable notification with a button to complete all the items on my shopping list
 
 [View the configuration of this automations in `automations.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/actionable/ios_actionable_empty.yaml)
+
+### Calendar
+For the calandar card, I use a community add-on called ['Atomic Calendar'](https://github.com/atomic7777/atomic_calendar) which I installed using HACS. 
+
+### Reddit
+Integrated Reddit into Home Assistant using the [Reddit card](https://github.com/ljmerza/reddit-card) installed with HACS, showing the five newest topics posted in the Home Assistant subreddit. 
 
 ## Camera
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
