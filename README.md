@@ -1,7 +1,11 @@
-# homeassistant
-I run Home Assistant under Hass.io on a Raspberry Pi 3B. 
+# Home Assistant configuration
+I've been running Home Assistant under Hass.io on a Raspberry Pi 3b since february 2019. Since then I'm adding more and more (hardware) sensors to the configuration to make my home as 'smart' or 'connected' as possible. 
+
+I like to have a nice looking frontend which I use to control and view all of my sensors, media players and other integrations of Home Assistant. 
 
 # 1. Hardware
+
+These are all of my hardware devices and sensors I have connected to Home Assistant.
 
 | Raspberry Pi 3b | Description | Arduino Mega | [More info](https://github.com/moostmartijn/homeassistant#rflink-gateway-arduino-mega) |
 | ---------|-------------|----------|-------------|
@@ -37,13 +41,9 @@ Whenever the moisture of a plant is below a certain percentage, Home Assistant w
 <br>[View my configuration of the plants in `plants.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/plants.yaml)
 <br>[View my configuration of the plant monitor card in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/c8971cdf8f6bc1da83494fb637db72655925539a/ui-lovelace.yaml#L193-L200)
 
-## Connected hardware through Home Assistant:
-<br>Broadlink RM3 mini
-<br>Google Home Mini
-<br>Soundbar HW-MS650 (to control the Soundbar I installed a community add-on through HACS named [Samsung Multi Room](https://github.com/dariornelas/ha_samsung_multi_room) )
-<br>Roomba 960 [connecting the Roomba with Home Asistant](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password)
-<br>ESP32-Cam [Flashing the ESP32-Cam](https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/)
+
 # 2. Add-ons
+These are all the add-ons I'm runnung on my Raspberry Pi through Hass.io.
 
 <br>[AdGuard Home](https://community.home-assistant.io/t/community-hass-io-add-on-adguard-home/90684)
 <br>[ESPHome](https://esphome.io/)
@@ -79,8 +79,14 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 ## Calendar
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_calendar.png "Calendar Tab")
 
+### Last one at the door
+This image shows the last snapshot that is taken from my front door camera, which gets triggered when someone pushes the doorbell button.
+
+I made my dumb wired doorbell 'smart' through [this awesome guide](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) of [Frenck](https://frenck.dev/).
+
 ## Camera
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
+
 
 ## Music
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_music.png "Music Tab")
