@@ -68,6 +68,8 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 ## Home 
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_home.png "Home Tab")
 
+[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
+
 ## iRobot Roomba 960
 I connected my Roomba 960 with Home Assistant so I can control this device through Home Assistant. I connected it by reading [these](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) instructions which worked very well for me.
 
@@ -79,8 +81,6 @@ I monitor my plants using three Xiaomi Mi Flora plant monitor sensors. Because t
 
 The Raspberry Pi Zero W connects with the plan monitors over bluetooth and sends the information to Home Assistant on the Raspberry Pi 3b over MQTT.
 
-[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
-
 ## Weather
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_weather.png "Weather Tab")
 
@@ -88,6 +88,8 @@ The Raspberry Pi Zero W connects with the plan monitors over bluetooth and sends
 
 ## Calendar
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_calendar.png "Calendar Tab")
+
+[View the configuration of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/3daad5355fdfe9f84950400a8bf3bd6cbcfbd427/ui-lovelace.yaml#L463-L670)
 
 ### Last one at the door
 This image shows the last snapshot that is taken from my front door camera, which gets triggered when someone pushes the doorbell button.
