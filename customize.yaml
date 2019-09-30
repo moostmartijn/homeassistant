@@ -14,6 +14,9 @@ plant.ecosysteem:
   friendly_name: Ecosysteem
   entity_picture: /local/images/ecosysteem.jpg
 
+media_player.woonkamer:
+  friendly_name: Google Home mini
+
 # PERSONS  
 person.jildou:
   entity_picture: https://graph.facebook.com/1068824831/picture?type=normal

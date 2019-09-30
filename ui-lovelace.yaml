@@ -636,31 +636,31 @@ views:
             - input_select.radio_soundbar
           show_header_toggle: false
 
-        - type: entities
-          title: Youtube videos
-          show_header_toggle: false
-          entities:
-            - input_select.youtube_video
-            - type: call-service
-              icon: mdi:play-box-outline
-              name: Speel geselecteerde video af
-              action_name: Afspelen
-              service: script.turn_on
-              service_data:
-                entity_id: script.youtube_video
+#        - type: entities
+#          title: Youtube videos
+#          show_header_toggle: false
+#          entities:
+#            - input_select.youtube_video
+#            - type: call-service
+#              icon: mdi:play-box-outline
+#              name: Speel geselecteerde video af
+#              action_name: Afspelen
+#              service: script.turn_on
+#              service_data:
+#                entity_id: script.youtube_video
 
-        - type: entities
-          entities:
-            - entity: input_text.text_bar
-              type: 'custom:text-input-row'
-              name: Zoek op Youtube
-            - type: call-service
-              name: ' '
-              icon: 'mdi:search-web'
-              action_name: Afspelen
-              service: script.turn_on
-              service_data:
-                entity_id: script.text_to_youtube
+#        - type: entities
+#          entities:
+#            - entity: input_text.text_bar
+#              type: 'custom:text-input-row'
+#              name: Zoek op Youtube
+#            - type: call-service
+#              name: ' '
+#              icon: 'mdi:search-web'
+#              action_name: Afspelen
+#              service: script.turn_on
+#              service_data:
+#                entity_id: script.text_to_youtube
 
         - type: picture-entity
           entity: sensor.discogs_random
