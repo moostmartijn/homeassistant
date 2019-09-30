@@ -81,6 +81,8 @@ Whenever the moisture of a plant is below a certain percentage, Home Assistant w
 ## Weather
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_weather.png "Weather Tab")
 
+This tab shows a camera image of the [Buienradar](https://www.home-assistant.io/components/buienradar/) radar, the [animated weather card](https://community.home-assistant.io/t/custom-animated-weather-card-for-lovelace/58338) with information of a the current weather from the nearest weather station, battery information of some of my hardware devices, garbage pick-up dates, a [PostNL card](https://community.home-assistant.io/t/lovelace-postnl/112433) and the three Xiaomi temperature / humidity sensors.
+
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L281-L462)
 
 ## Calendar
