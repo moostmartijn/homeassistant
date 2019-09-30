@@ -14,28 +14,45 @@ homeassistant:
         - !secret trustedip_1
         - !secret trustedip_2
 
-map:
+http:
+  base_url: !secret base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
 
-hassio:
+recorder:
+  db_url: !secret mariadb_url
+  purge_keep_days: 2
+  include:
+    domains:
+      - sensor
 
-smartir:
-  update_branch: rc
+logger:
+  default: warning
+  logs:
+    buienradar.buienradar_json: error
+    homeassistant.components.input_select: error
+    homeassistant.helpers.condition: error
+    homeassistant.helpers.entity: error
+    homeassistant.components.media_player: error
+    homeassistant.loader: error
+    homeassistant.setup: error
+    homeassistant.components.binary_sensor: error
 
-mqtt:
-  broker: !secret mqtt_broker
-  port: !secret mqtt_port
-  client_id: homeassistant
-  discovery: true
-  discovery_prefix: homeassistant
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-
-hacs:
-  token: !secret hacs_token 
-
-zone: !include zones.yaml
-
-default_config:
+proximity:
+  martijn:
+    zone: home
+    devices:
+      device_tracker.life360_martijn
+    tolerance: 50
+    unit_of_measurement: km
+  jildou:
+    zone: home
+    devices:
+      device_tracker.life360_jildou
+    tolerance: 50
+    unit_of_measurement: km
 
 panel_iframe:
   ide:
@@ -47,6 +64,15 @@ panel_iframe:
     title: Grafana
     icon: mdi:chart-timeline
     url: !secret grafana_url 
+
+influxdb:
+  host: a0d7b954-influxdb
+  port: !secret influxdb_port
+  database: !secret influxdb_database
+  username: !secret influxdb_username  
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
 
 panel_custom:
   - name: floorplan
@@ -65,101 +91,13 @@ panel_custom:
     config:
       ingress: a0d7b954_adguard
 
-system_health:
+tts:
+  - platform: google_translate
+    language: 'nl'
 
-browser:
-
-lovelace:
-  mode: yaml
-
-frontend:
-  themes: !include themes.yaml
-
-rflink:
-  port: /dev/serial/by-id/usb-Arduino__www.arduino.cc__0042_85734323630351406012-if00
-
-influxdb:
-  host: a0d7b954-influxdb
-  port: !secret influxdb_port
-  database: !secret influxdb_database
-  username: !secret influxdb_username  
-  password: !secret influxdb_password
-  max_retries: 3
-  default_measurement: state
-
-http:
-  base_url: !secret base_url
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
-  ip_ban_enabled: True
-  login_attempts_threshold: 3
-
-api:
-
-binary_sensor:
-  - platform: ping
-    host: !secret host_imac
-    name: iMac (ping)
-    scan_interval: 60
-    count: 2
-  - platform: ping
-    host: !secret host_imac2
-    name: iMac2 (ping)
-    scan_interval: 60
-    count: 2
-  - platform: ping
-    host: !secret host_tv
-    name: Samsung TV (ping)
-    scan_interval: 5
-    count: 2
-  - platform: ping
-    host: !secret host_soundbar 
-    name: Soundbar (ping)
-    count: 2
-
-light:
-  - platform: rflink
-    devices:
-      newkaku_01d610ee_1: {}   
-
-camera:
-  - platform: buienradar
-    name: Buienradar
-
-  - platform: local_file
-    file_path: /config/www/snapshots/deurbel.jpg
-
-proximity:
-  martijn:
-    zone: home
-    devices:
-      device_tracker.life360_martijn
-    tolerance: 50
-    unit_of_measurement: km
-  jildou:
-    zone: home
-    devices:
-      device_tracker.life360_jildou
-    tolerance: 50
-    unit_of_measurement: km
-
-updater:
-
-recorder:
-  db_url: !secret mariadb_url
-  purge_keep_days: 2
-  include:
-    domains:
-      - sensor
-
-hue:
-  bridges:
-    - host: !secret hue_host
-
-discovery:
-
-weather:
-  - platform: buienradar
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
 
 google_assistant:
   project_id: !secret google_assistant_project_id
@@ -194,30 +132,6 @@ google_assistant:
       name: Turn everything off
       expose: true
 
-dialogflow:
-
-logger:
-  default: warning
-  logs:
-    buienradar.buienradar_json: error
-    homeassistant.components.input_select: error
-    homeassistant.helpers.condition: error
-    homeassistant.helpers.entity: error
-    homeassistant.components.media_player: error
-    homeassistant.loader: error
-    homeassistant.setup: error
-    homeassistant.components.binary_sensor: error
-
-google:
-  client_id: !secret google_client_id
-  client_secret: !secret google_client_secret
-
-vacuum:
-  - platform: roomba
-    host: !secret roomba_host
-    username: !secret roomba_username
-    password: !secret roomba_password
-
 ios:
   push:
     categories:
@@ -237,15 +151,36 @@ ios:
             destructive: true
           - identifier: 'AAN'
             title: 'Aan' 
-tts:
-  - platform: google_translate
-    language: 'nl'
 
-media_extractor:
+notify:
+  - name: Google Assistant Broadcast Message
+    platform: rest
+    resource: !secret google_assistant_broadcast
 
-input_text:
-  text_bar:
-    name: text bar
+  - name: Google Assistant Command
+    platform: rest
+    resource: !secret google_assistant_command 
+
+binary_sensor:
+  - platform: ping
+    host: !secret host_imac
+    name: iMac (ping)
+    scan_interval: 60
+    count: 2
+  - platform: ping
+    host: !secret host_imac2
+    name: iMac2 (ping)
+    scan_interval: 60
+    count: 2
+  - platform: ping
+    host: !secret host_tv
+    name: Samsung TV (ping)
+    scan_interval: 5
+    count: 2
+  - platform: ping
+    host: !secret host_soundbar 
+    name: Soundbar (ping)
+    count: 2
 
 sabnzbd:
   api_key: !secret sabnzbd_api
@@ -264,28 +199,96 @@ sabnzbd:
     - month_size
     - total_size
 
-# IFTTT
-ifttt:
-  key: !secret ifttt_api
-
-notify:
-  - name: Google Assistant Broadcast Message
-    platform: rest
-    resource: !secret google_assistant_broadcast
-
-  - name: Google Assistant Command
-    platform: rest
-    resource: !secret google_assistant_command 
-
 counter: 
   brievenbus:
     initial: 0
     step: 1
     icon: mdi:mailbox
 
+mqtt:
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
+  client_id: homeassistant
+  discovery: true
+  discovery_prefix: homeassistant
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+vacuum:
+  - platform: roomba
+    host: !secret roomba_host
+    username: !secret roomba_username
+    password: !secret roomba_password
+
+camera:
+  - platform: buienradar
+    name: Buienradar
+
+  - platform: local_file
+    file_path: /config/www/snapshots/deurbel.jpg
+
+  - platform: generic
+    name: Random Discogs Record
+    still_image_url: "{{ state_attr('sensor.discogs_random_record','cover_image') }}"
+
+light:
+  - platform: rflink
+    devices:
+      newkaku_01d610ee_1: {}   
+
+hue:
+  bridges:
+    - host: !secret hue_host
+
+input_text:
+  text_bar:
+    name: text bar
+
+smartir:
+  update_branch: rc
+
+ifttt:
+  key: !secret ifttt_api
+
+hacs:
+  token: !secret hacs_token 
+
+lovelace:
+  mode: yaml
+
+frontend:
+  themes: !include themes.yaml
+
+rflink:
+  port: /dev/serial/by-id/usb-Arduino__www.arduino.cc__0042_85734323630351406012-if00
+
+weather:
+  - platform: buienradar
+
+map:
+
+hassio:
+
+default_config:
+
+system_health:
+
+browser:
+
+api:
+
+updater:
+
+discovery:
+
+dialogflow:
+
+media_extractor:
+
 shopping_list:
 
 ###################
+zone: !include zones.yaml
 plant: !include plants.yaml
 group: !include groups.yaml
 automation: !include_dir_merge_list automations

@@ -662,7 +662,11 @@ views:
               service_data:
                 entity_id: script.text_to_youtube
 
-
+        - type: picture-entity
+          entity: sensor.discogs_random
+          camera_image: camera.random_discogs_record
+          show_name: false
+          show_state: true
 
 # Tab 4 - ESPhome / ESP32-cam
 - path: Camera
