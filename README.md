@@ -201,7 +201,7 @@ My mailbox is a few meters outside of my house and because I wanted to know when
 #### Actionable notifications
 At the moment I have just two actionable notifications running. One to complete all items on my shopping list ([link](https://github.com/moostmartijn/homeassistant#shopping-list)) and one that monitors for how long the lights in the bedroom are on. When they're on for more than 30 minutes, Home Assistant sends me a notification with a button to turn the lihts off or to keep them on.
 
-![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/ios_actionable_shopping_list.jpg "Actionable iOS notification - Empty shopping list")
+<img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/ios_actionable_shopping_list.jpg" alt="Actionable iOS notification - Empty shopping list" width="200"/>
 
 <br>[View the automation that sends the actionable notification](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_light_slaapkamer_off.yaml)
 <br>[View all the actionable notification in `automations/ios/actionable](https://github.com/moostmartijn/homeassistant/tree/master/automations/ios/actionable)
