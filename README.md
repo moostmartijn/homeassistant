@@ -164,11 +164,11 @@ Because this smart TV is not that smart, I use a [Broadlink RM Mini 3](https://w
 #### <br>Ziggo Mediabox Next
 Most of the functions of the Ziggo Mediabox Next I can control through Home Assistant thanks to a [community add-on](https://github.com/IIStevowII/ziggo-mediabox-next) of IIStevowII. 
 
-### Pick-up switch
-I placed a Klik Aan Klik Uit AMC-1000 between the power outlet and my pick-up (Technics SL-1210) so I can switch on the pick-up using Home Assistant or with my voice using the Google Home mini.
+### Record player switch
+I placed a Klik Aan Klik Uit AMC-1000 between the power outlet and my record player (Technics SL-1210) so I can switch on the record player using Home Assistant or with my voice using the Google Home mini.
 
 ### Discogs sensor
-I set up a Disocgs sensor, which shows a random record which is in my Discogs collection. So if I'm not sure what to play, Home Assistant helps me to make a choice.
+I set up a Disocgs sensor, which shows a random record every 10 minutes out of my Discogs collection. So if I'm not sure what to play, Home Assistant helps me to pick a record.
 
 To show the artist, title, label, catalog number and release date, I made a custom sensor.
 
@@ -197,6 +197,12 @@ My mailbox is a few meters outside of my house and because I wanted to know when
 
 [View all iOS notification automations in `/automations/ios`](https://github.com/moostmartijn/homeassistant/tree/master/automations/ios)
 
+
+#### Actionable notifications
+At the moment I have just two actionable notifications running. One to complete all items on my shopping list ([link](https://github.com/moostmartijn/homeassistant#shopping-list)) and one that monitors for how long the lights in the bedroom are on. When they're on for more than 30 minutes, Home Assistant sends me a notification with a button to turn the lihts off or to keep them on.
+
+[View the automation that sends the actionable notification](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_light_slaapkamer_off.yaml)
+[View all the actionable notification in `automations/ios/actionable](https://github.com/moostmartijn/homeassistant/tree/master/automations/ios/actionable)
 
 ## Radio
 To play a radio station with just a few clicks, I use [`MultiRoom.sh`](https://github.com/moostmartijn/homeassistant/blob/master/multiroom/MultiRoom.sh) script. I favorited some radio stations in the Samsung Multiroom app. The script will play the selected radio station using the pre-installed multiroom software of the Samsung soundbar.
