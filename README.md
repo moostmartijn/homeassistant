@@ -158,7 +158,9 @@ I placed a Klik Aan Klik Uit AMC-1000 between the power outlet and my pick-up (T
 ### Discogs sensor
 I set up a Disocgs sensor, which shows a random record which is in my Discogs collection. So if I'm not sure what to play, Home Assistant helps me to make a choice.
 
+To show the artist, title, label, catalog number and release date, I made a custom sensor.
 
+[View the custom sensor in `sensors.yaml`](https://github.com/moostmartijn/homeassistant/blob/edfe3cc7cbc891c2c9afb826639cbaf931ec5601/sensors.yaml#L376-L380)
 
 # 4. Automations
 
