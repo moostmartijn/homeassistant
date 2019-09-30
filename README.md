@@ -4,15 +4,15 @@ I've been running Home Assistant under Hass.io on a Raspberry Pi 3b+ since febru
 I like to have a nice looking frontend which I use to control and view all of my sensors, media players and other integrations of Home Assistant. 
 
 Use these links to go directly to the topics you want to read:
-- [Hardware](https://github.com/moostmartijn/homeassistant#1-hardware)
-- [Add-ons](https://github.com/moostmartijn/homeassistant#2-add-ons)
-- [Frontend](https://github.com/moostmartijn/homeassistant#3-frontend)
-    - [Home tab](https://github.com/moostmartijn/homeassistant#home)
-    - [Weather tab](https://github.com/moostmartijn/homeassistant#weather)
+1. [Hardware](https://github.com/moostmartijn/homeassistant#1-hardware)
+2. [Add-ons](https://github.com/moostmartijn/homeassistant#2-add-ons)
+3. [Frontend](https://github.com/moostmartijn/homeassistant#3-frontend)
+    * [Home tab](https://github.com/moostmartijn/homeassistant#home)
+    * [Weather tab](https://github.com/moostmartijn/homeassistant#weather)
     - [Calendar tab](https://github.com/moostmartijn/homeassistant#calendar)
     - [Camera tab](https://github.com/moostmartijn/homeassistant#camera)
     - [Music tab](https://github.com/moostmartijn/homeassistant#music)
-- [Automations](https://github.com/moostmartijn/homeassistant#4-automations)
+4. [Automations](https://github.com/moostmartijn/homeassistant#4-automations)
 
 
 # 1. Hardware
@@ -90,12 +90,14 @@ Whenever the moisture of a plant is below a certain percentage, Home Assistant w
 <br>[View my configuration of the plants in `plants.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/plants.yaml)
 <br>[View my configuration of the plant monitor card in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/c8971cdf8f6bc1da83494fb637db72655925539a/ui-lovelace.yaml#L193-L200)
 
+
 ## Weather
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_weather.png "Weather Tab")
 
+[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L281-L462)
+
 This tab shows a camera image of the [Buienradar](https://www.home-assistant.io/components/buienradar/) radar, the [animated weather card](https://community.home-assistant.io/t/custom-animated-weather-card-for-lovelace/58338) with information of a the current weather from the nearest weather station, battery information of some of my hardware devices, garbage pick-up dates, a [PostNL card](https://community.home-assistant.io/t/lovelace-postnl/112433) and the three Xiaomi temperature / humidity sensors.
 
-[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L281-L462)
 
 ## Calendar
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_calendar.png "Calendar Tab")
@@ -107,8 +109,19 @@ This image shows the last snapshot that is taken from my front door camera, whic
 
 I made my dumb wired doorbell 'smart' through [this awesome guide](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) of [Frenck](https://frenck.dev/).
 
+### Shopping list
+I love the Shopping list of Home Assistant. I keep this shopping list up to date with items I need from the local store. Whenever I enter the zone of my local supermarket, Home Assistant sends me the shopping list to my iPhone.
+
+I created a custom sensor with `shopping_list.py`, a Python script I found on the Home Assistant [comminity forum](https://community.home-assistant.io/)
+
+I also created an iOS actionable notification with a button to complete all the items on my shopping list
+
+[View the configuration of this automations in `automations.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/actionable/ios_actionable_empty.yaml)
+
 ## Camera
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
+
+[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/cca1cca81f5a816765e9f3cc08707d464a98700e/ui-lovelace.yaml#L671-L742)
 
 
 ## Music
@@ -129,12 +142,19 @@ For all my media players I use the '[Mini Media Player](https://github.com/kalki
 
 #### <br>Sounbar (Samsung HW-MS650)
 To control some funcations of the Soundbar such as the volume, source and power buttons, I installed a component through HACS called [ha_samsung_multi_room](https://github.com/dariornelas/ha_samsung_multi_room)
+
 #### <br>Samsung Smart TV (UE55JU6000)
 Because this smart TV is not that smart, I use a [Broadlink RM Mini 3](https://www.banggood.com/nl/Broadlink-Black-Bean-Smart-Home-Wifi-Remote-IR-Controller-Universal-Appliances-Smart-Control-p-1049494.html?gmcCountry=NL&currency=EUR&createTmp=1&utm_source=googleshopping&utm_medium=cpc_bgs&utm_content=frank&utm_campaign=pla-nl-rm-all-0506&ad_id=346898361050&gclid=Cj0KCQjww7HsBRDkARIsAARsIT7IQkt374ke-nlRnJire91LPmSAOxkBxqBURcDsH6nF-EdY7HzwI_0aAmGmEALw_wcB&cur_warehouse=CN) to power the TV, change the source and staring Netflix and Plex using scripts toggled by voice using the Google Home Mini. 
 
 [View these scripts in `/scripts/broadlink`](https://github.com/moostmartijn/homeassistant/tree/master/scripts/broadlink)
 
 #### <br>Ziggo Mediabox Next
+Most of the functions of the Ziggo Mediabox Next I can control through Home Assistant thanks to a [community add-on](https://github.com/IIStevowII/ziggo-mediabox-next) of IIStevowII. 
+
+### Discogs sensor
+I set up a Disocgs sensor, which shows a random record which is in my Discogs collection. So if I'm not sure what to play, Home Assistant helps me to make a choice.
+
+
 
 # 4. Automations
 
