@@ -26,11 +26,11 @@ These are all of my hardware devices and sensors I have connected to Home Assist
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/raspberry_pi_zero_w.jpg" alt="Raspberry Pi Zero W" width="200"/> | Running [Plantgateway](https://github.com/moostmartijn/homeassistant#raspberry-pi-zero-plantgateway) | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/google_home_mini.jpg" alt="Google Home Mini" width="200"/> | Controlling Home Assistant by voice |
 | <b>Conbee II Zigbee USB Stick</b> | | <b>Klik Aan Klik Uit ACM-1000</b> | [More info](https://github.com/moostmartijn/homeassistant#rflink-gateway-arduino-mega) |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/conbee_ii_stick.jpg" alt="Conbee II Zigbee USB stick" width="200"/> | Zigbee hub to control Zigbee devices | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_1000.jpg" alt="Klik Aan Klik Uit ACM-1000" width="200"/> | Acts as a smart switch |
-| <b>Klik Aan Klik Uit ACM-LV10</b> | [More info](https://github.com/moostmartijn/homeassistant#comfofans) | <b>Xiaomi Aqara window/door sensor</b> | |
+| <b>Klik Aan Klik Uit ACM-LV10</b> | [More info](https://github.com/moostmartijn/homeassistant#comfofans) | <b>Xiaomi Aqara window/door sensor</b> | [More info](https://github.com/moostmartijn/homeassistant#mailbox) |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_lv10.jpg" alt="Klik Aan Klik Uit ACM-LV10" width="200"/> | Controlling main ventilation unit | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg" alt="Xiaomi Aqara window/door sensor" width="200"/> | Used to monitor received mail in mailbox |
 | <b>Xiaomi Aqara temperature sensor</b> | | <b>Xiaomi Mi Flora plant monitor</b> |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_temperature_sensor.jpg" alt="Xiaomi Aqara temperature sensor" width="200"/> | I have three of them to track the temperature and humidity | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_mi_flora_plant_monitor.jpg" alt="Xiaomi Mi Flora plant monitor" width="200"/> | I have three of them to monitor plants |
-| <b>ESP32-cam</b> | | <b>Broadlink RM3 Mini | [More info](https://github.com/moostmartijn/homeassistant#samsung-smart-tv-ue55ju6000)|
+| <b>ESP32-cam</b> | [More info](https://github.com/moostmartijn/homeassistant#camera) | <b>Broadlink RM3 Mini | [More info](https://github.com/moostmartijn/homeassistant#samsung-smart-tv-ue55ju6000)|
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/esp32-cam.jpg" alt="ESP32-cam" width="200"/> | Using this as a doorbell camera | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/broadlink-rm3-mini.jpg" alt="Broadlink RM3 Mini" width="200"/> | Controlling my 'dumb' smart-tv |
 | <b>iRobot Roomba 960</b> | | <b>Samsung HW-MS650</b> | [More info](https://github.com/moostmartijn/homeassistant#sounbar-samsung-hw-ms650) |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/roomba_960.jpg" alt="iRobot Roomba 960" width="200"/> | Cleaning the house while I'm away | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/samsung_hw-ms650.jpg" alt="Samsung HW-MS650" width="200"/> | Main sound system |
@@ -57,7 +57,7 @@ These are all the add-ons I'm runnung on my Raspberry Pi through Hass.io.
 
 # 3. Frontend
 
-## Custom Compact Header
+### Custom Compact Header
 
 To save space on my Home Assistant iPhone app I use the [Compact Custom Header](https://community.home-assistant.io/t/compact-custom-header/83716) community add-on.
 
@@ -70,16 +70,16 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
 
-## iRobot Roomba 960
+### iRobot Roomba 960
 I connected my Roomba 960 with Home Assistant so I can control this device through Home Assistant. I connected it by reading [these](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) instructions which worked very well for me.
 
-## ComfoFanS
+### ComfoFanS
 I have a main ventilation unit in my house called a ComfoFanS which has a main control unit in my living room. To control this unit through Home Assistant and bypass the main control unit in my living room, I installed a Klik Aan Klik Uit ACM-LV10 in the ventilation unit to control it using the Arduino Mega which acts as an RFlink gateway. The RFlink gateway sends a 433 mhz signal to the ACM-LV10 which sets the speed of the ComfoFanS.
 
-## DSMR (Smart meter)
+### DSMR (Smart meter)
 My Smart meter is connected with a USB (P1) to Home Assistant. It oututs multiple sensors such as power and gas usage. I show these in my frontend in a ['mini graph card'](https://github.com/kalkih/mini-graph-card) so I can monitor power and gas usage in the last 24 hours.
 
-## Plants (Raspberry Pi Zero W running 'Plantgateway')
+### Plants (Raspberry Pi Zero W running 'Plantgateway')
 I monitor my plants using three Xiaomi Mi Flora plant monitor sensors. Because the bluetooth of the Raspberry Pi 3b+ can't reach all the plant monitors, I use a Raspberry Pi Zero W running ['Plantgateway'](https://github.com/ChristianKuehnel/plantgateway) which is placed in my living room.
 
 The Raspberry Pi Zero W connects with the plan monitors over bluetooth and sends the information to Home Assistant on the Raspberry Pi 3b+ over MQTT.
@@ -178,7 +178,7 @@ I automate my backups using [Dropbox Sync](https://github.com/danielwelch/hassio
 [View all light automations in `/automations/lights`](https://github.com/moostmartijn/homeassistant/tree/master/automations/lights)
 
 ## Mailbox
-My mailbox is a few meters outside of my house and because I wanted to know when I received new mail, I installed a Xiamo window/door sensor on the lid. Whenever the mailman brings me mail and opens the lid, Home Assistant will send me an iOS notification. 
+My mailbox is a few meters outside of my house and because I wanted to know when I received new mail, I installed a Xiaomi window/door sensor on the lid. Whenever the mailman brings me mail and opens the lid, Home Assistant will send me an iOS notification. 
 
 [View my mailbox configuration in `/automations/ios`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_brievenbus.yaml)
 
