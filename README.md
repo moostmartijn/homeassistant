@@ -72,6 +72,9 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 ## iRobot Roomba 960
 I connected my Roomba 960 with Home Assistant so I can control this device through Home Assistant. I connected it by reading [these](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) instructions which worked very well for me.
 
+## ComfoFanS
+I have a main ventilation unit in my house called a ComfoFanS which has a main control unit in my living room. To control this unit through Home Assistant and bypass the main control unit in my living room, I installed a Klik Aan Klik Uit AMC-LV10 in the ventilation unit to control it using the Arduino Mega which acts as an RFlink gateway.
+
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
 
 ## Weather
