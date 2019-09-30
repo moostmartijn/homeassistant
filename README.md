@@ -3,20 +3,20 @@ I run Home Assistant under Hass.io on a Raspberry Pi 3B.
 
 # 1. Hardware
 
-| Raspberry Pi 3b | Description | Arduino Mega | Description |
+| Raspberry Pi 3b | Description | Arduino Mega | [Description](https://github.com/moostmartijn/homeassistant#rflink-gateway-arduino-mega) |
 | ---------|-------------|----------|-------------|
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/raspberry_pi_3b.jpg" alt="Raspberry Pi 3b+" width="200"/> | Running Hass.io | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/arduino_mega.jpg" alt="Arduino Mega" width="200"/> | RFlink gateway host |
-| <b>Raspberry Pi Zero W</b> | | <b>Google Home Mini</b> | |
-| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/raspberry_pi_zero_w.jpg" alt="Raspberry Pi Zero W" width="200"/> | Raspberry Pi Zero W: Running [Plantgateway](https://github.com/moostmartijn/homeassistant#raspberry-pi-zero-plantgateway) | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/google_home_mini.jpg" alt="Google Home Mini" width="200"/> | Controlling Home Assistant by voice |
-| <b>Conbee II Zigbee USB Stick</b> | | <b>Klik Aan Klik Uit ACM-1000</b> | |
+| <b>Raspberry Pi Zero W</b> | [DESCRIPTION](https://github.com/moostmartijn/homeassistant#raspberry-pi-zero-plantgateway) | <b>Google Home Mini</b> | |
+| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/raspberry_pi_zero_w.jpg" alt="Raspberry Pi Zero W" width="200"/> | Running [Plantgateway](https://github.com/moostmartijn/homeassistant#raspberry-pi-zero-plantgateway) | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/google_home_mini.jpg" alt="Google Home Mini" width="200"/> | Controlling Home Assistant by voice |
+| <b>Conbee II Zigbee USB Stick</b> | | <b>Klik Aan Klik Uit ACM-1000</b> | [DESCRIPTION](https://github.com/moostmartijn/homeassistant#rflink-gateway-arduino-mega) |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/conbee_ii_stick.jpg" alt="Conbee II Zigbee USB stick" width="200"/> | Zigbee hub to control Zigbee devices | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_1000.jpg" alt="Klik Aan Klik Uit ACM-1000" width="200"/> | Acts as a smart switch |
-| <b>Klik Aan Klik Uit ACM-LV10</b> | | <b>Xiaomi Aqara window/door sensor</b> | |
+| <b>Klik Aan Klik Uit ACM-LV10</b> | [DESCRIPTION](https://github.com/moostmartijn/homeassistant#rflink-gateway-arduino-mega) | <b>Xiaomi Aqara window/door sensor</b> | |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_lv10.jpg" alt="Klik Aan Klik Uit ACM-LV10" width="200"/> | Controlling main ventilation unit | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg" alt="Xiaomi Aqara window/door sensor" width="200"/> | Used to monitor received mail in mailbox |
 | <b>Xiaomi Aqara temperature sensor</b> | | <b>Xiaomi Mi Flora plant monitor</b> |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_temperature_sensor.jpg" alt="Xiaomi Aqara temperature sensor" width="200"/> | I have three of them to track the temperature and humidity | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_mi_flora_plant_monitor.jpg" alt="Xiaomi Mi Flora plant monitor" width="200"/> | I have three of them to monitor plants |
-| <b>ESP32-cam</b> | | <b>Broadlink RM3 Mini |
+| <b>ESP32-cam</b> | | <b>Broadlink RM3 Mini | [DESCRIPTION](https://github.com/moostmartijn/homeassistant#samsung-smart-tv-ue55ju6000)|
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/esp32-cam.jpg" alt="ESP32-cam" width="200"/> | Using this as a doorbell camera | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/broadlink-rm3-mini.jpg" alt="Broadlink RM3 Mini" width="200"/> | Controlling my 'dumb' smart-tv |
-| <b>iRobot Roomba 960</b> | | <b>Samsung HW-MS650</b> |
+| <b>iRobot Roomba 960</b> | | <b>Samsung HW-MS650</b> | [DESCRIPTION](https://github.com/moostmartijn/homeassistant#sounbar-samsung-hw-ms650) |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/roomba_960.jpg" alt="iRobot Roomba 960" width="200"/> | Cleaning the house while I'm away | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/samsung_hw-ms650.jpg" alt="Samsung HW-MS650" width="200"/> | Main sound system |
 
 ## RFLink gateway (Arduino Mega)
@@ -75,6 +75,12 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_weather.png "Weather Tab")
 
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L281-L462)
+
+## Calendar
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/calendar_camera.png "Calendar Tab")
+
+## Camera
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
 
 ## Music
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_music.png "Music Tab")

@@ -732,12 +732,12 @@ views:
             - entity: sensor.doorbell_wifi_signal
               name: Deurbel Wifi signaal
 
-        - type: entities
-          title: ESP32-Cam (TTGO T-Camera)
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.pir
-              name: PIR sensor ESP32
+#        - type: entities
+#          title: ESP32-Cam (TTGO T-Camera)
+#          show_header_toggle: false
+#          entities:
+#            - entity: binary_sensor.pir
+#              name: PIR sensor ESP32
             
 
 # Tab 5 - Monitoring
