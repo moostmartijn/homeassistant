@@ -121,17 +121,25 @@ For the calandar card, I use a community add-on called ['Atomic Calendar'](https
 ### Reddit
 Integrated Reddit into Home Assistant using the [Reddit card](https://github.com/ljmerza/reddit-card) installed with [HACS](https://community.home-assistant.io/t/custom-component-hacs/121727), showing the five newest topics posted in the Home Assistant subreddit. 
 
-## Camera
-![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
-
-[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/cca1cca81f5a816765e9f3cc08707d464a98700e/ui-lovelace.yaml#L671-L742)
-
 
 ## Music
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_music.png "Music Tab")
 
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L508-L666)
 
+
+## Camera
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
+
+[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/cca1cca81f5a816765e9f3cc08707d464a98700e/ui-lovelace.yaml#L671-L742)
+
+
+## System information
+![alt text]((https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_system_information.png "System information tab")
+
+[View the configuration of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/32e91244fb5b7dbb70dd0f5cc75cf61047935115/ui-lovelace.yaml#L743-L828)
+
+This tab shows the system information of the Raspberry Pi 3b+ running Home Assistant, of SabNZBD, AdGuard Home and has a frontend Home Assistant re-start button.
 
 ### Background
 As seen a little bit in this picture, the background of the Home Assistant frontend shows the current playing track of Spotify using the community add-on [Lovelace Media Art Background](https://github.com/TheLastProject/lovelace-media-art-background)
@@ -173,7 +181,6 @@ I automate my backups using [Dropbox Sync](https://github.com/danielwelch/hassio
 [View my backup configuration in `/automation/backups`](https://github.com/moostmartijn/homeassistant/tree/master/automations/backups)
 
 ## Lights
-
 
 <br>[Turn on the lights when someone comes home after sunset](/automations/lights/light_woonkamer_on_home_zone_sunset.yaml)
 <br>[Turn on the hall lights for one minute whenever there is motion](https://github.com/moostmartijn/homeassistant/blob/master/automations/lights/light_gang_on_motion.yaml)
