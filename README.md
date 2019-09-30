@@ -3,6 +3,18 @@ I've been running Home Assistant under Hass.io on a Raspberry Pi 3b+ since febru
 
 I like to have a nice looking frontend which I use to control and view all of my sensors, media players and other integrations of Home Assistant. 
 
+Use these links to go directly to the topics you want to read:
+- [Hardware](https://github.com/moostmartijn/homeassistant#1-hardware)
+- [Add-ons](https://github.com/moostmartijn/homeassistant#2-add-ons)
+- [Frontend](https://github.com/moostmartijn/homeassistant#3-frontend)
+    - [Home tab](https://github.com/moostmartijn/homeassistant#home)
+    - [Weather tab](https://github.com/moostmartijn/homeassistant#weather)
+    - [Calendar tab](https://github.com/moostmartijn/homeassistant#calendar)
+    - [Camera tab](https://github.com/moostmartijn/homeassistant#camera)
+    - [Music tab](https://github.com/moostmartijn/homeassistant#music)
+- [Automations](https://github.com/moostmartijn/homeassistant#4-automations)
+
+
 # 1. Hardware
 
 These are all of my hardware devices and sensors I have connected to Home Assistant.
