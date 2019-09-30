@@ -10,8 +10,9 @@ Use these links to go directly to the topics you want to read:
     * [Home tab](https://github.com/moostmartijn/homeassistant#home)
     * [Weather tab](https://github.com/moostmartijn/homeassistant#weather)
     - [Calendar tab](https://github.com/moostmartijn/homeassistant#calendar)
-    - [Camera tab](https://github.com/moostmartijn/homeassistant#camera)
     - [Music tab](https://github.com/moostmartijn/homeassistant#music)
+    - [Camera tab](https://github.com/moostmartijn/homeassistant#camera)    
+    - [System information](https://github.com/moostmartijn/homeassistant#system-information)
 4. [Automations](https://github.com/moostmartijn/homeassistant#4-automations)
 
 
@@ -135,7 +136,7 @@ Integrated Reddit into Home Assistant using the [Reddit card](https://github.com
 
 
 ## System information
-![alt text]((https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_system_information.png "System information tab")
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_system_information.png "System information tab")
 
 [View the configuration of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/32e91244fb5b7dbb70dd0f5cc75cf61047935115/ui-lovelace.yaml#L743-L828)
 
