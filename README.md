@@ -77,7 +77,7 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L281-L462)
 
 ## Calendar
-![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/calendar_camera.png "Calendar Tab")
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_calendar.png "Calendar Tab")
 
 ## Camera
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
