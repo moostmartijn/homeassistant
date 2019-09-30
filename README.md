@@ -25,7 +25,6 @@ These are all of my hardware devices and sensors I have connected to Home Assist
 
 ## RFLink gateway (Arduino Mega)
 ### Klik Aan Klik Uit
-To control my main ventilation unit in my house, the so called ComfoFanS, I use a ACL-LV10 Klik Aan Klik Uit (KAKU) device. The RFLink gateway sends a 433 mhz signal to control it.
 
 Instead of a smart power outlet I use one KAKU ACM-1000 device to switch on my pick-up player using my voice and a Google Home Mini.
 
@@ -73,7 +72,12 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 I connected my Roomba 960 with Home Assistant so I can control this device through Home Assistant. I connected it by reading [these](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) instructions which worked very well for me.
 
 ## ComfoFanS
-I have a main ventilation unit in my house called a ComfoFanS which has a main control unit in my living room. To control this unit through Home Assistant and bypass the main control unit in my living room, I installed a Klik Aan Klik Uit AMC-LV10 in the ventilation unit to control it using the Arduino Mega which acts as an RFlink gateway.
+I have a main ventilation unit in my house called a ComfoFanS which has a main control unit in my living room. To control this unit through Home Assistant and bypass the main control unit in my living room, I installed a Klik Aan Klik Uit AMC-LV10 in the ventilation unit to control it using the Arduino Mega which acts as an RFlink gateway. The RFlink gateway sends a 433 mhz signal to the ACM-LV10 which sets the speed of the ComfoFanS.
+
+## Plants (Raspberry Pi Zero W running 'Plantgateway')
+I monitor my plants using three Xiaomi Mi Flora plant monitor sensors. Because the bluetooth of the Raspberry Pi 3b can't reach all the plant monitors, I use a Raspberry Pi Zero W running ['Plantgateway'](https://github.com/ChristianKuehnel/plantgateway) which is placed in my living room.
+
+The Raspberry Pi Zero W connects with the plan monitors over bluetooth and sends the information to Home Assistant on the Raspberry Pi 3b over MQTT.
 
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L57-L280)
 
