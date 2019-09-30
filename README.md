@@ -5,23 +5,16 @@ I run Home Assistant under Hass.io on a Raspberry Pi 3B.
 
 | Hardware | Description | Hardware | Description |
 | ---------|-------------|----------|-------------|
-| | Raspberry Pi 3b | | Arduino Mega |
+| Raspberry Pi 3b | | Arduino Mega |  |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/raspberry_pi_3b.jpg" alt="Raspberry Pi 3b+" width="200"/> | Running Hass.io | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/arduino_mega.jpg" alt="Arduino Mega" width="200"/> | RFlink gateway host |
-| | Raspberry Pi Zero W | | Google Home Mini |
+| Raspberry Pi Zero W | | Google Home Mini | |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/raspberry_pi_zero_w.jpg" alt="Raspberry Pi Zero W" width="200"/> | Raspberry Pi Zero W: Running [Plantgateway](https://github.com/moostmartijn/homeassistant#raspberry-pi-zero-plantgateway) | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/google_home_mini.jpg" alt="Google Home Mini" width="200"/> | Controlling Home Assistant by voice |
-| | Conbee II Zigbee USB Stick | | Klik Aan Klik Uit ACM-1000 |
+| Conbee II Zigbee USB Stick | | Klik Aan Klik Uit ACM-1000 | |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/conbee_ii_stick.jpg" alt="Conbee II Zigbee USB stick" width="200"/> | Zigbee hub to control Zigbee devices | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_1000.jpg" alt="Klik Aan Klik Uit ACM-1000" width="200"/> | Acts as a smart switch |
-| | Klik Aan Klik Uit ACM-LV10 |
-| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_lv10.jpg" alt="Klik Aan Klik Uit ACM-LV10" width="200"/> | Controlling main ventilation unit |
-
-
-
-| Hardware sensors     | Connected through           | Description  |
-| ------------- |:-------------:| -----:|
-| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg" alt="Xiaomi Aqara window/door sensor" width="200"/>    | Conbee II Zigbee USB stick | $1600 |
-| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_temperature_sensor.jpg" alt="Xiaomi Aqara temperature sensor" width="200"/>   | Conbee II Zigbee USB stick      |   $12 |
-| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_mi_flora_plant_monitor.jpg" alt="Xiaomi Mi Flora plant monitor" width="200"/> | Raspberry Pi Zero W | |
-
+| Klik Aan Klik Uit ACM-LV10 | | Xiaomi Aqara window/door sensor | |
+| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_lv10.jpg" alt="Klik Aan Klik Uit ACM-LV10" width="200"/> | Controlling main ventilation unit | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg" alt="Xiaomi Aqara window/door sensor" width="200"/> | Used to monitor received mail in mailbox |
+| Xiaomi Aqara temperature sensor | | Xiaomi Mi Flora plant monitor |
+| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_temperature_sensor.jpg" alt="Xiaomi Aqara temperature sensor" width="200"/> | I have three of them to track the temperature and humidity | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_mi_flora_plant_monitor.jpg" alt="Xiaomi Mi Flora plant monitor" width="200"/> | I have three of them to monitor plants |
 
 
 ## RFLink gateway (Arduino Mega)
