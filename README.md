@@ -35,11 +35,6 @@ These are all of my hardware devices and sensors I have connected to Home Assist
 | <b>iRobot Roomba 960</b> | [More info](https://github.com/moostmartijn/homeassistant#irobot-roomba-960) | <b>Samsung HW-MS650</b> | [More info](https://github.com/moostmartijn/homeassistant#sounbar-samsung-hw-ms650) |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/roomba_960.jpg" alt="iRobot Roomba 960" width="200"/> | Cleaning the house while I'm away | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/samsung_hw-ms650.jpg" alt="Samsung HW-MS650" width="200"/> | Main sound system |
 
-## RFLink gateway (Arduino Mega)
-### Klik Aan Klik Uit
-
-Instead of a smart power outlet I use one KAKU ACM-1000 device to switch on my pick-up player using my voice and a Google Home Mini.
-
 
 # 2. Add-ons
 These are all the add-ons I'm runnung on my Raspberry Pi through Hass.io.
@@ -118,13 +113,13 @@ I created a custom sensor with `shopping_list.py`, a Python script I found on th
 
 I also created an iOS actionable notification with a button to complete all the items on my shopping list
 
-[View the configuration of this automations in `automations.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/actionable/ios_actionable_empty.yaml)
+[View the configuration of this automation in `automations.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/actionable/ios_actionable_empty.yaml)
 
 ### Calendar
-For the calandar card, I use a community add-on called ['Atomic Calendar'](https://github.com/atomic7777/atomic_calendar) which I installed using HACS. 
+For the calandar card, I use a community add-on called ['Atomic Calendar'](https://github.com/atomic7777/atomic_calendar) which I installed using [HACS](https://community.home-assistant.io/t/custom-component-hacs/121727). 
 
 ### Reddit
-Integrated Reddit into Home Assistant using the [Reddit card](https://github.com/ljmerza/reddit-card) installed with HACS, showing the five newest topics posted in the Home Assistant subreddit. 
+Integrated Reddit into Home Assistant using the [Reddit card](https://github.com/ljmerza/reddit-card) installed with [HACS](https://community.home-assistant.io/t/custom-component-hacs/121727), showing the five newest topics posted in the Home Assistant subreddit. 
 
 ## Camera
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
@@ -150,7 +145,7 @@ As seen a little bit in this picture, the background of the Home Assistant front
 For all my media players I use the '[Mini Media Player](https://github.com/kalkih/mini-media-player)' component. This component has a lot of features to customize. 
 
 #### <br>Sounbar (Samsung HW-MS650)
-To control some funcations of the Soundbar such as the volume, source and power buttons, I installed a component through HACS called [ha_samsung_multi_room](https://github.com/dariornelas/ha_samsung_multi_room)
+To control some funcations of the Soundbar such as the volume, source and power buttons, I installed a component with [HACS](https://community.home-assistant.io/t/custom-component-hacs/121727) called [ha_samsung_multi_room](https://github.com/dariornelas/ha_samsung_multi_room)
 
 #### <br>Samsung Smart TV (UE55JU6000)
 Because this smart TV is not that smart, I use a [Broadlink RM Mini 3](https://www.banggood.com/nl/Broadlink-Black-Bean-Smart-Home-Wifi-Remote-IR-Controller-Universal-Appliances-Smart-Control-p-1049494.html?gmcCountry=NL&currency=EUR&createTmp=1&utm_source=googleshopping&utm_medium=cpc_bgs&utm_content=frank&utm_campaign=pla-nl-rm-all-0506&ad_id=346898361050&gclid=Cj0KCQjww7HsBRDkARIsAARsIT7IQkt374ke-nlRnJire91LPmSAOxkBxqBURcDsH6nF-EdY7HzwI_0aAmGmEALw_wcB&cur_warehouse=CN) to power the TV, change the source and staring Netflix and Plex using scripts toggled by voice using the Google Home Mini. 
