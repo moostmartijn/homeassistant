@@ -14,7 +14,8 @@ I run Home Assistant under Hass.io on a Raspberry Pi 3B.
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_lv10.jpg" alt="Klik Aan Klik Uit ACM-LV10" width="200"/> | Controlling main ventilation unit | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg" alt="Xiaomi Aqara window/door sensor" width="200"/> | Used to monitor received mail in mailbox |
 | <b>Xiaomi Aqara temperature sensor</b> | | <b>Xiaomi Mi Flora plant monitor</b> |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_temperature_sensor.jpg" alt="Xiaomi Aqara temperature sensor" width="200"/> | I have three of them to track the temperature and humidity | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_mi_flora_plant_monitor.jpg" alt="Xiaomi Mi Flora plant monitor" width="200"/> | I have three of them to monitor plants |
-
+| <b>ESP32-cam</b> | | |
+| <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/esp32-cam.jpg" alt="ESP32-cam" width="200"/> | Using this as a doorbell camera which sends a snapshot to my iPhone when somebody is at the door |
 
 ## RFLink gateway (Arduino Mega)
 ### Klik Aan Klik Uit
