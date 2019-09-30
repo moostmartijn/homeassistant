@@ -129,11 +129,12 @@ I also created an iOS actionable notification with a button to complete all the 
 
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L508-L666)
 
+
 ### Background
 As seen a little bit in this picture, the background of the Home Assistant frontend shows the current playing track of Spotify using the community add-on [Lovelace Media Art Background](https://github.com/TheLastProject/lovelace-media-art-background)
 
-### Spotify controls
 
+### Spotify controls
 [View the configuration of `spotify_controls.yaml` in `/packages`](https://github.com/moostmartijn/homeassistant/blob/master/packages/spotify_controls.yaml)
 
 
@@ -150,6 +151,9 @@ Because this smart TV is not that smart, I use a [Broadlink RM Mini 3](https://w
 
 #### <br>Ziggo Mediabox Next
 Most of the functions of the Ziggo Mediabox Next I can control through Home Assistant thanks to a [community add-on](https://github.com/IIStevowII/ziggo-mediabox-next) of IIStevowII. 
+
+### Pick-up switch
+I placed a Klik Aan Klik Uit AMC-1000 between the power outlet and my pick-up (Technics SL-1210) so I can switch on the pick-up using Home Assistant or with my voice using the Google Home mini.
 
 ### Discogs sensor
 I set up a Disocgs sensor, which shows a random record which is in my Discogs collection. So if I'm not sure what to play, Home Assistant helps me to make a choice.
