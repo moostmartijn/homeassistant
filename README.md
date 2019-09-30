@@ -1,5 +1,5 @@
 # Home Assistant configuration
-I've been running Home Assistant under Hass.io on a Raspberry Pi 3b since february 2019. Since then I'm adding more and more (hardware) sensors to the configuration to make my home as 'smart' or 'connected' as possible. 
+I've been running Home Assistant under Hass.io on a Raspberry Pi 3b+ since february 2019. Since then I'm adding more and more (hardware) sensors to the configuration to make my home as 'smart' or 'connected' as possible. 
 
 I like to have a nice looking frontend which I use to control and view all of my sensors, media players and other integrations of Home Assistant. 
 
@@ -7,7 +7,7 @@ I like to have a nice looking frontend which I use to control and view all of my
 
 These are all of my hardware devices and sensors I have connected to Home Assistant.
 
-| Raspberry Pi 3b | Description | Arduino Mega | [More info](https://github.com/moostmartijn/homeassistant#rflink-gateway-arduino-mega) |
+| Raspberry Pi 3b+ | Description | Arduino Mega | [More info](https://github.com/moostmartijn/homeassistant#rflink-gateway-arduino-mega) |
 | ---------|-------------|----------|-------------|
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/raspberry_pi_3b.jpg" alt="Raspberry Pi 3b+" width="200"/> | Running Hass.io | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/arduino_mega.jpg" alt="Arduino Mega" width="200"/> | RFlink gateway host |
 | <b>Raspberry Pi Zero W</b> | [More info](https://github.com/moostmartijn/homeassistant#raspberry-pi-zero-plantgateway) | <b>Google Home Mini</b> | |
@@ -27,18 +27,6 @@ These are all of my hardware devices and sensors I have connected to Home Assist
 ### Klik Aan Klik Uit
 
 Instead of a smart power outlet I use one KAKU ACM-1000 device to switch on my pick-up player using my voice and a Google Home Mini.
-
-## Raspberry Pi Zero (Plantgateway)
-### Xiaomi Mi Flora plant monitor sensors
-I have three Xiaomi Mi Flora plant monirots to monitor two plants and an eco-system in a bottle. 
-
-Because the Xiaomi plant sensors are too far away from the Raspberry Pi, they're not able to communicatie with eacht other through bluetooth. So solve this problem I installed [Plantgateway](https://github.com/ChristianKuehnel/plantgateway) on a Raspberry Pi Zero to send the sensor output over to Home Assistant using MQTT)
-
-Whenever the moisture of a plant is below a certain percentage, Home Assistant will send me an iOS notification whenever I enter my home zone so I can water the plant when I come home. 
-
-<br>[View my configuration of this automation in `/automations`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_moisture_howea_forsteriana.yaml)
-<br>[View my configuration of the plants in `plants.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/plants.yaml)
-<br>[View my configuration of the plant monitor card in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/c8971cdf8f6bc1da83494fb637db72655925539a/ui-lovelace.yaml#L193-L200)
 
 
 # 2. Add-ons
@@ -76,14 +64,19 @@ I connected my Roomba 960 with Home Assistant so I can control this device throu
 ## ComfoFanS
 I have a main ventilation unit in my house called a ComfoFanS which has a main control unit in my living room. To control this unit through Home Assistant and bypass the main control unit in my living room, I installed a Klik Aan Klik Uit ACM-LV10 in the ventilation unit to control it using the Arduino Mega which acts as an RFlink gateway. The RFlink gateway sends a 433 mhz signal to the ACM-LV10 which sets the speed of the ComfoFanS.
 
-
 ## DSMR (Smart meter)
 My Smart meter is connected with a USB (P1) to Home Assistant. It oututs multiple sensors such as power and gas usage. I show these in my frontend in a ['mini graph card'](https://github.com/kalkih/mini-graph-card) so I can monitor power and gas usage in the last 24 hours.
 
 ## Plants (Raspberry Pi Zero W running 'Plantgateway')
-I monitor my plants using three Xiaomi Mi Flora plant monitor sensors. Because the bluetooth of the Raspberry Pi 3b can't reach all the plant monitors, I use a Raspberry Pi Zero W running ['Plantgateway'](https://github.com/ChristianKuehnel/plantgateway) which is placed in my living room.
+I monitor my plants using three Xiaomi Mi Flora plant monitor sensors. Because the bluetooth of the Raspberry Pi 3b+ can't reach all the plant monitors, I use a Raspberry Pi Zero W running ['Plantgateway'](https://github.com/ChristianKuehnel/plantgateway) which is placed in my living room.
 
-The Raspberry Pi Zero W connects with the plan monitors over bluetooth and sends the information to Home Assistant on the Raspberry Pi 3b over MQTT.
+The Raspberry Pi Zero W connects with the plan monitors over bluetooth and sends the information to Home Assistant on the Raspberry Pi 3b+ over MQTT.
+
+Whenever the moisture of a plant is below a certain percentage, Home Assistant will send me an iOS notification whenever I enter my home zone so I can water the plant when I come home. 
+
+<br>[View my configuration of this automation in `/automations`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_moisture_howea_forsteriana.yaml)
+<br>[View my configuration of the plants in `plants.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/plants.yaml)
+<br>[View my configuration of the plant monitor card in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/c8971cdf8f6bc1da83494fb637db72655925539a/ui-lovelace.yaml#L193-L200)
 
 ## Weather
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_weather.png "Weather Tab")
