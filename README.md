@@ -70,7 +70,11 @@ To save space on my Home Assistant iPhone app I use the [Compact Custom Header](
 I connected my Roomba 960 with Home Assistant so I can control this device through Home Assistant. I connected it by reading [these](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) instructions which worked very well for me.
 
 ### ComfoFanS
-I have a main ventilation unit in my house called a ComfoFanS which has a main control unit in my living room. To control this unit through Home Assistant and bypass the main control unit in my living room, I installed a Klik Aan Klik Uit ACM-LV10 in the ventilation unit to control it using the Arduino Mega which acts as an RFlink gateway. The RFlink gateway sends a 433 mhz signal to the ACM-LV10 which sets the speed of the ComfoFanS.
+In our house we have a ventilation system called a ComfoFanS which has a main control unit in my living room. To control this unit through Home Assistant and bypass the main control unit in my living room, I installed a Klik Aan Klik Uit ACM-LV10 in the ventilation unit to control it using the Arduino Mega which is an RFlink gateway. The RFlink gateway sends a 433 mhz signal to the ACM-LV10 to set the speed of the ComfoFanS. 
+
+Whenever the humidity in our bathroom reaches 80% or higher, Home Assistant turns on the ComfoFanS and automatically turns it off when the humidity gets below 80%. 
+
+[View these automations in `automations/switch/`](https://github.com/moostmartijn/homeassistant/tree/master/automations/switch)
 
 ### DSMR (Smart meter)
 My Smart meter is connected with a USB (P1) to Home Assistant. It oututs multiple sensors such as power and gas usage. I show these in my frontend in a ['mini graph card'](https://github.com/kalkih/mini-graph-card) so I can monitor power and gas usage in the last 24 hours.
@@ -82,7 +86,7 @@ The Raspberry Pi Zero W connects with the plan monitors over bluetooth and sends
 
 Whenever the moisture of a plant is below a certain percentage, Home Assistant will send me an iOS notification whenever I enter my home zone so I can water the plant when I come home. 
 
-<br>[View my configuration of this automation in `/automations`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_moisture_howea_forsteriana.yaml)
+<br>[View my configuration of this automation in `/automations/ios/ios_moisture_howea_forsteriana.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_moisture_howea_forsteriana.yaml)
 <br>[View my configuration of the plants in `plants.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/plants.yaml)
 <br>[View my configuration of the plant monitor card in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/c8971cdf8f6bc1da83494fb637db72655925539a/ui-lovelace.yaml#L193-L200)
 
@@ -129,19 +133,6 @@ Integrated Reddit into Home Assistant using the [Reddit card](https://github.com
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/24ae1f1d3eca1799e006e653466a77e4b246ffae/ui-lovelace.yaml#L508-L666)
 
 
-## Camera
-![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
-
-[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/cca1cca81f5a816765e9f3cc08707d464a98700e/ui-lovelace.yaml#L671-L742)
-
-
-## System information
-![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_system_information.png "System information tab")
-
-[View the configuration of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/32e91244fb5b7dbb70dd0f5cc75cf61047935115/ui-lovelace.yaml#L743-L828)
-
-This tab shows the system information of the Raspberry Pi 3b+ running Home Assistant, of SabNZBD, AdGuard Home and has a frontend Home Assistant re-start button.
-
 ### Background
 As seen a little bit in this picture, the background of the Home Assistant frontend shows the current playing track of Spotify using the community add-on [Lovelace Media Art Background](https://github.com/TheLastProject/lovelace-media-art-background)
 
@@ -173,6 +164,19 @@ I set up a Disocgs sensor, which shows a random record every 10 minutes out of m
 To show the artist, title, label, catalog number and release date, I made a custom sensor.
 
 [View the custom sensor in `sensors.yaml`](https://github.com/moostmartijn/homeassistant/blob/edfe3cc7cbc891c2c9afb826639cbaf931ec5601/sensors.yaml#L376-L380)
+
+## Camera
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
+
+[View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/cca1cca81f5a816765e9f3cc08707d464a98700e/ui-lovelace.yaml#L671-L742)
+
+
+## System information
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_system_information.png "System information tab")
+
+[View the configuration of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/32e91244fb5b7dbb70dd0f5cc75cf61047935115/ui-lovelace.yaml#L743-L828)
+
+This tab shows the system information of the Raspberry Pi 3b+ running Home Assistant, of SabNZBD, AdGuard Home and has a frontend Home Assistant re-start button.
 
 # 4. Automations
 
