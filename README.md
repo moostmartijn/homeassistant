@@ -178,6 +178,7 @@ To show the artist, title, label, catalog number and release date, I made a cust
 
 This tab shows the system information of the Raspberry Pi 3b+ running Home Assistant, of SabNZBD, AdGuard Home and has a frontend Home Assistant re-start button.
 
+
 # 4. Automations
 
 ## Backups
@@ -186,6 +187,12 @@ I automate my backups using [Dropbox Sync](https://github.com/danielwelch/hassio
 [View my backup configuration in `/automation/backups`](https://github.com/moostmartijn/homeassistant/tree/master/automations/backups)
 
 ## Lights
+
+| Automations | Description |
+|-------------|-------------|
+| Turn on the lights when someones enters the home zone after sunset | [`automations/lights/light_woonkamer_on_home_zone_sunset.yaml`]((/automations/lights/light_woonkamer_on_home_zone_sunset.yaml))
+| Turn on the lights when someone comes home after sunset | [`/automations/lights/light_woonkamer_on_home_zone_sunset.yaml`](/automations/lights/light_woonkamer_on_home_zone_sunset.yaml) |
+
 
 <br>[Turn on the lights when someone comes home after sunset](/automations/lights/light_woonkamer_on_home_zone_sunset.yaml)
 <br>[Turn on the hall lights for one minute whenever there is motion](https://github.com/moostmartijn/homeassistant/blob/master/automations/lights/light_gang_on_motion.yaml)
