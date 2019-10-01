@@ -91,7 +91,7 @@ The Raspberry Pi Zero W connects with the plan monitors over bluetooth and sends
 
 Whenever the moisture of a plant is below a certain percentage, Home Assistant will send me an iOS notification whenever I enter my home zone so I can water the plant when I come home. 
 
-<br>[View my configuration of this automation in `/automations/ios/ios_moisture_howea_forsteriana.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_moisture_howea_forsteriana.yaml)
+[View my configuration of this automation in `/automations/ios/ios_moisture_howea_forsteriana.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/automations/ios/ios_moisture_howea_forsteriana.yaml)
 <br>[View my configuration of the plants in `plants.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/plants.yaml)
 <br>[View my configuration of the plant monitor card in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/c8971cdf8f6bc1da83494fb637db72655925539a/ui-lovelace.yaml#L193-L200)
 
@@ -112,14 +112,12 @@ This tab shows a camera image of the [Buienradar](https://www.home-assistant.io/
 ### Last one at the door
 This image shows the last snapshot that is taken from my front door camera, which gets triggered when someone pushes the doorbell button.
 
-I made my dumb wired doorbell 'smart' through [this awesome guide](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) of [Frenck](https://frenck.dev/).
-
 If there's no snapshot to show after a re-start of Home Assistant, it will show this doorbell image.
 
 ### Shopping list
 I love the Shopping list of Home Assistant. I keep this shopping list up to date with items I need from the local store. Whenever I enter the zone of my local supermarket, Home Assistant sends me the shopping list to my iPhone.
 
-I created a custom sensor with `shopping_list.py`, a Python script I found on the Home Assistant [comminity forum](https://community.home-assistant.io/)
+I created a custom sensor with [`shopping_list.py`](https://github.com/moostmartijn/homeassistant/blob/master/shopping_list.py), a Python script I found on the Home Assistant [community forum](https://community.home-assistant.io/)
 
 I also created an iOS actionable notification with a button to complete all the items on my shopping list
 
@@ -174,6 +172,8 @@ To show the artist, title, label, catalog number and release date, I made a cust
 ![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_camera.png "Camera Tab")
 
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/cca1cca81f5a816765e9f3cc08707d464a98700e/ui-lovelace.yaml#L671-L742)
+
+I made my wired doorbell 'smart' through [this awesome guide](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) of [Frenck](https://frenck.dev/). This complete guide shows how to make your dub doorbell 'smart', so you can trigger automations whenever the doorbell is pushed or you can even turn off the doorbell at certain hours.
 
 
 ## System information
