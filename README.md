@@ -29,7 +29,7 @@ These are all of my hardware devices and sensors I have connected to Home Assist
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/conbee_ii_stick.jpg" alt="Conbee II Zigbee USB stick" width="200"/> | Zigbee hub to control Zigbee devices | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_1000.jpg" alt="Klik Aan Klik Uit ACM-1000" width="200"/> | Acts as a smart switch |
 | <b>Klik Aan Klik Uit ACM-LV10</b> | [More info](https://github.com/moostmartijn/homeassistant#comfofans) | <b>Xiaomi Aqara window/door sensor</b> | [More info](https://github.com/moostmartijn/homeassistant#mailbox) |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/kaku_acm_lv10.jpg" alt="Klik Aan Klik Uit ACM-LV10" width="200"/> | Controlling main ventilation unit | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_door_window_sensor.jpg" alt="Xiaomi Aqara window/door sensor" width="200"/> | Used to monitor received mail in mailbox |
-| <b>Xiaomi Aqara temperature sensor</b> | | <b>Xiaomi Mi Flora plant monitor</b> |
+| <b>Xiaomi Aqara temperature sensor</b> | | <b>Xiaomi Mi Flora plant monitor</b> | [More info](https://github.com/moostmartijn/homeassistant#plants-raspberry-pi-zero-w-running-plantgateway) |
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_aqara_temperature_sensor.jpg" alt="Xiaomi Aqara temperature sensor" width="200"/> | I have three of them to track the temperature and humidity | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/xiaomi_mi_flora_plant_monitor.jpg" alt="Xiaomi Mi Flora plant monitor" width="200"/> | I have three of them to monitor plants |
 | <b>ESP32-cam</b> | [More info](https://github.com/moostmartijn/homeassistant#camera) | <b>Broadlink RM3 Mini | [More info](https://github.com/moostmartijn/homeassistant#samsung-smart-tv-ue55ju6000)|
 | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/esp32-cam.jpg" alt="ESP32-cam" width="200"/> | Using this as a doorbell camera | <img src="https://github.com/moostmartijn/homeassistant/blob/master/docs/images/broadlink-rm3-mini.jpg" alt="Broadlink RM3 Mini" width="200"/> | Controlling my 'dumb' smart-tv |
@@ -75,6 +75,11 @@ In our house we have a ventilation system called a ComfoFanS which has a main co
 Whenever the humidity in our bathroom reaches 80% or higher, Home Assistant turns on the ComfoFanS and automatically turns it off when the humidity gets below 80%. 
 
 [View these automations in `automations/switch/`](https://github.com/moostmartijn/homeassistant/tree/master/automations/switch)
+
+### Database
+The database which stores all the history of Home Assistant is stored on my Synology DS718+. When the database is externally stored, the history graphs will load a little bit faster and it's more reliable. 
+
+[View the custom sensor of the database in `sensors.yaml`](https://github.com/moostmartijn/homeassistant/blob/7eec733eba7c9410011b2192dca944241c080c23/sensors.yaml#L88-L95)
 
 ### DSMR (Smart meter)
 My Smart meter is connected with a USB (P1) to Home Assistant. It oututs multiple sensors such as power and gas usage. I show these in my frontend in a ['mini graph card'](https://github.com/kalkih/mini-graph-card) so I can monitor power and gas usage in the last 24 hours.
@@ -222,5 +227,5 @@ At the moment I have just two actionable notifications running. One to complete 
 ## Radio
 To play a radio station with just a few clicks, I use [`MultiRoom.sh`](https://github.com/moostmartijn/homeassistant/blob/master/multiroom/MultiRoom.sh) script. I favorited some radio stations in the Samsung Multiroom app. The script will play the selected radio station using the pre-installed multiroom software of the Samsung soundbar.
 
-[View the configuration of radio automation in `/automations/radio`](https://github.com/moostmartijn/homeassistant/blob/master/automations/radio/radio_soundbar_favorites.yaml)
+[View the configuration of radio automation in `/automations/radio/radio_soundbar_favorites.yaml`](https://github.com/moostmartijn/homeassistant/blob/master/automations/radio/radio_soundbar_favorites.yaml)
 
