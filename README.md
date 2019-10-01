@@ -142,7 +142,7 @@ As seen a little bit in this picture, the background of the Home Assistant front
 
 
 ### Media players
-For all my media players I use the '[Mini Media Player](https://github.com/kalkih/mini-media-player)' component. This component has a lot of features to customize. 
+For all my media players I use the '[Mini Media Player](https://github.com/kalkih/mini-media-player)' component. This component has a lot of features to customize and also looks really good.
 
 #### <br>Sounbar (Samsung HW-MS650)
 To control some funcations of the Soundbar such as the volume, source and power buttons, I installed a component with [HACS](https://community.home-assistant.io/t/custom-component-hacs/121727) called [ha_samsung_multi_room](https://github.com/dariornelas/ha_samsung_multi_room)
@@ -172,7 +172,7 @@ To show the artist, title, label, catalog number and release date, I made a cust
 
 
 ## System information
-![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_system_information.png "System information tab")
+![alt text](https://github.com/moostmartijn/homeassistant/blob/master/docs/images/tab_system_information2.png "System information tab")
 
 [View the configuration of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/32e91244fb5b7dbb70dd0f5cc75cf61047935115/ui-lovelace.yaml#L743-L828)
 
