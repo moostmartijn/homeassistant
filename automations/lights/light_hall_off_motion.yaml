@@ -1,0 +1,12 @@
+# Turn off light.hall when no motion is detected for 1 minute
+
+- alias: light hall off motion
+
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_hall
+    to: 'off'
+
+  action:
+  - service: light.turn_off
+    entity_id: light.hall

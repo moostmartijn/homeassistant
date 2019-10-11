@@ -1,4 +1,4 @@
-# Turn of light.gang when no motion is detected for 1 minute
+# Turn off light.gang when no motion is detected for 1 minute
 
 - alias: light gang off motion
 

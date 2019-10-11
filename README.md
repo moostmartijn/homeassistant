@@ -173,7 +173,7 @@ To show the artist, title, label, catalog number and release date, I made a cust
 
 [View the configuraton of this tab in `ui-lovelace.yaml`](https://github.com/moostmartijn/homeassistant/blob/cca1cca81f5a816765e9f3cc08707d464a98700e/ui-lovelace.yaml#L671-L742)
 
-I made my wired doorbell 'smart' through [this awesome guide](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) of [Frenck](https://frenck.dev/). This complete guide shows how to make your dub doorbell 'smart', so you can trigger automations whenever the doorbell is pushed or you can even turn off the doorbell at certain hours.
+I made my wired doorbell 'smart' through [this awesome guide](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) of [Frenck](https://frenck.dev/). This complete guide shows how to make your wired doorbell 'smart', so you can trigger automations whenever the doorbell is pushed or you can even turn off the doorbell at certain hours.
 
 
 ## System information

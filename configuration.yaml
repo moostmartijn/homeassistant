@@ -273,6 +273,8 @@ default_config:
 
 system_health:
 
+python_script:
+
 browser:
 
 api:

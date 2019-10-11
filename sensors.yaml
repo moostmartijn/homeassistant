@@ -147,11 +147,17 @@
       - wantlist
       - random_record
 
-#  - platform: rest
-#    resource: http://a0d7b954-wireguard
+  - platform: here_travel_time
+    app_id: !secret here_app_id
+    app_code: !secret here_app_code
+    origin_latitude: !secret latitude
+    origin_longitude: !secret longitude
+    destination_latitude: !secret latitude_work
+    destination_longitude: !secret longitude_work
+    traffic_mode: true 
+    
 
-# TEMPLATE SENSORS
-
+# Template sensors
   - platform: template 
     sensors:
 
@@ -196,29 +202,29 @@
 #        friendly_name: Bin Full
 #        icon_template: 'mdi:trash-can-outline'
 
-      motion_sensor_battery_level:
-        entity_id: binary_sensor.motion_sensor_wc
-        value_template: >
-          {{ state_attr("binary_sensor.motion_sensor_wc","battery_level") }}
-        friendly_name: Batterij motion sensor
-        unit_of_measurement: '%'
-        icon_template: 'mdi:motion-sensor'
+#      motion_sensor_battery_level:
+#        entity_id: binary_sensor.motion_sensor_wc
+#        value_template: >
+#          {{ state_attr("binary_sensor.motion_sensor_wc","battery_level") }}
+#        friendly_name: Batterij motion sensor
+#        unit_of_measurement: '%'
+#        icon_template: 'mdi:motion-sensor'
 
-      motion_sensor2_battery_level:
-        entity_id: binary_sensor.motion_sensor_gang
-        value_template: >
-          {{ state_attr("binary_sensor.motion_sensor_gang","battery_level") }}
-        friendly_name: Batterij motion sensor
-        unit_of_measurement: '%'
-        icon_template: 'mdi:motion-sensor'
+#      motion_sensor2_battery_level:
+#        entity_id: binary_sensor.motion_sensor_gang
+#        value_template: >
+#          {{ state_attr("binary_sensor.motion_sensor_gang","battery_level") }}
+#        friendly_name: Batterij motion sensor
+#        unit_of_measurement: '%'
+#        icon_template: 'mdi:motion-sensor'
       
-      window_door_sensor_battery_level:
-        entity_id: binary_sensor.openclose_14
-        value_template: >
-          {{ state_attr("binary_sensor.openclose_14","battery_level") }}
-        friendly_name: Brievenbus batterij
-        unit_of_measurement: '%'
-        icon_template: 'mdi:mailbox'
+#      window_door_sensor_battery_level:
+#        entity_id: binary_sensor.openclose_14
+#        value_template: >
+#          {{ state_attr("binary_sensor.openclose_14","battery_level") }}
+#        friendly_name: Brievenbus batterij
+#        unit_of_measurement: '%'
+#        icon_template: 'mdi:mailbox'
 
       life360_martijn_batterij:
         entity_id: device_tracker.life360_martijn
@@ -287,26 +293,26 @@
         value_template: > 
           {{ as_timestamp(states('sensor.last_boot')) | timestamp_custom("%d-%m-%Y") }}
 
-      aqara_battery_1:
-        value_template: >
-          {{ state_attr('sensor.aqara_temperature_1' , 'battery_level') }}
-        friendly_name: Badkamer sensor
-        unit_of_measurement: '%'
-        device_class: battery
+#      aqara_battery_1:
+#        value_template: >
+#          {{ state_attr('sensor.aqara_temperature_1' , 'battery_level') }}
+#        friendly_name: Badkamer sensor
+#        unit_of_measurement: '%'
+#        device_class: battery
 
-      aqara_battery_2:
-        value_template: >
-          {{ state_attr('sensor.aqara_temperature_2' , 'battery_level') }}
-        friendly_name: Slaapkamer sensor
-        unit_of_measurement: '%'
-        device_class: battery
+#      aqara_battery_2:
+#        value_template: >
+#          {{ state_attr('sensor.aqara_temperature_2' , 'battery_level') }}
+#        friendly_name: Slaapkamer sensor
+#        unit_of_measurement: '%'
+#        device_class: battery
         
-      aqara_battery_3:
-        value_template: >
-          {{ state_attr('sensor.aqara_temperature_3' , 'battery_level') }}
-        friendly_name: Woonkamer sensor
-        unit_of_measurement: '%'
-        device_class: battery
+#      aqara_battery_3:
+#        value_template: >
+#          {{ state_attr('sensor.aqara_temperature_3' , 'battery_level') }}
+#        friendly_name: Woonkamer sensor
+#        unit_of_measurement: '%'
+#        device_class: battery
 
       week_nummer:
         friendly_name: 'Week Nummer'
